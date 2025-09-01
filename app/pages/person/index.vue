@@ -35,14 +35,15 @@
       </div>
 
       <!-- Person Cards Grid -->
-      <div v-if="1 > 0" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <div v-for="person in people" :key="person._path" class="group cursor-pointer"
+      <div v-if="filteredPeople.length > 0" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div v-for="person in filteredPeople" :key="(person as any).path" class="group cursor-pointer"
           @click="navigateToPersonDetail(person)">
           <div
             class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
             <!-- Image -->
             <div class="aspect-w-16 aspect-h-9 bg-gray-200 dark:bg-gray-700">
-              <NuxtImg v-if="person.image" :src="person.image" :alt="person.name"
+              <NuxtImg v-if="(person as any).meta?.image" :src="(person as any).meta.image"
+                :alt="(person as any).meta?.name"
                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 loading="lazy" />
               <div v-else class="w-full h-48 flex items-center justify-center">
@@ -55,30 +56,32 @@
               <div class="flex items-center justify-between mb-2">
                 <span
                   class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200">
-                  {{ person.category }}
+                  {{ (person as any).meta?.category }}
                 </span>
-                <div v-if="person.birthYear && person.deathYear" class="text-sm text-gray-500">
-                  {{ person.birthYear }} - {{ person.deathYear }}
+                <div v-if="(person as any).meta?.birthYear && (person as any).meta?.deathYear"
+                  class="text-sm text-gray-500">
+                  {{ (person as any).meta.birthYear }} - {{ (person as any).meta.deathYear }}
                 </div>
               </div>
 
               <h3
                 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                {{ person.name }}
+                {{ (person as any).meta?.name }}
               </h3>
 
               <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
-                {{ person.shortDescription }}
+                {{ (person as any).meta?.shortDescription }}
               </p>
 
               <!-- Tags -->
-              <div v-if="person.tags && person.tags.length > 0" class="flex flex-wrap gap-1">
-                <span v-for="tag in person.tags.slice(0, 3)" :key="tag"
+              <div v-if="(person as any).meta?.tags && (person as any).meta.tags.length > 0"
+                class="flex flex-wrap gap-1">
+                <span v-for="tag in (person as any).meta.tags.slice(0, 3)" :key="tag"
                   class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
                   {{ tag }}
                 </span>
-                <span v-if="person.tags.length > 3" class="text-xs text-gray-500">
-                  +{{ person.tags.length - 3 }} {{ $t('common.more') }}
+                <span v-if="(person as any).meta.tags.length > 3" class="text-xs text-gray-500">
+                  +{{ (person as any).meta.tags.length - 3 }} {{ $t('common.more') }}
                 </span>
               </div>
             </div>
@@ -100,11 +103,12 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue'
+import type { Collections } from '@nuxt/content'
 
 const route = useRoute()
-
+const { locale } = useI18n()
 
 // Meta
 definePageMeta({
@@ -120,13 +124,33 @@ const localePath = useLocalePath()
 const searchQuery = ref('')
 const selectedCategory = ref('all')
 
-// Fetch persons data
-const { data: people } = await useAsyncData(route.path, () => queryCollection('person').all())
+// Fetch persons data based on current locale
+const { data: people } = await useAsyncData('people-' + locale.value, async () => {
+  const collection = ('people_' + locale.value) as keyof Collections
+
+  try {
+    const content = await queryCollection(collection).all()
+
+    // Filter person items from the collection
+    const personItems = content.filter((item: any) => item.path?.includes('/person/'))
+
+    return personItems
+  } catch (error) {
+    // Fallback to default locale if error occurs
+    if (locale.value !== 'tr') {
+      const fallbackContent = await queryCollection('people_tr').all()
+      return fallbackContent.filter((item: any) => item.path?.includes('/person/'))
+    }
+    return []
+  }
+}, {
+  watch: [locale], // Refetch when locale changes
+})
 
 // Computed
 const categories = computed(() => {
-  const cats = ['all', ...new Set(people.value?.map(person => person.category) || [])]
-  return cats
+  const cats = ['all', ...new Set(people.value?.map((person: any) => person.meta?.category) || [])]
+  return cats.filter(cat => cat) // Remove undefined values
 })
 
 const filteredPeople = computed(() => {
@@ -136,16 +160,16 @@ const filteredPeople = computed(() => {
 
   // Filter by category
   if (selectedCategory.value !== 'all') {
-    filtered = filtered.filter(person => person.category === selectedCategory.value)
+    filtered = filtered.filter((person: any) => person.meta?.category === selectedCategory.value)
   }
 
   // Filter by search query
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter(person =>
-      person.name.toLowerCase().includes(query) ||
-      person.shortDescription.toLowerCase().includes(query) ||
-      person.tags?.some(tag => tag.toLowerCase().includes(query))
+    filtered = filtered.filter((person: any) =>
+      person.meta?.name?.toLowerCase().includes(query) ||
+      person.meta?.shortDescription?.toLowerCase().includes(query) ||
+      person.meta?.tags?.some((tag: string) => tag.toLowerCase().includes(query))
     )
   }
 
@@ -153,12 +177,14 @@ const filteredPeople = computed(() => {
 })
 
 // Methods
-const filterByCategory = (category) => {
+const filterByCategory = (category: string) => {
   selectedCategory.value = category
 }
 
-const navigateToPersonDetail = (person) => {
-  navigateTo(localePath(person.path))
+const navigateToPersonDetail = (person: any) => {
+  // Extract slug from person path
+  const slug = person.path.split('/').pop()
+  navigateTo(localePath(`/person/${slug}`))
 }
 
 // SEO

@@ -7,8 +7,8 @@
           <!-- Image -->
           <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-4 lg:text-left">
             <div class="aspect-w-3 aspect-h-4 rounded-lg overflow-hidden shadow-lg">
-              <NuxtImg v-if="person.image" :src="person.image" :alt="person.name"
-                class="w-full h-96 lg:h-full object-cover" loading="lazy" />
+              <NuxtImg v-if="(person as any)?.meta?.image" :src="(person as any).meta.image"
+                :alt="(person as any).meta?.name" class="w-full h-96 lg:h-full object-cover" loading="lazy" />
               <div v-else class="w-full h-96 lg:h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
                 <UIcon name="i-tabler-user-circle" class="text-8xl text-gray-400" />
               </div>
@@ -20,52 +20,55 @@
             <div class="mb-4">
               <span
                 class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200">
-                {{ person.category }}
+                {{ (person as any)?.meta?.category }}
               </span>
             </div>
 
             <h1 class="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
-              {{ person.name }}
+              {{ (person as any)?.meta?.name }}
             </h1>
 
             <p class="mt-6 text-xl text-gray-600 dark:text-gray-400 leading-8">
-              {{ person.shortDescription }}
+              {{ (person as any)?.meta?.shortDescription }}
             </p>
 
             <!-- Life Dates -->
-            <div v-if="person.birthYear || person.deathYear" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div v-if="person.birthYear" class="flex items-center">
+            <div v-if="(person as any)?.meta?.birthYear || (person as any)?.meta?.deathYear"
+              class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div v-if="(person as any)?.meta?.birthYear" class="flex items-center">
                 <UIcon name="i-tabler-calendar" class="text-primary-600 mr-3 text-xl" />
                 <div>
                   <div class="text-sm font-medium text-gray-900 dark:text-white">
                     {{ $t('person.born') }}
                   </div>
                   <div class="text-gray-600 dark:text-gray-400">
-                    {{ person.birthYear }}{{ person.birthPlace ? `, ${person.birthPlace}` : '' }}
+                    {{ (person as any).meta.birthYear }}{{ (person as any).meta?.birthPlace ? `, ${(person as
+                    any).meta.birthPlace}` : '' }}
                   </div>
                 </div>
               </div>
 
-              <div v-if="person.deathYear" class="flex items-center">
+              <div v-if="(person as any)?.meta?.deathYear" class="flex items-center">
                 <UIcon name="i-tabler-calendar-x" class="text-gray-500 mr-3 text-xl" />
                 <div>
                   <div class="text-sm font-medium text-gray-900 dark:text-white">
                     {{ $t('person.died') }}
                   </div>
                   <div class="text-gray-600 dark:text-gray-400">
-                    {{ person.deathYear }}{{ person.deathPlace ? `, ${person.deathPlace}` : '' }}
+                    {{ (person as any).meta.deathYear }}{{ (person as any).meta?.deathPlace ? `, ${(person as
+                    any).meta.deathPlace}` : '' }}
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Tags -->
-            <div v-if="person.tags && person.tags.length > 0" class="mt-8">
+            <div v-if="(person as any)?.meta?.tags && (person as any).meta.tags.length > 0" class="mt-8">
               <h3 class="text-sm font-medium text-gray-900 dark:text-white mb-3">
                 {{ $t('person.tags') }}
               </h3>
               <div class="flex flex-wrap gap-2">
-                <span v-for="tag in person.tags" :key="tag"
+                <span v-for="tag in (person as any).meta.tags" :key="tag"
                   class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
                   {{ tag }}
                 </span>
@@ -109,12 +112,13 @@
         </h2>
 
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <div v-for="relatedPerson in relatedPersons" :key="relatedPerson._path" class="group cursor-pointer"
-            @click="navigateTo(localePath(relatedPerson._path))">
+          <div v-for="relatedPerson in relatedPersons" :key="(relatedPerson as any).path" class="group cursor-pointer"
+            @click="navigateTo(localePath(`/person/${(relatedPerson as any).path?.split('/').pop()}`))">
             <div
               class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
               <div class="aspect-w-16 aspect-h-9 bg-gray-200 dark:bg-gray-700">
-                <NuxtImg v-if="relatedPerson.image" :src="relatedPerson.image" :alt="relatedPerson.name"
+                <NuxtImg v-if="(relatedPerson as any).meta?.image" :src="(relatedPerson as any).meta.image"
+                  :alt="(relatedPerson as any).meta?.name"
                   class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy" />
                 <div v-else class="w-full h-32 flex items-center justify-center">
@@ -125,20 +129,21 @@
               <div class="p-4">
                 <div class="flex items-center justify-between mb-2">
                   <span class="text-xs font-medium text-primary-600 dark:text-primary-400">
-                    {{ relatedPerson.category }}
+                    {{ (relatedPerson as any).meta?.category }}
                   </span>
-                  <div v-if="relatedPerson.birthYear && relatedPerson.deathYear" class="text-xs text-gray-500">
-                    {{ relatedPerson.birthYear }} - {{ relatedPerson.deathYear }}
+                  <div v-if="(relatedPerson as any).meta?.birthYear && (relatedPerson as any).meta?.deathYear"
+                    class="text-xs text-gray-500">
+                    {{ (relatedPerson as any).meta.birthYear }} - {{ (relatedPerson as any).meta.deathYear }}
                   </div>
                 </div>
 
                 <h3
                   class="font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  {{ relatedPerson.name }}
+                  {{ (relatedPerson as any).meta?.name }}
                 </h3>
 
                 <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
-                  {{ relatedPerson.shortDescription }}
+                  {{ (relatedPerson as any).meta?.shortDescription }}
                 </p>
               </div>
             </div>
@@ -149,20 +154,30 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { withLeadingSlash } from 'ufo'
+import type { Collections } from '@nuxt/content'
+
 // Get route params
 const route = useRoute()
 const { locale } = useI18n()
 const localePath = useLocalePath()
+const slug = route.params.slug as string
 
-// Fetch person data
-const { data: person } = await useAsyncData(`person-${route.params.slug}`, () => {
-  return queryCollection('person').path(`/person/${slug}`).first()
-})
+// Fetch person data based on current locale
+const { data: person } = await useAsyncData(`person-${slug}`, async () => {
+  // Build collection name based on current locale
+  const collection = ('people_' + locale.value) as keyof Collections
+  const content = await queryCollection(collection).path(`/person/${slug}`).first()
 
+  // Optional: fallback to default locale if content is missing
+  if (!content && locale.value !== 'tr') {
+    return await queryCollection('people_tr').path(`/person/${slug}`).first()
+  }
 
-const { data: post } = await useAsyncData(`blog-${slug}`, () => {
-  return queryCollection('blog').path(`/blog/${slug}`).first()
+  return content
+}, {
+  watch: [locale], // Refetch when locale changes
 })
 
 // 404 if person not found
@@ -174,16 +189,14 @@ if (!person.value) {
 }
 
 // Fetch related persons (same category, exclude current)
-const { data: allRelatedPersons } = await useAsyncData(`related-${route.params.slug}`, () =>
-  queryContent('person')
-    .find()
-)
+const { data: relatedPersons } = await useAsyncData(`related-${slug}`, async () => {
+  const collection = ('people_' + locale.value) as keyof Collections
+  const allPersons = await queryCollection(collection).all()
 
-const relatedPersons = computed(() => {
-  if (!allRelatedPersons.value || !person.value) return []
-
-  return allRelatedPersons.value
-    .filter(p => p._path !== person.value._path && p.category === person.value.category)
+  // Filter person items and find related ones
+  const personItems = allPersons.filter((item: any) => item.path?.includes('/person/'))
+  return personItems
+    .filter((p: any) => p.path !== person.value?.path && p.meta?.category === (person.value as any)?.meta?.category)
     .slice(0, 3)
 })
 
@@ -192,8 +205,8 @@ const shareContent = async () => {
   if (navigator.share) {
     try {
       await navigator.share({
-        title: person.value.name,
-        text: person.value.shortDescription,
+        title: (person.value as any).name,
+        text: (person.value as any).shortDescription,
         url: window.location.href
       })
     } catch (err) {
@@ -208,30 +221,37 @@ const shareContent = async () => {
 
 // SEO
 useSeoMeta({
-  title: person.value.name,
-  description: person.value.shortDescription,
-  ogTitle: person.value.name,
-  ogDescription: person.value.shortDescription,
-  ogImage: person.value.image,
+  title: (person.value as any)?.meta?.name,
+  description: (person.value as any)?.meta?.shortDescription,
+  ogTitle: (person.value as any)?.meta?.name,
+  ogDescription: (person.value as any)?.meta?.shortDescription,
+  ogImage: (person.value as any)?.meta?.image,
   ogType: 'article',
-  articleAuthor: person.value.name,
-  articleSection: person.value.category,
-  articleTag: person.value.tags
+  articleAuthor: (person.value as any)?.meta?.name,
+  articleSection: (person.value as any)?.meta?.category,
+  articleTag: (person.value as any)?.meta?.tags
 })
 
 // Structured data for better SEO
-useJsonld({
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: person.value.name,
-  description: person.value.shortDescription,
-  birthDate: person.value.birthYear ? `${person.value.birthYear}-01-01` : undefined,
-  deathDate: person.value.deathYear ? `${person.value.deathYear}-01-01` : undefined,
-  birthPlace: person.value.birthPlace,
-  deathPlace: person.value.deathPlace,
-  image: person.value.image,
-  jobTitle: person.value.category,
-  keywords: person.value.tags?.join(', ')
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: (person.value as any)?.meta?.name,
+        description: (person.value as any)?.meta?.shortDescription,
+        birthDate: (person.value as any)?.meta?.birthYear ? `${(person.value as any).meta.birthYear}-01-01` : undefined,
+        deathDate: (person.value as any)?.meta?.deathYear ? `${(person.value as any).meta.deathYear}-01-01` : undefined,
+        birthPlace: (person.value as any)?.meta?.birthPlace,
+        deathPlace: (person.value as any)?.meta?.deathPlace,
+        image: (person.value as any)?.meta?.image,
+        jobTitle: (person.value as any)?.meta?.category,
+        keywords: (person.value as any)?.meta?.tags?.join(', ')
+      })
+    }
+  ]
 })
 </script>
 
