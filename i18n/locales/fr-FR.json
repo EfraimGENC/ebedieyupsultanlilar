@@ -1,3 +1,36 @@
 {
-  "welcome": "Bienvenue"
+  "welcome": "Bienvenue",
+  "layouts": {
+    "title": "Ebedî Eyüpsultanlılar"
+  },
+  "nav": {
+    "home": "Accueil",
+    "people": "Personnes"
+  },
+  "footer": {
+    "rights": "Tous droits réservés."
+  },
+  "common": {
+    "more": "plus",
+    "share": "Partager",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite"
+  },
+  "person": {
+    "title": "Personnes",
+    "description": "Découvrez des personnages importants qui ont marqué l'histoire",
+    "metaTitle": "Personnes - Ebedî Eyüpsultanlılar",
+    "metaDescription": "Découvrez la vie et les réalisations de personnages importants qui ont marqué l'histoire",
+    "search": "Rechercher des personnes...",
+    "noResults": "Aucune personne trouvée",
+    "noResultsDescription": "Essayez de modifier vos critères de recherche",
+    "born": "Né",
+    "died": "Mort",
+    "tags": "Étiquettes",
+    "backToList": "Retour à la liste des personnes",
+    "related": "Personnes connexes",
+    "category": {
+      "all": "Tous"
+    }
+  }
 }

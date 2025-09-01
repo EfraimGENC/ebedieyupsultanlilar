@@ -1,3 +1,36 @@
 {
-  "welcome": "Hoş geldiniz"
+  "welcome": "Hoş geldiniz",
+  "layouts": {
+    "title": "Ebedî Eyüpsultanlılar"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "people": "Kişiler"
+  },
+  "footer": {
+    "rights": "Tüm hakları saklıdır."
+  },
+  "common": {
+    "more": "fazla",
+    "share": "Paylaş",
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu"
+  },
+  "person": {
+    "title": "Kişiler",
+    "description": "Tarihe iz bırakmış önemli kişileri keşfedin",
+    "metaTitle": "Kişiler - Ebedî Eyüpsultanlılar",
+    "metaDescription": "Tarihe iz bırakmış önemli kişilerin hayatlarını ve başarılarını keşfedin",
+    "search": "Kişi ara...",
+    "noResults": "Hiç kişi bulunamadı",
+    "noResultsDescription": "Arama kriterlerinizi değiştirip tekrar deneyin",
+    "born": "Doğum",
+    "died": "Ölüm",
+    "tags": "Etiketler",
+    "backToList": "Kişiler listesine dön",
+    "related": "İlgili Kişiler",
+    "category": {
+      "all": "Tümü"
+    }
+  }
 }

@@ -1,3 +1,36 @@
 {
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  "layouts": {
+    "title": "Ebedî Eyüpsultanlılar"
+  },
+  "nav": {
+    "home": "Home",
+    "people": "Persons"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "more": "more",
+    "share": "Share",
+    "loading": "Loading...",
+    "error": "An error occurred"
+  },
+  "person": {
+    "title": "Persons",
+    "description": "Discover important people who left their mark in history",
+    "metaTitle": "Persons - Ebedî Eyüpsultanlılar",
+    "metaDescription": "Discover the lives and achievements of important people who left their mark in history",
+    "search": "Search persons...",
+    "noResults": "No persons found",
+    "noResultsDescription": "Try changing your search criteria",
+    "born": "Born",
+    "died": "Died",
+    "tags": "Tags",
+    "backToList": "Back to persons list",
+    "related": "Related Persons",
+    "category": {
+      "all": "All"
+    }
+  }
 }

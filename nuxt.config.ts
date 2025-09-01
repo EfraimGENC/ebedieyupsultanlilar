@@ -11,6 +11,14 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
   ],
 
+  css: ['~/assets/css/main.css'],
+
+  nitro: {
+    prerender: {
+      routes: ['/sitemap.xml']
+    }
+  },
+
   i18n: {
     baseUrl: "https://www.ebedieyupsultanlilar.com",
     locales: [
