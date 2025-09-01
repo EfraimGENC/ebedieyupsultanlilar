@@ -82,7 +82,7 @@
     <!-- Content -->
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="prose prose-lg dark:prose-invert max-w-none">
-        <ContentRenderer :value="person" />
+        <ContentRenderer v-if="person" :value="person" />
       </div>
     </div>
 
@@ -105,7 +105,7 @@
     </div>
 
     <!-- Related Persons -->
-    <div v-if="relatedPersons.length > 0" class="bg-gray-50 dark:bg-gray-900">
+    <div v-if="relatedPersons && relatedPersons.length > 0" class="bg-gray-50 dark:bg-gray-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">
           {{ $t('person.related') }}
