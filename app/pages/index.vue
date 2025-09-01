@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data: home } = await useAsyncData(() => queryCollection('content').path('/').first())
+const { data: home } = await useAsyncData(() => queryCollection('home').path('/home').first())
 const localePath = useLocalePath()
 
 useSeoMeta({
@@ -21,13 +21,8 @@ useSeoMeta({
             {{ $t('person.description') }}
           </p>
           <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <UButton
-              :to="localePath('/person')"
-              variant="outline"
-              color="neutral"
-              size="lg"
-              trailing-icon="i-tabler-arrow-right"
-            >
+            <UButton :to="localePath('/person')" variant="outline" color="neutral" size="lg"
+              trailing-icon="i-tabler-arrow-right">
               {{ $t('nav.people') }}
             </UButton>
           </div>

@@ -7,13 +7,8 @@
           <!-- Image -->
           <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-4 lg:text-left">
             <div class="aspect-w-3 aspect-h-4 rounded-lg overflow-hidden shadow-lg">
-              <NuxtImg
-                v-if="person.image"
-                :src="person.image"
-                :alt="person.name"
-                class="w-full h-96 lg:h-full object-cover"
-                loading="lazy"
-              />
+              <NuxtImg v-if="person.image" :src="person.image" :alt="person.name"
+                class="w-full h-96 lg:h-full object-cover" loading="lazy" />
               <div v-else class="w-full h-96 lg:h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
                 <UIcon name="i-tabler-user-circle" class="text-8xl text-gray-400" />
               </div>
@@ -23,7 +18,8 @@
           <!-- Content -->
           <div class="mt-8 lg:mt-0 lg:col-span-8">
             <div class="mb-4">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200">
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200">
                 {{ person.category }}
               </span>
             </div>
@@ -69,11 +65,8 @@
                 {{ $t('person.tags') }}
               </h3>
               <div class="flex flex-wrap gap-2">
-                <span
-                  v-for="tag in person.tags"
-                  :key="tag"
-                  class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-                >
+                <span v-for="tag in person.tags" :key="tag"
+                  class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
                   {{ tag }}
                 </span>
               </div>
@@ -94,23 +87,13 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div class="border-t border-gray-200 dark:border-gray-700 pt-8">
         <div class="flex justify-between items-center">
-          <UButton
-            :to="localePath('/person')"
-            color="neutral"
-            variant="ghost"
-            icon="i-tabler-arrow-left"
-          >
+          <UButton :to="localePath('/person')" color="neutral" variant="ghost" icon="i-tabler-arrow-left">
             {{ $t('person.backToList') }}
           </UButton>
 
           <!-- Share buttons -->
           <div class="flex gap-2">
-            <UButton
-              color="neutral"
-              variant="ghost"
-              icon="i-tabler-share"
-              @click="shareContent"
-            >
+            <UButton color="neutral" variant="ghost" icon="i-tabler-share" @click="shareContent">
               {{ $t('common.share') }}
             </UButton>
           </div>
@@ -124,23 +107,16 @@
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">
           {{ $t('person.related') }}
         </h2>
-        
+
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <div
-            v-for="relatedPerson in relatedPersons"
-            :key="relatedPerson._path"
-            class="group cursor-pointer"
-            @click="navigateTo(localePath(relatedPerson._path))"
-          >
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+          <div v-for="relatedPerson in relatedPersons" :key="relatedPerson._path" class="group cursor-pointer"
+            @click="navigateTo(localePath(relatedPerson._path))">
+            <div
+              class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
               <div class="aspect-w-16 aspect-h-9 bg-gray-200 dark:bg-gray-700">
-                <NuxtImg
-                  v-if="relatedPerson.image"
-                  :src="relatedPerson.image"
-                  :alt="relatedPerson.name"
+                <NuxtImg v-if="relatedPerson.image" :src="relatedPerson.image" :alt="relatedPerson.name"
                   class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
+                  loading="lazy" />
                 <div v-else class="w-full h-32 flex items-center justify-center">
                   <UIcon name="i-tabler-user-circle" class="text-4xl text-gray-400" />
                 </div>
@@ -156,7 +132,8 @@
                   </div>
                 </div>
 
-                <h3 class="font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                <h3
+                  class="font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                   {{ relatedPerson.name }}
                 </h3>
 
@@ -173,18 +150,20 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-
 // Get route params
 const route = useRoute()
 const { locale } = useI18n()
 const localePath = useLocalePath()
 
 // Fetch person data
-const { data: person } = await useAsyncData(`person-${route.params.slug}`, () =>
-  queryContent('person', `${route.params.slug}.${locale.value}`)
-    .findOne()
-)
+const { data: person } = await useAsyncData(`person-${route.params.slug}`, () => {
+  return queryCollection('person').path(`/person/${slug}`).first()
+})
+
+
+const { data: post } = await useAsyncData(`blog-${slug}`, () => {
+  return queryCollection('blog').path(`/blog/${slug}`).first()
+})
 
 // 404 if person not found
 if (!person.value) {
@@ -202,7 +181,7 @@ const { data: allRelatedPersons } = await useAsyncData(`related-${route.params.s
 
 const relatedPersons = computed(() => {
   if (!allRelatedPersons.value || !person.value) return []
-  
+
   return allRelatedPersons.value
     .filter(p => p._path !== person.value._path && p.category === person.value.category)
     .slice(0, 3)

@@ -158,7 +158,7 @@ const filterByCategory = (category) => {
 }
 
 const navigateToPersonDetail = (person) => {
-  navigateTo(localePath(person._path))
+  navigateTo(localePath(person.path))
 }
 
 // SEO
