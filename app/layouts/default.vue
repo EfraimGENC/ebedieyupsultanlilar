@@ -14,24 +14,26 @@
 
     <Body class="bg-white dark:bg-gray-900 dark:text-gray-100 font-sans">
       <!-- Topbar -->
-      <header class="sticky top-0 z-50 backdrop-blur border-b border-gray-800">
+      <header class="sticky top-0 z-50 backdrop-blur shadow bg-gray-100/50 dark:bg-gray-900/50 ">
         <div class="flex items-center justify-between max-w-xl mx-auto px-4 py-3">
           <NuxtLink :to="localePath('/')" class="flex items-center gap-2">
             <div class="w-7 h-7 rounded bg-gradient-to-br from-green-400 to-emerald-700"></div>
-            <span class="font-semibold">Ebedi Eyüpsultanlılar</span>
+            <span class="font-semibold text-gray-900 dark:text-white">Ebedi Eyüpsultanlılar</span>
           </NuxtLink>
-          <nav class="flex gap-2 text-sm">
+
+          <nav class="flex gap-0 text-sm">
+            <!-- Language Switcher -->
             <UButton v-for="locale in availableLocales" :key="locale.code" @click.prevent.stop="setLocale(locale.code)"
               :icon="`flag:${locale.code === 'en' ? 'gb' : locale.code}-4x3`" variant="ghost" />
+            <!-- Theme Toggle -->
+            <ClientOnly>
+              <UButton :icon="isDark ? 'i-tabler-sun' : 'i-tabler-moon'" color="neutral" variant="ghost"
+                aria-label="Theme" @click="toggleDark()" />
+              <template #fallback>
+                <UButton icon="i-tabler-moon" color="neutral" variant="ghost" aria-label="Theme" disabled />
+              </template>
+            </ClientOnly>
           </nav>
-          <!-- Theme Toggle -->
-          <ClientOnly>
-            <UButton :icon="isDark ? 'i-tabler-sun' : 'i-tabler-moon'" color="neutral" variant="ghost" aria-label="Theme"
-              @click="toggleDark()" />
-            <template #fallback>
-              <UButton icon="i-tabler-moon" color="neutral" variant="ghost" aria-label="Theme" disabled />
-            </template>
-          </ClientOnly>
         </div>
       </header>
 

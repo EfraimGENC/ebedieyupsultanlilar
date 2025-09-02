@@ -1,2 +1,156 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+
+/* Global HTML Element Styles */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold text-gray-900 dark:text-gray-100 leading-tight mb-4;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl md:text-5xl mb-6;
+  }
+}
+
+@layer base {
+  h2 {
+    @apply text-3xl md:text-4xl mb-5;
+  }
+}
+
+@layer base {
+  h3 {
+    @apply text-2xl md:text-3xl mb-4;
+  }
+}
+
+@layer base {
+  h4 {
+    @apply text-xl md:text-2xl mb-4;
+  }
+}
+
+@layer base {
+  h5 {
+    @apply text-lg md:text-xl mb-3;
+  }
+}
+
+@layer base {
+  h6 {
+    @apply text-base md:text-lg mb-3;
+  }
+}
+
+@layer base {
+  p {
+    @apply text-gray-700 dark:text-gray-300 leading-relaxed mb-4;
+  }
+}
+
+@layer base {
+  a {
+    @apply text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors duration-200;
+  }
+}
+
+/* @layer base {
+  ul,
+  ol {
+    @apply text-gray-700 dark:text-gray-300 mb-4 pl-6;
+  }
+} */
+/* 
+@layer base {
+  li {
+    @apply mb-2;
+  }
+}
+
+@layer base {
+  blockquote {
+    @apply border-l-4 border-blue-500 pl-4 italic text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 py-2 mb-4 rounded;
+  }
+}
+
+@layer base {
+  code {
+    @apply bg-gray-100 dark:bg-gray-800 text-pink-600 dark:text-pink-400 px-1 py-0.5 rounded text-sm font-mono;
+  }
+}
+
+@layer base {
+  pre {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
+  }
+}
+
+@layer base {
+  pre code {
+    @apply bg-transparent text-inherit px-0 py-0;
+  }
+}
+
+@layer base {
+  table {
+    @apply w-full border-collapse border border-gray-300 dark:border-gray-600 mb-4;
+  }
+}
+
+@layer base {
+  th,
+  td {
+    @apply border border-gray-300 dark:border-gray-600 px-3 py-2 text-left;
+  }
+}
+
+@layer base {
+  th {
+    @apply bg-gray-100 dark:bg-gray-800 font-semibold text-gray-900 dark:text-gray-100;
+  }
+}
+
+@layer base {
+  td {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+}
+
+@layer base {
+  hr {
+    @apply border-t border-gray-300 dark:border-gray-600 my-8;
+  }
+}
+
+@layer base {
+  img {
+    @apply max-w-full h-auto rounded-lg;
+  }
+}
+
+@layer base {
+  strong,
+  b {
+    @apply font-bold text-gray-900 dark:text-gray-100;
+  }
+}
+
+@layer base {
+  em,
+  i {
+    @apply italic;
+  }
+}
+
+@layer base {
+  mark {
+    @apply bg-yellow-200 dark:bg-yellow-800 px-1 rounded;
+  }
+} */

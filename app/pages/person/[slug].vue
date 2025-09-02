@@ -1,93 +1,80 @@
 <template>
   <div>
-    <!-- Hero Section -->
-    <div class="relative bg-gray-50 dark:bg-gray-900 py-16 lg:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="lg:grid lg:grid-cols-12 lg:gap-8">
-          <!-- Image -->
-          <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-4 lg:text-left">
-            <div class="aspect-w-3 aspect-h-4 rounded-lg overflow-hidden shadow-lg">
-              <NuxtImg v-if="(person as any)?.meta?.image" :src="(person as any).meta.image"
-                :alt="(person as any).meta?.name" class="w-full h-96 lg:h-full object-cover" loading="lazy" />
-              <div v-else class="w-full h-96 lg:h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                <UIcon name="i-tabler-user-circle" class="text-8xl text-gray-400" />
-              </div>
-            </div>
-          </div>
+    <!-- Breadcrumb -->
+    <UBreadcrumb :items="breadcrumbItems" class="mb-2"
+      :ui="{ list: 'gap-0', link: 'gap-1', linkLeadingIcon: 'size-3', linkLabel: 'text-xs' }" />
 
-          <!-- Content -->
-          <div class="mt-8 lg:mt-0 lg:col-span-8">
-            <div class="mb-4">
-              <span
-                class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200">
-                {{ (person as any)?.meta?.category }}
-              </span>
-            </div>
-
-            <h1 class="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
-              {{ (person as any)?.meta?.name }}
-            </h1>
-
-            <p class="mt-6 text-xl text-gray-600 dark:text-gray-400 leading-8">
-              {{ (person as any)?.meta?.shortDescription }}
-            </p>
-
-            <!-- Life Dates -->
-            <div v-if="(person as any)?.meta?.birthYear || (person as any)?.meta?.deathYear"
-              class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div v-if="(person as any)?.meta?.birthYear" class="flex items-center">
-                <UIcon name="i-tabler-calendar" class="text-primary-600 mr-3 text-xl" />
-                <div>
-                  <div class="text-sm font-medium text-gray-900 dark:text-white">
-                    {{ $t('person.born') }}
-                  </div>
-                  <div class="text-gray-600 dark:text-gray-400">
-                    {{ (person as any).meta.birthYear }}{{ (person as any).meta?.birthPlace ? `, ${(person as
-                    any).meta.birthPlace}` : '' }}
-                  </div>
-                </div>
-              </div>
-
-              <div v-if="(person as any)?.meta?.deathYear" class="flex items-center">
-                <UIcon name="i-tabler-calendar-x" class="text-gray-500 mr-3 text-xl" />
-                <div>
-                  <div class="text-sm font-medium text-gray-900 dark:text-white">
-                    {{ $t('person.died') }}
-                  </div>
-                  <div class="text-gray-600 dark:text-gray-400">
-                    {{ (person as any).meta.deathYear }}{{ (person as any).meta?.deathPlace ? `, ${(person as
-                    any).meta.deathPlace}` : '' }}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tags -->
-            <div v-if="(person as any)?.meta?.tags && (person as any).meta.tags.length > 0" class="mt-8">
-              <h3 class="text-sm font-medium text-gray-900 dark:text-white mb-3">
-                {{ $t('person.tags') }}
-              </h3>
-              <div class="flex flex-wrap gap-2">
-                <span v-for="tag in (person as any).meta.tags" :key="tag"
-                  class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
-                  {{ tag }}
-                </span>
-              </div>
-            </div>
-          </div>
+    <!-- Hero -->
+    <section class="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-4">
+      <div class="aspect-video bg-cover bg-center"
+        style="background-image:url('https://random-image-pepebigotes.vercel.app/api/random-image')"></div>
+      <div class="p-4">
+        <span class="text-sm text-toned">{{ person?.meta?.birthYear }} — {{ person?.meta?.deathYear }}</span>
+        <h1 class="text-xl font-bold mb-0">
+          {{ person?.meta?.name }}
+        </h1>
+        <p class="text-sm text-toned mb-0">
+          {{ person?.meta?.category }} • {{ person?.meta?.shortDescription }}
+        </p>
+        <div class="flex gap-2 mt-2 flex-wrap">
+          <UBadge v-for="tag in person?.meta?.tags" :key="tag" :label="tag" variant="outline" icon="tabler:hash"
+            color="neutral" />
+        </div>
+        <div class="flex gap-2 mt-3">
+          <UButton variant="soft" icon="tabler:map" class="flex-1">Mezar Yol Tarifi</UButton>
+          <UButton variant="soft" icon="tabler:share" class="flex-1" @click="shareContent">Paylaş</UButton>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Content -->
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="prose prose-lg dark:prose-invert max-w-none">
-        <ContentRenderer v-if="person" :value="person" />
+    <!-- Quick Facts -->
+    <section class="grid grid-cols-2 gap-3 mb-4">
+      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-200/50 dark:bg-gray-800/50">
+        <div class="flex align-middle content-center">
+          <UIcon name="tabler:calendar" class="text-primary me-1" />
+          <h3 class="text-sm font-semibold text-green-400 m-0">
+            {{ $t('person.born') }}
+          </h3>
+        </div>
+        <div class="flex align-middle content-center">
+          <p class="text-xs m-0">
+            {{ person?.meta?.birthYear }}{{ person?.meta?.birthPlace ? ` • ${person?.meta?.birthPlace}` : '' }}
+          </p>
+        </div>
       </div>
-    </div>
+      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-200/50 dark:bg-gray-800/50">
+        <div class="flex align-middle content-center">
+          <UIcon name="tabler:calendar-x" class="text-primary me-1" />
+          <h3 class="text-sm font-semibold text-green-400 m-0">
+            {{ $t('person.died') }}
+          </h3>
+        </div>
+        <p class="text-xs m-0">
+          {{ person?.meta?.deathYear }}{{ person?.meta?.deathPlace ? ` • ${person?.meta?.deathPlace}` : '' }}
+        </p>
+      </div>
+      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-200/50 dark:bg-gray-800/50">
+        <h3 class="text-sm font-semibold text-green-400 mb-0">Defin Yeri</h3>
+        <p class="text-xs mb-0">Eyüp Mezarlığı, Ada 12 / Parsel 34</p>
+      </div>
+      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-200/50 dark:bg-gray-800/50">
+        <h3 class="text-sm font-semibold text-green-400 mb-0">Diller</h3>
+        <p class="text-xs mb-0">Türkçe, Arapça</p>
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <UTabs color="neutral" variant="link" :items="personTabs" class="w-full mb-3 hidden" />
+
+    <!-- Bio -->
+    <section class="prose prose-invert">
+      <ContentRenderer v-if="person" :value="person" />
+    </section>
+
+    <!-- ########################################################################################## -->
 
     <!-- Navigation -->
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="mx-auto py-8">
       <div class="border-t border-gray-200 dark:border-gray-700 pt-8">
         <div class="flex justify-between items-center">
           <UButton :to="localePath('/person')" color="neutral" variant="ghost" icon="i-tabler-arrow-left">
@@ -155,7 +142,7 @@
 </template>
 
 <script setup lang="ts">
-import { withLeadingSlash } from 'ufo'
+import type { TabsItem, BreadcrumbItem } from '@nuxt/ui'
 import type { Collections } from '@nuxt/content'
 
 // Get route params
@@ -253,6 +240,50 @@ useHead({
     }
   ]
 })
+
+const personTabs = ref<TabsItem[]>([
+  {
+    label: 'Biyografi',
+    icon: 'tabler:user',
+    content: '<p>{{ person.value?.bio }}</p>'
+  },
+  {
+    label: 'Kronoloji',
+    icon: 'tabler:calendar',
+    content: '<p>{{ person.value?.timeline }}</p>'
+  },
+  {
+    label: 'Eserler',
+    icon: 'tabler:book',
+    content: '<p>{{ person.value?.works }}</p>'
+  },
+  {
+    label: 'Görseller',
+    icon: 'tabler:photo',
+    content: '<p>{{ person.value?.images }}</p>'
+  },
+  {
+    label: 'İlgili Kişiler',
+    icon: 'tabler:users',
+    content: '<p>{{ relatedPersons.value }}</p>'
+  },
+])
+
+const breadcrumbItems = ref<BreadcrumbItem[]>([
+  {
+    icon: 'i-lucide-house'
+  },
+  {
+    label: $t('nav.people'),
+    icon: 'tabler:users',
+    to: '/person'
+  },
+  {
+    label: person?.value.meta?.name as string,
+    icon: 'tabler:user',
+    to: '/person/' + person?.value.path
+  }
+])
 </script>
 
 <style scoped>
