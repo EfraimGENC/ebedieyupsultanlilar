@@ -22,9 +22,9 @@ export default defineNuxtConfig({
   i18n: {
     baseUrl: "https://www.ebedieyupsultanlilar.com",
     locales: [
-      { code: "tr", language: "tr-TR", file: 'tr-TR.json' },
-      { code: "en", language: "en-US", file: 'en-US.json' },
-      { code: "fr", language: "fr-FR", file: 'fr-FR.json' },
+      { code: "tr", name: "Türkçe", language: "tr-TR", file: 'tr-TR.json' },
+      { code: "en", name: "English", language: "en-US", file: 'en-US.json' },
+      { code: "fr", name: "Français", language: "fr-FR", file: 'fr-FR.json' },
     ],
     defaultLocale: "tr",
     strategy: "prefix_except_default",

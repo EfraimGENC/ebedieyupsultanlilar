@@ -42,6 +42,9 @@ importers:
         specifier: ^4.5.1
         version: 4.5.1(vue@3.5.20(typescript@5.9.2))
     devDependencies:
+      '@iconify-json/flag':
+        specifier: ^1.2.9
+        version: 1.2.9
       '@iconify-json/tabler':
         specifier: ^1.2.22
         version: 1.2.22
@@ -639,6 +642,9 @@ packages:
   '@humanwhocodes/retry@0.4.3':
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
+
+  '@iconify-json/flag@1.2.9':
+    resolution: {integrity: sha512-4KEIO17qmdFMz8QiKPD4Wahu2mEcv7qEfLePf99Jf/Mk9R3Dx2ss9gyUxFgWykUZBCjzxsBXe5Z6ctMcyt67SQ==}
 
   '@iconify-json/tabler@1.2.22':
     resolution: {integrity: sha512-KmCtTzZyz7dtszdQGJ5wbWqko6exhI38e4aCQqWZE1Z2wGUqBsMXrRWawXkAp6/XNBebt54h0lcxFCaTYBwFJg==}
@@ -6700,6 +6706,10 @@ snapshots:
   '@humanwhocodes/retry@0.3.1': {}
 
   '@humanwhocodes/retry@0.4.3': {}
+
+  '@iconify-json/flag@1.2.9':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify-json/tabler@1.2.22':
     dependencies:

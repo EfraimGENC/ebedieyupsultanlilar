@@ -1,120 +1,78 @@
 <template>
   <div>
     <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
-      <Head>
-        <Title>{{ title }}</Title>
-        <template v-for="link in head.link" :key="link.key">
-          <Link :id="link.key" :rel="link.rel" :href="link.href" :hreflang="link.hreflang" />
-        </template>
-        <template v-for="meta in head.meta" :key="meta.key">
-          <Meta :id="meta.key" :property="meta.property" :content="meta.content" />
-        </template>
-      </Head>
 
-      <Body>
-        <!-- Navigation -->
-        <header class="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-sm">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-              <!-- Logo -->
-              <div class="flex-shrink-0">
-                <NuxtLink :to="localePath('/')" class="text-xl font-bold text-gray-900 dark:text-white">
-                  Ebedî Eyüpsultanlılar
-                </NuxtLink>
-              </div>
+    <Head>
+      <Title>{{ title }}</Title>
+      <template v-for="link in head.link" :key="link.key">
+        <Link :id="link.key" :rel="link.rel" :href="link.href" :hreflang="link.hreflang" />
+      </template>
+      <template v-for="meta in head.meta" :key="meta.key">
+        <Meta :id="meta.key" :property="meta.property" :content="meta.content" />
+      </template>
+    </Head>
 
-              <!-- Navigation Links -->
-              <nav class="hidden md:flex space-x-8">
-                <NuxtLink 
-                  :to="localePath('/')" 
-                  class="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors"
-                  exact-active-class="text-primary-600 dark:text-primary-400"
-                >
-                  {{ $t('nav.home') }}
-                </NuxtLink>
-                <NuxtLink 
-                  :to="localePath('/person')" 
-                  class="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors"
-                  active-class="text-primary-600 dark:text-primary-400"
-                >
-                  {{ $t('nav.people') }}
-                </NuxtLink>
-              </nav>
+    <Body class="bg-white dark:bg-gray-900 dark:text-gray-100 font-sans">
+      <!-- Topbar -->
+      <header class="sticky top-0 z-50 backdrop-blur border-b border-gray-800">
+        <div class="flex items-center justify-between max-w-xl mx-auto px-4 py-3">
+          <NuxtLink :to="localePath('/')" class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded bg-gradient-to-br from-green-400 to-emerald-700"></div>
+            <span class="font-semibold">Ebedi Eyüpsultanlılar</span>
+          </NuxtLink>
+          <nav class="flex gap-2 text-sm">
+            <UButton v-for="locale in availableLocales" :key="locale.code" @click.prevent.stop="setLocale(locale.code)"
+              :icon="`flag:${locale.code === 'en' ? 'gb' : locale.code}-4x3`" variant="ghost" />
+          </nav>
+          <!-- Theme Toggle -->
+          <ClientOnly>
+            <UButton :icon="isDark ? 'i-tabler-sun' : 'i-tabler-moon'" color="neutral" variant="ghost" aria-label="Theme"
+              @click="toggleDark()" />
+            <template #fallback>
+              <UButton icon="i-tabler-moon" color="neutral" variant="ghost" aria-label="Theme" disabled />
+            </template>
+          </ClientOnly>
+        </div>
+      </header>
 
-              <!-- Theme Toggle & Mobile Menu -->
-              <div class="flex items-center space-x-4">
-                <!-- Theme Toggle -->
-                <UButton
-                  :icon="isDark ? 'i-tabler-sun' : 'i-tabler-moon'"
-                  color="neutral"
-                  variant="ghost"
-                  aria-label="Theme"
-                  @click="toggleDark()"
-                />
+      <!-- Main Content -->
+      <main class="max-w-xl mx-auto p-4">
+        <slot />
+      </main>
 
-                <!-- Mobile menu button -->
-                <UButton
-                  :icon="mobileMenuOpen ? 'i-tabler-x' : 'i-tabler-menu-2'"
-                  color="neutral"
-                  variant="ghost"
-                  class="md:hidden"
-                  aria-label="Toggle menu"
-                  @click="mobileMenuOpen = !mobileMenuOpen"
-                />
-              </div>
-            </div>
-
-            <!-- Mobile Navigation -->
-            <div v-if="mobileMenuOpen" class="md:hidden">
-              <div class="px-2 pt-2 pb-3 space-y-1 border-t border-gray-200 dark:border-gray-700">
-                <NuxtLink 
-                  :to="localePath('/')" 
-                  class="block px-3 py-2 text-base font-medium text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                  exact-active-class="text-primary-600 dark:text-primary-400"
-                  @click="mobileMenuOpen = false"
-                >
-                  {{ $t('nav.home') }}
-                </NuxtLink>
-                <NuxtLink 
-                  :to="localePath('/person')" 
-                  class="block px-3 py-2 text-base font-medium text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                  active-class="text-primary-600 dark:text-primary-400"
-                  @click="mobileMenuOpen = false"
-                >
-                  {{ $t('nav.people') }}
-                </NuxtLink>
-              </div>
-            </div>
+      <!-- Footer -->
+      <footer class="border-t border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="text-center">
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
+              © 2025-{{ currentYear }} Ebedî Eyüpsultanlılar. {{ $t('footer.rights') }}
+            </p>
           </div>
-        </header>
+        </div>
+      </footer>
+    </Body>
 
-        <!-- Main Content -->
-        <main>
-          <slot />
-        </main>
-
-        <!-- Footer -->
-        <footer class="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="text-center">
-              <p class="text-gray-600 dark:text-gray-400 text-sm">
-                © 2025 Ebedî Eyüpsultanlılar. {{ $t('footer.rights') }}
-              </p>
-            </div>
-          </div>
-        </footer>
-      </Body>
     </Html>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 
 const route = useRoute()
-const { t } = useI18n()
 const localePath = useLocalePath()
 const head = useLocaleHead()
+
+const { t, locale, locales, setLocale } = useI18n()
+
+const availableLocales = computed(() => {
+  return locales.value.filter(i => i.code !== locale.value)
+})
+
+// Current year for footer
+const currentYear = ref(2025)
+onMounted(() => {
+  currentYear.value = new Date().getFullYear()
+})
 
 // Theme
 const colorMode = useColorMode()
@@ -130,9 +88,6 @@ const isDark = computed({
 const toggleDark = () => {
   isDark.value = !isDark.value
 }
-
-// Mobile menu
-const mobileMenuOpen = ref(false)
 
 // Page title
 const title = computed(() => {
