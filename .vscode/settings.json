@@ -1,6 +1,13 @@
 {
-  "i18n-ally.localesPaths": [
-    "i18n",
-    "i18n/locales"
-  ]
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.classAttributes": ["class", "ui"],
+  "tailwindCSS.experimental.classRegex": [
+    ["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "i18n-ally.localesPaths": ["i18n", "i18n/locales"]
 }
