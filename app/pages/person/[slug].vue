@@ -152,14 +152,14 @@ const localePath = useLocalePath()
 const slug = route.params.slug as string
 
 // Fetch person data based on current locale
-const { data: person } = await useAsyncData(`person-${slug}`, async () => {
+const { data: person } = await useAsyncData(route.path, async () => {
   // Build collection name based on current locale
   const collection = ('people_' + locale.value) as keyof Collections
-  const content = await queryCollection(collection).path(`/person/${slug}`).first()
+  const content = await queryCollection(collection).path(route.path).first()
 
   // Optional: fallback to default locale if content is missing
   if (!content && locale.value !== 'tr') {
-    return await queryCollection('people_tr').path(`/person/${slug}`).first()
+    return await queryCollection('people_tr').path(route.path).first()
   }
 
   return content

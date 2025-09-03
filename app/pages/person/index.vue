@@ -35,7 +35,7 @@
       </div>
 
       <!-- Person Cards Grid -->
-      <div v-if="filteredPeople.length > 0" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div v-if="filteredPeople.length > 0" class="grid gap-4 grid-cols-2">
         <div v-for="person in filteredPeople" :key="(person as any).path" class="group cursor-pointer"
           @click="navigateToPersonDetail(person)">
           <div
