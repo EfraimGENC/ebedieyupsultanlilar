@@ -23,8 +23,9 @@
 
           <nav class="flex gap-0 text-sm">
             <!-- Language Switcher -->
-            <UButton v-for="locale in availableLocales" :key="locale.code" @click.prevent.stop="setLocale(locale.code)"
-              :icon="`flag:${locale.code === 'en' ? 'gb' : locale.code}-4x3`" variant="ghost" />
+            <UDropdownMenu arrow :items="availableLocalesItems">
+              <UButton variant="ghost" :icon="`flag:${locale === 'en' ? 'gb' : locale}-4x3`" />
+            </UDropdownMenu>
             <!-- Theme Toggle -->
             <ClientOnly>
               <UButton :icon="isDark ? 'i-tabler-sun' : 'i-tabler-moon'" color="neutral" variant="ghost"
@@ -38,7 +39,7 @@
       </header>
 
       <!-- Main Content -->
-      <main class="max-w-xl mx-auto p-4 pt-2">
+      <main class="w-full max-w-xl mx-auto p-4 pt-2">
         <slot />
       </main>
 
@@ -60,6 +61,7 @@
 </template>
 
 <script setup lang="ts">
+import type { DropdownMenuItem } from '@nuxt/ui'
 
 const route = useRoute()
 const localePath = useLocalePath()
@@ -95,5 +97,13 @@ const toggleDark = () => {
 // Page title
 const title = computed(() => {
   return t('layouts.title')
+})
+
+const availableLocalesItems = computed<DropdownMenuItem[]>(() => {
+  return locales.value.filter(i => i.code !== locale.value).map(locale => ({
+    label: locale.name,
+    icon: `flag:${locale.code === 'en' ? 'gb' : locale.code}-4x3`,
+    onClick: () => setLocale(locale.code)
+  }))
 })
 </script>

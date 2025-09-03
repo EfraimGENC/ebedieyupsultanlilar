@@ -22,7 +22,9 @@
         </div>
         <div class="flex gap-2 mt-3">
           <UButton variant="soft" icon="tabler:map" class="flex-1">Mezar Yol Tarifi</UButton>
-          <UButton variant="soft" icon="tabler:share" class="flex-1" @click="shareContent">Paylaş</UButton>
+          <UButton variant="soft" icon="tabler:share" class="flex-1" @click="shareContent">
+            {{ $t('common.share') }}
+          </UButton>
         </div>
       </div>
     </section>
