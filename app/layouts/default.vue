@@ -47,7 +47,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div class="text-center">
             <p class="text-gray-600 dark:text-gray-400 text-sm">
-              © 2025-{{ currentYear }} Ebedî Eyüpsultanlılar. {{ $t('footer.rights') }}
+              © 2025-{{ currentYear }} Ebedî Eyüpsultanlılar.
+              <span class="inline-block">{{ $t('footer.rights') }}</span>
             </p>
           </div>
         </div>
