@@ -9,7 +9,7 @@
   h4,
   h5,
   h6 {
-    @apply font-bold text-gray-900 dark:text-gray-100 leading-tight mb-4;
+    @apply font-bold text-neutral-700 dark:text-neutral-100 leading-tight mb-4;
   }
 }
 
@@ -51,20 +51,20 @@
 
 @layer base {
   p {
-    @apply text-gray-700 dark:text-gray-300 leading-relaxed mb-4;
+    @apply text-neutral-700 dark:text-neutral-300 leading-relaxed mb-4;
   }
 }
 
 @layer base {
   a {
-    @apply text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors duration-200;
+    @apply hover:text-neutral-800 dark:hover:text-white transition-colors duration-200;
   }
 }
 
 /* @layer base {
   ul,
   ol {
-    @apply text-gray-700 dark:text-gray-300 mb-4 pl-6;
+    @apply text-neutral-700 dark:text-neutral-300 mb-4 pl-6;
   }
 } */
 /* 
@@ -76,19 +76,19 @@
 
 @layer base {
   blockquote {
-    @apply border-l-4 border-blue-500 pl-4 italic text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 py-2 mb-4 rounded;
+    @apply border-l-4 border-blue-500 pl-4 italic text-neutral-600 dark:text-neutral-400 bg-neutral-50 dark:bg-neutral-800/50 py-2 mb-4 rounded;
   }
 }
 
 @layer base {
   code {
-    @apply bg-gray-100 dark:bg-gray-800 text-pink-600 dark:text-pink-400 px-1 py-0.5 rounded text-sm font-mono;
+    @apply bg-neutral-100 dark:bg-neutral-800 text-pink-600 dark:text-pink-400 px-1 py-0.5 rounded text-sm font-mono;
   }
 }
 
 @layer base {
   pre {
-    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
+    @apply bg-neutral-900 text-neutral-100 p-4 rounded-lg overflow-x-auto mb-4;
   }
 }
 
@@ -100,32 +100,32 @@
 
 @layer base {
   table {
-    @apply w-full border-collapse border border-gray-300 dark:border-gray-600 mb-4;
+    @apply w-full border-collapse border border-neutral-300 dark:border-neutral-600 mb-4;
   }
 }
 
 @layer base {
   th,
   td {
-    @apply border border-gray-300 dark:border-gray-600 px-3 py-2 text-left;
+    @apply border border-neutral-300 dark:border-neutral-600 px-3 py-2 text-left;
   }
 }
 
 @layer base {
   th {
-    @apply bg-gray-100 dark:bg-gray-800 font-semibold text-gray-900 dark:text-gray-100;
+    @apply bg-neutral-100 dark:bg-neutral-800 font-semibold text-neutral-900 dark:text-neutral-100;
   }
 }
 
 @layer base {
   td {
-    @apply text-gray-700 dark:text-gray-300;
+    @apply text-neutral-700 dark:text-neutral-300;
   }
 }
 
 @layer base {
   hr {
-    @apply border-t border-gray-300 dark:border-gray-600 my-8;
+    @apply border-t border-neutral-300 dark:border-neutral-600 my-8;
   }
 }
 
@@ -138,7 +138,7 @@
 @layer base {
   strong,
   b {
-    @apply font-bold text-gray-900 dark:text-gray-100;
+    @apply font-bold text-neutral-900 dark:text-neutral-100;
   }
 }
 

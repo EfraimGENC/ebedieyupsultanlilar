@@ -2,7 +2,7 @@
   <div>
     <!-- Hero Section -->
     <div class="bg-gray-50 dark:bg-gray-900 py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
         <div class="text-center">
           <h1 class="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
             {{ $t('person.title') }}
@@ -15,7 +15,7 @@
     </div>
 
     <!-- Person Grid -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-7xl mx-auto py-12">
       <!-- Filter Section -->
       <div class="mb-8">
         <div class="flex flex-wrap gap-4 items-center justify-between">
@@ -35,7 +35,7 @@
       </div>
 
       <!-- Person Cards Grid -->
-      <div v-if="filteredPeople.length > 0" class="grid gap-4 grid-cols-2">
+      <div v-if="filteredPeople.length > 0" class="grid gap-4 grid-cols-1 md:grid-cols-2">
         <div v-for="person in filteredPeople" :key="(person as any).path" class="group cursor-pointer"
           @click="navigateToPersonDetail(person)">
           <div

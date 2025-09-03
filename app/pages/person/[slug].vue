@@ -29,7 +29,7 @@
 
     <!-- Quick Facts -->
     <section class="grid grid-cols-2 gap-3 mb-4">
-      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-200/50 dark:bg-gray-800/50">
+      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-100/50 dark:bg-gray-800/50">
         <div class="flex align-middle content-center">
           <UIcon name="tabler:calendar" class="text-primary me-1" />
           <h3 class="text-sm font-semibold text-green-400 m-0">
@@ -42,7 +42,7 @@
           </p>
         </div>
       </div>
-      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-200/50 dark:bg-gray-800/50">
+      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-100/50 dark:bg-gray-800/50">
         <div class="flex align-middle content-center">
           <UIcon name="tabler:calendar-x" class="text-primary me-1" />
           <h3 class="text-sm font-semibold text-green-400 m-0">
@@ -53,12 +53,18 @@
           {{ person?.meta?.deathYear }}{{ person?.meta?.deathPlace ? ` • ${person?.meta?.deathPlace}` : '' }}
         </p>
       </div>
-      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-200/50 dark:bg-gray-800/50">
-        <h3 class="text-sm font-semibold text-green-400 mb-0">Defin Yeri</h3>
+      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-100/50 dark:bg-gray-800/50">
+        <div class="flex align-middle content-center">
+          <UIcon name="tabler:map" class="text-primary me-1" />
+          <h3 class="text-sm font-semibold text-green-400 mb-0">Defin Yeri</h3>
+        </div>
         <p class="text-xs mb-0">Eyüp Mezarlığı, Ada 12 / Parsel 34</p>
       </div>
-      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-200/50 dark:bg-gray-800/50">
-        <h3 class="text-sm font-semibold text-green-400 mb-0">Diller</h3>
+      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-100/50 dark:bg-gray-800/50">
+        <div class="flex align-middle content-center">
+          <UIcon name="tabler:language" class="text-primary me-1" />
+          <h3 class="text-sm font-semibold text-green-400 mb-0">Diller</h3>
+        </div>
         <p class="text-xs mb-0">Türkçe, Arapça</p>
       </div>
     </section>
