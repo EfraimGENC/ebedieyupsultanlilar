@@ -1,3 +1,30 @@
+<script setup lang="ts">
+import type { Collections } from '@nuxt/content'
+
+const { locale } = useI18n()
+const localePath = useLocalePath()
+
+// Fetch home page content based on current locale
+const { data: home } = await useAsyncData('home', async () => {
+  const collection = ('people_' + locale.value) as keyof Collections
+  const content = await queryCollection(collection).path('/index').first()
+
+  // Fallback to default locale if content is missing
+  if (!content && locale.value !== 'tr') {
+    return await queryCollection('people_tr').path('/index').first()
+  }
+
+  return content
+}, {
+  watch: [locale], // Refetch when locale changes
+})
+
+useSeoMeta({
+  title: (home.value as any)?.title || 'Ebedî Eyüpsultanlılar',
+  description: (home.value as any)?.description || 'Tarihe iz bırakmış önemli kişileri keşfedin'
+})
+</script>
+
 <template>
   <div>
     <!-- Hero Section -->
@@ -28,31 +55,3 @@
     </div>
   </div>
 </template>
-
-
-<script setup lang="ts">
-import type { Collections } from '@nuxt/content'
-
-const { locale } = useI18n()
-const localePath = useLocalePath()
-
-// Fetch home page content based on current locale
-const { data: home } = await useAsyncData('home', async () => {
-  const collection = ('people_' + locale.value) as keyof Collections
-  const content = await queryCollection(collection).path('/index').first()
-
-  // Fallback to default locale if content is missing
-  if (!content && locale.value !== 'tr') {
-    return await queryCollection('people_tr').path('/index').first()
-  }
-
-  return content
-}, {
-  watch: [locale], // Refetch when locale changes
-})
-
-useSeoMeta({
-  title: (home.value as any)?.title || 'Ebedî Eyüpsultanlılar',
-  description: (home.value as any)?.description || 'Tarihe iz bırakmış önemli kişileri keşfedin'
-})
-</script>

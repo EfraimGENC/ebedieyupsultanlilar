@@ -1,3 +1,51 @@
+<script setup lang="ts">
+import type { DropdownMenuItem } from '@nuxt/ui'
+
+const route = useRoute()
+const localePath = useLocalePath()
+const head = useLocaleHead()
+
+const { t, locale, locales, setLocale } = useI18n()
+
+const availableLocales = computed(() => {
+  return locales.value.filter(i => i.code !== locale.value)
+})
+
+// Current year for footer
+const currentYear = ref(2025)
+onMounted(() => {
+  currentYear.value = new Date().getFullYear()
+})
+
+// Theme
+const colorMode = useColorMode()
+const isDark = computed({
+  get() {
+    return colorMode.value === 'dark'
+  },
+  set() {
+    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+  }
+})
+
+const toggleDark = () => {
+  isDark.value = !isDark.value
+}
+
+// Page title
+const title = computed(() => {
+  return t('layouts.title')
+})
+
+const availableLocalesItems = computed<DropdownMenuItem[]>(() => {
+  return locales.value.filter(i => i.code !== locale.value).map(locale => ({
+    label: locale.name,
+    icon: `flag:${locale.code === 'en' ? 'gb' : locale.code}-4x3`,
+    onClick: () => setLocale(locale.code)
+  }))
+})
+</script>
+
 <template>
   <div>
     <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
@@ -59,51 +107,3 @@
     </Html>
   </div>
 </template>
-
-<script setup lang="ts">
-import type { DropdownMenuItem } from '@nuxt/ui'
-
-const route = useRoute()
-const localePath = useLocalePath()
-const head = useLocaleHead()
-
-const { t, locale, locales, setLocale } = useI18n()
-
-const availableLocales = computed(() => {
-  return locales.value.filter(i => i.code !== locale.value)
-})
-
-// Current year for footer
-const currentYear = ref(2025)
-onMounted(() => {
-  currentYear.value = new Date().getFullYear()
-})
-
-// Theme
-const colorMode = useColorMode()
-const isDark = computed({
-  get() {
-    return colorMode.value === 'dark'
-  },
-  set() {
-    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
-  }
-})
-
-const toggleDark = () => {
-  isDark.value = !isDark.value
-}
-
-// Page title
-const title = computed(() => {
-  return t('layouts.title')
-})
-
-const availableLocalesItems = computed<DropdownMenuItem[]>(() => {
-  return locales.value.filter(i => i.code !== locale.value).map(locale => ({
-    label: locale.name,
-    icon: `flag:${locale.code === 'en' ? 'gb' : locale.code}-4x3`,
-    onClick: () => setLocale(locale.code)
-  }))
-})
-</script>

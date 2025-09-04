@@ -1,3 +1,97 @@
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+import type { Collections } from '@nuxt/content'
+
+const route = useRoute()
+const { locale } = useI18n()
+
+// Meta
+definePageMeta({
+  title: 'person.metaTitle',
+  description: 'person.metaDescription'
+})
+
+// i18n
+const { t } = useI18n()
+const localePath = useLocalePath()
+
+// Data
+const searchQuery = ref('')
+const selectedCategory = ref('all')
+
+// Fetch persons data based on current locale
+const { data: people } = await useAsyncData('people-' + locale.value, async () => {
+  const collection = ('people_' + locale.value) as keyof Collections
+
+  try {
+    const content = await queryCollection(collection).all()
+
+    // Filter person items from the collection
+    const personItems = content.filter((item: any) => item.path?.includes('/person/'))
+
+    return personItems
+  } catch (error) {
+    // Fallback to default locale if error occurs
+    if (locale.value !== 'tr') {
+      const fallbackContent = await queryCollection('people_tr').all()
+      return fallbackContent.filter((item: any) => item.path?.includes('/person/'))
+    }
+    return []
+  }
+}, {
+  watch: [locale], // Refetch when locale changes
+})
+
+// Computed
+const categories = computed(() => {
+  const cats = ['all', ...new Set(people.value?.map((person: any) => person.meta?.category) || [])]
+  return cats.filter(cat => cat) // Remove undefined values
+})
+
+const filteredPeople = computed(() => {
+  if (!people.value) return []
+
+  let filtered = people.value
+
+  // Filter by category
+  if (selectedCategory.value !== 'all') {
+    filtered = filtered.filter((person: any) => person.meta?.category === selectedCategory.value)
+  }
+
+  // Filter by search query
+  if (searchQuery.value) {
+    const query = searchQuery.value.toLowerCase()
+    filtered = filtered.filter((person: any) =>
+      person.meta?.name?.toLowerCase().includes(query) ||
+      person.meta?.shortDescription?.toLowerCase().includes(query) ||
+      person.meta?.tags?.some((tag: string) => tag.toLowerCase().includes(query))
+    )
+  }
+
+  return filtered
+})
+
+// Methods
+const filterByCategory = (category: string) => {
+  selectedCategory.value = category
+}
+
+const navigateToPersonDetail = (person: any) => {
+  // Extract slug from person path
+  const slug = person.path.split('/').pop()
+  navigateTo(localePath(`/person/${slug}`))
+}
+
+// SEO
+useSeoMeta({
+  title: () => t('person.metaTitle'),
+  description: () => t('person.metaDescription'),
+  ogTitle: () => t('person.metaTitle'),
+  ogDescription: () => t('person.metaDescription'),
+  ogType: 'website'
+})
+</script>
+
 <template>
   <div>
     <!-- Hero Section -->
@@ -102,100 +196,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { computed, ref } from 'vue'
-import type { Collections } from '@nuxt/content'
-
-const route = useRoute()
-const { locale } = useI18n()
-
-// Meta
-definePageMeta({
-  title: 'person.metaTitle',
-  description: 'person.metaDescription'
-})
-
-// i18n
-const { t } = useI18n()
-const localePath = useLocalePath()
-
-// Data
-const searchQuery = ref('')
-const selectedCategory = ref('all')
-
-// Fetch persons data based on current locale
-const { data: people } = await useAsyncData('people-' + locale.value, async () => {
-  const collection = ('people_' + locale.value) as keyof Collections
-
-  try {
-    const content = await queryCollection(collection).all()
-
-    // Filter person items from the collection
-    const personItems = content.filter((item: any) => item.path?.includes('/person/'))
-
-    return personItems
-  } catch (error) {
-    // Fallback to default locale if error occurs
-    if (locale.value !== 'tr') {
-      const fallbackContent = await queryCollection('people_tr').all()
-      return fallbackContent.filter((item: any) => item.path?.includes('/person/'))
-    }
-    return []
-  }
-}, {
-  watch: [locale], // Refetch when locale changes
-})
-
-// Computed
-const categories = computed(() => {
-  const cats = ['all', ...new Set(people.value?.map((person: any) => person.meta?.category) || [])]
-  return cats.filter(cat => cat) // Remove undefined values
-})
-
-const filteredPeople = computed(() => {
-  if (!people.value) return []
-
-  let filtered = people.value
-
-  // Filter by category
-  if (selectedCategory.value !== 'all') {
-    filtered = filtered.filter((person: any) => person.meta?.category === selectedCategory.value)
-  }
-
-  // Filter by search query
-  if (searchQuery.value) {
-    const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter((person: any) =>
-      person.meta?.name?.toLowerCase().includes(query) ||
-      person.meta?.shortDescription?.toLowerCase().includes(query) ||
-      person.meta?.tags?.some((tag: string) => tag.toLowerCase().includes(query))
-    )
-  }
-
-  return filtered
-})
-
-// Methods
-const filterByCategory = (category: string) => {
-  selectedCategory.value = category
-}
-
-const navigateToPersonDetail = (person: any) => {
-  // Extract slug from person path
-  const slug = person.path.split('/').pop()
-  navigateTo(localePath(`/person/${slug}`))
-}
-
-// SEO
-useSeoMeta({
-  title: () => t('person.metaTitle'),
-  description: () => t('person.metaDescription'),
-  ogTitle: () => t('person.metaTitle'),
-  ogDescription: () => t('person.metaDescription'),
-  ogType: 'website'
-})
-</script>
 
 <style scoped>
 .line-clamp-3 {
