@@ -44,7 +44,7 @@ const { data: people } = await useAsyncData('people-' + locale.value, async () =
 
 // Computed
 const categories = computed(() => {
-  const cats = ['all', ...new Set(people.value?.map((person: any) => person.meta?.category) || [])]
+  const cats = ['all', ...new Set(people.value?.map((person: any) => person.category) || [])]
   return cats.filter(cat => cat) // Remove undefined values
 })
 
@@ -55,16 +55,16 @@ const filteredPeople = computed(() => {
 
   // Filter by category
   if (selectedCategory.value !== 'all') {
-    filtered = filtered.filter((person: any) => person.meta?.category === selectedCategory.value)
+    filtered = filtered.filter((person: any) => person.category === selectedCategory.value)
   }
 
   // Filter by search query
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
     filtered = filtered.filter((person: any) =>
-      person.meta?.name?.toLowerCase().includes(query) ||
-      person.meta?.shortDescription?.toLowerCase().includes(query) ||
-      person.meta?.tags?.some((tag: string) => tag.toLowerCase().includes(query))
+      person.name?.toLowerCase().includes(query) ||
+      person.shortDescription?.toLowerCase().includes(query) ||
+      person.tags?.some((tag: string) => tag.toLowerCase().includes(query))
     )
   }
 
@@ -136,8 +136,7 @@ useSeoMeta({
             class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
             <!-- Image -->
             <div class="aspect-w-16 aspect-h-9 bg-gray-200 dark:bg-gray-700">
-              <NuxtImg v-if="(person as any).meta?.image" :src="(person as any).meta.image"
-                :alt="(person as any).meta?.name"
+              <NuxtImg v-if="person.image" :src="person.image" :alt="person.name"
                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 loading="lazy" />
               <div v-else class="w-full h-48 flex items-center justify-center">
@@ -150,32 +149,30 @@ useSeoMeta({
               <div class="flex items-center justify-between mb-2">
                 <span
                   class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200">
-                  {{ (person as any).meta?.category }}
+                  {{ person.category }}
                 </span>
-                <div v-if="(person as any).meta?.birthYear && (person as any).meta?.deathYear"
-                  class="text-sm text-gray-500">
-                  {{ (person as any).meta.birthYear }} - {{ (person as any).meta.deathYear }}
+                <div v-if="person.birthYear && person.deathYear" class="text-sm text-gray-500">
+                  {{ person.birthYear }} - {{ person.deathYear }}
                 </div>
               </div>
 
               <h3
                 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                {{ (person as any).meta?.name }}
+                {{ person.name }}
               </h3>
 
               <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
-                {{ (person as any).meta?.shortDescription }}
+                {{ person.shortDescription }}
               </p>
 
               <!-- Tags -->
-              <div v-if="(person as any).meta?.tags && (person as any).meta.tags.length > 0"
-                class="flex flex-wrap gap-1">
-                <span v-for="tag in (person as any).meta.tags.slice(0, 3)" :key="tag"
+              <div v-if="person.tags && person.tags.length > 0" class="flex flex-wrap gap-1">
+                <span v-for="tag in person.tags.slice(0, 3)" :key="tag"
                   class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
                   {{ tag }}
                 </span>
-                <span v-if="(person as any).meta.tags.length > 3" class="text-xs text-gray-500">
-                  +{{ (person as any).meta.tags.length - 3 }} {{ $t('common.more') }}
+                <span v-if="person.tags.length > 3" class="text-xs text-gray-500">
+                  +{{ person.tags.length - 3 }} {{ $t('common.more') }}
                 </span>
               </div>
             </div>
