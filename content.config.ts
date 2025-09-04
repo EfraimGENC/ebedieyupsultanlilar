@@ -33,6 +33,7 @@ export default defineContentConfig({
         include: "tr/**",
         prefix: "",
       },
+      schema: personSchema,
     }),
     // English people collection
     people_en: defineCollection({
@@ -41,6 +42,7 @@ export default defineContentConfig({
         include: "en/**",
         prefix: "",
       },
+      schema: personSchema,
     }),
     // French people collection
     people_fr: defineCollection({
@@ -49,6 +51,7 @@ export default defineContentConfig({
         include: "fr/**",
         prefix: "",
       },
+      schema: personSchema,
     }),
   },
 });
