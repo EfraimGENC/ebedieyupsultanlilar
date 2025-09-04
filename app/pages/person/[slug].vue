@@ -32,10 +32,6 @@ const { data: person } = await useAsyncData('page-' + slug.value, async () => {
   watch: [locale], // Refetch when locale changes
 })
 
-const { data: navigationData } = await useAsyncData('navigation', () => {
-  return queryCollectionNavigation('people_tr')
-})
-
 // 404 if person not found
 if (!person.value) {
   throw createError({
@@ -184,14 +180,6 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
         </div>
       </div>
     </section>
-
-    <nav>
-      <ul v-if="navigationData">
-        <li v-for="item in navigationData" :key="item.path">
-          <NuxtLink :to="item.path">{{ item.title }}</NuxtLink>
-        </li>
-      </ul>
-    </nav>
 
     <!-- Quick Facts -->
     <section class="grid grid-cols-2 gap-3 mb-4">
