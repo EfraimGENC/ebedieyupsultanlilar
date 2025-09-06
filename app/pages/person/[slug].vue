@@ -14,6 +14,10 @@ const getPeopleCollectionName = (locale: string = 'tr') => {
   return (`people_${locale}`) as keyof Collections
 }
 
+const pathForDefaultLocale = computed(() => {
+  return withLeadingSlash(`/person${slug.value}`)
+})
+
 console.log('Slug:', slug.value)
 console.log('Path:', route.path)
 console.log("şşşşşşşşşş", route.params.slug)
@@ -21,13 +25,13 @@ console.log("unprefixedPath", unprefixedPath.value)
 console.log("defaultLocale", defaultLocale)
 
 const { data: person } = await useAsyncData('people-' + slug.value, async () => {
-  console.log(`Searching in collection: ${getPeopleCollectionName(locale.value)} for path: ${unprefixedPath.value}`);
-  const content = await queryCollection(getPeopleCollectionName(locale.value)).path(unprefixedPath.value).first();
+  console.log(`Searching in collection: ${getPeopleCollectionName(locale.value)} for path: ${pathForDefaultLocale.value}`);
+  const content = await queryCollection(getPeopleCollectionName(locale.value)).path(pathForDefaultLocale.value).first();
   console.log('Primary search result:', content); // Gelen veriyi logla
 
   if (!content && locale.value !== 'tr') {
-    console.log(`Fallback search in collection: ${getPeopleCollectionName()} for path: ${unprefixedPath.value}`);
-    const fallbackContent = await queryCollection(getPeopleCollectionName()).path(unprefixedPath.value).first();
+    console.log(`Fallback search in collection: ${getPeopleCollectionName()} for path: ${pathForDefaultLocale.value}`);
+    const fallbackContent = await queryCollection(getPeopleCollectionName()).path(pathForDefaultLocale.value).first();
     console.log('Fallback search result:', fallbackContent); // Fallback verisini logla
     return fallbackContent;
   }
@@ -41,7 +45,7 @@ const { data: person } = await useAsyncData('people-' + slug.value, async () => 
 if (!person.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Person Not Found'
+    statusMessage: t('person.errors.personNotFound', { slug: slug.value })
   })
 }
 
