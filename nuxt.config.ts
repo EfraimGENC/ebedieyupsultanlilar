@@ -16,8 +16,15 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ["/sitemap.xml", "/robots.txt"],
+      routes: ["/sitemap.xml", "/robots.txt", "/"],
     },
+  },
+
+  routeRules: {
+    "/": { prerender: true },
+    "/person/**": { prerender: true },
+    "/en/person/**": { prerender: true },
+    "/fr/person/**": { prerender: true },
   },
 
   i18n: {
