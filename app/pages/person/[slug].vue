@@ -10,9 +10,9 @@ const localePath = useLocalePath()
 const slug = computed(() => withLeadingSlash(String(route.params.slug)))
 const unprefixedPath = computed(() => localePath(route, defaultLocale))
 
-const baseCollectionName = 'people'
-const currentLocaleCollection = (`${baseCollectionName}_${locale.value}`) as keyof Collections
-const defaultCollection = `${baseCollectionName}_${defaultLocale}` as keyof Collections
+const getPeopleCollectionName = (locale: string = 'tr') => {
+  return (`people_${locale}`) as keyof Collections
+}
 
 console.log('Slug:', slug.value)
 console.log('Path:', route.path)
@@ -20,17 +20,22 @@ console.log("şşşşşşşşşş", route.params.slug)
 console.log("unprefixedPath", unprefixedPath.value)
 console.log("defaultLocale", defaultLocale)
 
-const { data: person } = await useAsyncData('page-' + slug.value, async () => {
-  const content = await queryCollection(currentLocaleCollection).path(unprefixedPath.value).first()
+const { data: person } = await useAsyncData('people-' + slug.value, async () => {
+  console.log(`Searching in collection: ${getPeopleCollectionName(locale.value)} for path: ${unprefixedPath.value}`);
+  const content = await queryCollection(getPeopleCollectionName(locale.value)).path(unprefixedPath.value).first();
+  console.log('Primary search result:', content); // Gelen veriyi logla
 
   if (!content && locale.value !== 'tr') {
-    return await queryCollection(defaultCollection).path(unprefixedPath.value).first()
+    console.log(`Fallback search in collection: ${getPeopleCollectionName()} for path: ${unprefixedPath.value}`);
+    const fallbackContent = await queryCollection(getPeopleCollectionName()).path(unprefixedPath.value).first();
+    console.log('Fallback search result:', fallbackContent); // Fallback verisini logla
+    return fallbackContent;
   }
 
-  return content
+  return content;
 }, {
-  watch: [locale], // Refetch when locale changes
-})
+  watch: [locale],
+});
 
 // 404 if person not found
 if (!person.value) {
@@ -90,18 +95,21 @@ if (person.value) {
 
 // Methods
 const shareContent = async () => {
-  if (navigator.share) {
-    try {
-      await navigator.share({
-        title: person.value?.name as string,
-        text: person.value?.shortDescription as string,
-        url: window.location.href
-      })
-    } catch (err) {
+  // Sadece tarayıcıda çalışmasını garanti altına al
+  if (import.meta.client) {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: person.value?.name as string,
+          text: person.value?.shortDescription as string,
+          url: window.location.href
+        })
+      } catch (err) {
+        await navigator.clipboard.writeText(window.location.href)
+      }
+    } else {
       await navigator.clipboard.writeText(window.location.href)
     }
-  } else {
-    await navigator.clipboard.writeText(window.location.href)
   }
 }
 
@@ -224,7 +232,7 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
     </section>
 
     <!-- Tabs -->
-    <UTabs color="neutral" variant="link" :items="personTabs" class="w-full mb-3 hidden" />
+    <!-- <UTabs color="neutral" variant="link" :items="personTabs" class="w-full mb-3" /> -->
 
     <!-- Bio -->
     <h2 class="text-2xl font-bold mb-4">{{ $t('person.bio') }}</h2>

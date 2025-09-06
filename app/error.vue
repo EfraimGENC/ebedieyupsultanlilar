@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
-import { computed } from 'vue'
-import { clearError, useRouter, useHead } from '#app'
-import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{ error: NuxtError }>()
-
 const router = useRouter()
-
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const statusCode = computed(() => props.error?.statusCode || 500)
 const is404 = computed(() => statusCode.value === 404)
@@ -25,6 +20,16 @@ const retry = () => window.location.reload()
 useHead(() => ({
   title: `${statusCode.value} · ${title.value}`,
 }))
+
+// Avoid SSR/CSR hydration mismatch by rendering timestamp only on client
+const now = ref<string>("")
+onMounted(() => {
+  try {
+    now.value = new Date().toLocaleString(locale.value)
+  } catch {
+    now.value = new Date().toLocaleString()
+  }
+})
 </script>
 
 <template>
@@ -91,7 +96,9 @@ useHead(() => ({
           <template #footer>
             <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
               <span>{{ t('errorPage.codeLabel') }} <strong class="font-medium">{{ statusCode }}</strong></span>
-              <span>{{ t('errorPage.timeLabel') }} {{ new Date().toLocaleString() }}</span>
+              <ClientOnly>
+                <span>{{ t('errorPage.timeLabel') }} {{ now }}</span>
+              </ClientOnly>
             </div>
           </template>
         </UCard>
