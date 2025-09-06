@@ -167,7 +167,8 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
     <!-- Hero -->
     <section class="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-4">
       <div class="aspect-video bg-cover bg-center"
-        style="background-image:url('https://random-image-pepebigotes.vercel.app/api/random-image')"></div>
+        :style="`background-image:url('${person?.image || 'https://random-image-pepebigotes.vercel.app/api/random-image'}')`">
+      </div>
       <div class="p-4">
         <span class="text-sm text-toned">{{ person?.birthYear }} — {{ person?.deathYear }}</span>
         <h1 class="text-xl font-bold mb-0">
