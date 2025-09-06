@@ -32,7 +32,10 @@
     "category": {
       "all": "Tous"
     },
-    "bio": "À propos"
+    "bio": "À propos",
+    "timeline": "Chronologie",
+    "works": "Œuvres",
+    "images": "Photos"
   },
   "errorPage": {
     "title404": "Page introuvable",

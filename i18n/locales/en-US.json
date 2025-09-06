@@ -32,7 +32,10 @@
     "category": {
       "all": "All"
     },
-    "bio": "About"
+    "bio": "About",
+    "timeline": "Timeline",
+    "works": "Works",
+    "images": "Images"
   },
   "errorPage": {
     "title404": "Page not found",
