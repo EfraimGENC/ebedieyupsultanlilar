@@ -50,7 +50,7 @@ onMounted(() => {
                 <div class="flex items-center gap-3">
                   <UBadge :color="tone" variant="soft" size="md">{{ statusCode }}</UBadge>
                   <h1 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white mb-0">
-                    {{ title }}
+                    {{ title }}!
                   </h1>
                 </div>
                 <p class="text-slate-600 dark:text-slate-300 mb-0">{{ description }}</p>
