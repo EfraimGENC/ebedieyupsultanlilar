@@ -35,7 +35,11 @@
     "bio": "À propos",
     "timeline": "Chronologie",
     "works": "Œuvres",
-    "images": "Photos"
+    "images": "Photos",
+    "errors": {
+      "notFound": "Personne non trouvée",
+      "personNotFound": "La personne que vous recherchez n'a pas pu être trouvée. Le lien peut être brisé ou la personne a pu être déplacée."
+    }
   },
   "errorPage": {
     "title404": "Page introuvable",

@@ -35,7 +35,11 @@
     "bio": "About",
     "timeline": "Timeline",
     "works": "Works",
-    "images": "Images"
+    "images": "Images",
+    "errors": {
+      "notFound": "Person not found",
+      "personNotFound": "The person you are looking for could not be found. The link may be broken or the person may have been moved."
+    }
   },
   "errorPage": {
     "title404": "Page not found",
