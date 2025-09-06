@@ -32,6 +32,9 @@
     "category": {
       "all": "Tümü"
     },
-    "bio": "Hakkında"
+    "bio": "Hakkında",
+    "timeline": "Hayat Çizgisi",
+    "works": "Eserleri",
+    "images": "Fotoğraflar"
   }
 }
