@@ -13,24 +13,6 @@ featured: true
 draft: false
 ---
 
-# Mehmet Âkif Ersoy
+Mehmet Âkif Ersoy, yalnızca İstiklâl Marşı’nın şairi değil; aynı zamanda milletin vicdanını dizelere taşıyan bir düşünce adamıdır. 1873’te İstanbul’da başlayan hayatı, onu veterinerlikten öğretmenliğe, fikir adamlığından siyaset meydanına uzanan çok yönlü bir yolculuğa sürükledi.
 
-Mehmet Âkif Ersoy (20 Aralık 1873 - 27 Aralık 1936), Türkiye Cumhuriyeti'nin İstiklâl Marşı'nın yazarı olan Türk millî şairi, veteriner hekim ve siyasetçidir. "İstiklal Şairi" ve "Millî Şair" unvanları ile anılır.
-
-## Erken Yaşamı
-
-Mehmet Âkif Ersoy, asıl adıyla Mehmed Ragîf, 20 Aralık 1873'te İstanbul'un Fatih ilçesinde doğdu. Babası Kosovalı İpekli Tahir Efendi, annesi ise Buhara kökenli Emine Şerife Hanım'dır. Babasını 14 yaşındayken kaybetmesi ve evlerinin yangında yanması üzerine eğitimini yarıda bırakarak çalışmaya başladı.
-
-## Eğitimi ve Mesleği
-
-Veteriner hekim olmak için Halkalı Ziraat ve Baytar Mektebine kaydoldu ve 1893'te birincilikle mezun oldu. Mezuniyetinin ardından Ziraat Bakanlığında veteriner müfettiş yardımcısı olarak çalışmaya başladı. Daha sonra çeşitli okullarda öğretmenlik yaptı ve Darülfünun'da edebiyat dersleri verdi.
-
-## Edebî Hayatı ve İstiklâl Marşı
-
-1908'den sonra Sırat-ı Müstakim (daha sonra Sebilü'r-Reşad) dergisinin başyazarlığını yaptı. Şiirleri ve yazıları bu dergilerde yayımlandı. En önemli eseri olan "Safahat" adlı şiir kitabı yedi cilt halinde yayımlandı.
-
-12 Mart 1921'de TBMM tarafından İstiklâl Marşı olarak kabul edilen şiiri, Türkiye'nin millî marşı oldu. Âkif, yarışmada aldığı 500 lira ödülü Hilâl-i Ahmer'e (Kızılay) bağışladı.
-
-## Son Yılları
-
-1925'te Mısır'a yerleşen Mehmet Âkif, Kahire'de Türk dili ve edebiyatı dersleri verdi. Siroz hastalığı nedeniyle 17 Haziran 1936'da tedavi için İstanbul'a döndü ve 27 Aralık 1936'da Beyoğlu'ndaki Mısır Apartmanı'nda hayata gözlerini yumdu. Edirnekapı Şehitliği'ne defnedildi.
+Peki, bir şiir nasıl olur da bir milletin bağımsızlık sembolüne dönüşür? Âkif’in kalemi, sadece kelimeler değil, inanç ve mücadele ruhunu da yazıya döktü. Onun satırlarında, bir dönemin acıları ve umutları hâlâ canlı. Daha fazlasını öğrendikçe, satır aralarında gizlenen bu ruhu keşfetmeye davet eden bir hayatla karşılaşırsınız.

@@ -227,6 +227,7 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
     <UTabs color="neutral" variant="link" :items="personTabs" class="w-full mb-3 hidden" />
 
     <!-- Bio -->
+    <h2 class="text-2xl font-bold mb-4">{{ $t('person.bio') }}</h2>
     <section class="prose prose-invert">
       <ContentRenderer v-if="person" :value="person" />
     </section>
