@@ -152,12 +152,12 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
   {
     label: t('nav.people'),
     icon: 'tabler:users',
-    to: '/person'
+    to: localePath('/person')
   },
   {
     label: person.value?.name as string,
     icon: 'tabler:user',
-    to: '/person/' + (person.value?.path?.split('/').pop() || slug)
+    to: localePath('/person/' + (person.value?.path?.split('/').pop() || slug))
   }
 ])
 </script>
