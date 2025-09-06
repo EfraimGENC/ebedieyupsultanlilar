@@ -36,5 +36,21 @@
     "timeline": "Hayat Çizgisi",
     "works": "Eserleri",
     "images": "Fotoğraflar"
+  },
+  "errorPage": {
+    "title404": "Sayfa bulunamadı",
+    "titleGeneric": "Bir şeyler ters gitti",
+    "desc404": "Aradığınız sayfayı bulamadık. Bağlantı hatalı olabilir veya sayfa taşınmış olabilir.",
+    "descGeneric": "Beklenmeyen bir hata oluştu. Endişelenmeyin, hemen çözüyoruz.",
+    "techTitle": "Teknik detay",
+    "goHome": "Ana sayfaya dön",
+    "goBack": "Geri dön",
+    "retry": "Tekrar dene",
+    "needHelp": "Yardıma mı ihtiyacınız var?",
+    "report": "Sorun bildir",
+    "emailSubjectPrefix": "Hata Bildirimi: ",
+    "codeLabel": "Hata kodu:",
+    "timeLabel": "Oluşma zamanı:",
+    "contactNote": "Eğer bu hatayı sık sık görüyorsanız, lütfen bizimle iletişime geçin."
   }
 }

@@ -33,5 +33,21 @@
       "all": "All"
     },
     "bio": "About"
+  },
+  "errorPage": {
+    "title404": "Page not found",
+    "titleGeneric": "Something went wrong",
+    "desc404": "We couldn't find the page you're looking for. The link may be incorrect or the page may have been moved.",
+    "descGeneric": "An unexpected error occurred. Don't worry, we're on it.",
+    "techTitle": "Technical details",
+    "goHome": "Go home",
+    "goBack": "Go back",
+    "retry": "Retry",
+    "needHelp": "Need help?",
+    "report": "Report issue",
+    "emailSubjectPrefix": "Error Report: ",
+    "codeLabel": "Error code:",
+    "timeLabel": "Timestamp:",
+    "contactNote": "If you see this error frequently, please contact us."
   }
 }

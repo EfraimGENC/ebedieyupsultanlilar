@@ -33,5 +33,21 @@
       "all": "Tous"
     },
     "bio": "À propos"
+  },
+  "errorPage": {
+    "title404": "Page introuvable",
+    "titleGeneric": "Un problème est survenu",
+    "desc404": "Nous n'avons pas trouvé la page que vous recherchez. Le lien peut être incorrect ou la page a été déplacée.",
+    "descGeneric": "Une erreur inattendue s'est produite. Ne vous inquiétez pas, nous nous en occupons.",
+    "techTitle": "Détails techniques",
+    "goHome": "Revenir à l'accueil",
+    "goBack": "Retour",
+    "retry": "Réessayer",
+    "needHelp": "Besoin d'aide ?",
+    "report": "Signaler un problème",
+    "emailSubjectPrefix": "Rapport d'erreur : ",
+    "codeLabel": "Code d'erreur :",
+    "timeLabel": "Horodatage :",
+    "contactNote": "Si vous voyez souvent cette erreur, veuillez nous contacter."
   }
 }
