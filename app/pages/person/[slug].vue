@@ -265,7 +265,7 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
             <div
               class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
               <div class="aspect-w-16 aspect-h-9 bg-gray-200 dark:bg-gray-700">
-                <NuxtImg v-if="(relatedPerson as any).meta?.image" :src="(relatedPerson as any).meta.image"
+                <img v-if="(relatedPerson as any).meta?.image" :src="(relatedPerson as any).meta.image"
                   :alt="(relatedPerson as any).meta?.name"
                   class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy" />

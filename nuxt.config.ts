@@ -6,7 +6,6 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/content",
     "@nuxt/eslint",
-    "@nuxt/image",
     "@nuxt/ui",
     "@nuxtjs/i18n",
   ],

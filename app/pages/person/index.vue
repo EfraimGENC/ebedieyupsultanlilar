@@ -136,7 +136,7 @@ useSeoMeta({
             class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
             <!-- Image -->
             <div class="aspect-w-16 aspect-h-9 bg-gray-200 dark:bg-gray-700">
-              <NuxtImg v-if="person.image" :src="person.image" :alt="person.name"
+              <img v-if="person.image" :src="person.image" :alt="person.name"
                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 loading="lazy" />
               <div v-else class="w-full h-48 flex items-center justify-center">
