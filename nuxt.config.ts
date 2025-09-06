@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   modules: [
+    "@nuxtjs/sitemap",
     "@nuxt/content",
     "@nuxt/eslint",
     "@nuxt/ui",
