@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const prerenderPaths = new Set<string>();
+
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
@@ -17,6 +19,21 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ["/sitemap.xml", "/robots.txt", "/"],
+    },
+  },
+
+  hooks: {
+    // Build sırasında Content tüm dosyaları parse ederken path'leri yakala
+    "content:file:afterParse"(file) {
+      const path = file.content?.path;
+      if (typeof path === "string") {
+        prerenderPaths.add(path);
+      }
+    },
+
+    // Prerender başlamadan önce rotaları Nitro'ya ekle
+    async "prerender:routes"(ctx) {
+      for (const p of prerenderPaths) ctx.routes.add(p);
     },
   },
 
