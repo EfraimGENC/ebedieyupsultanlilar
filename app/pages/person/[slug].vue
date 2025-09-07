@@ -24,7 +24,7 @@ console.log("şşşşşşşşşş", route.params.slug)
 console.log("unprefixedPath", unprefixedPath.value)
 console.log("defaultLocale", defaultLocale)
 
-const { data: person } = await useAsyncData('people-' + slug.value, async () => {
+const { data: person } = await useAsyncData(pathForDefaultLocale.value, async () => {
   console.log(`Searching in collection: ${getPeopleCollectionName(locale.value)} for path: ${pathForDefaultLocale.value}`);
   const content = await queryCollection(getPeopleCollectionName(locale.value)).path(pathForDefaultLocale.value).first();
   console.log('Primary search result:', content); // Gelen veriyi logla
