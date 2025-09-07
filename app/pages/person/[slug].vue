@@ -18,12 +18,6 @@ const pathForDefaultLocale = computed(() => {
   return withLeadingSlash(`/person${slug.value}`)
 })
 
-console.log('Slug:', slug.value)
-console.log('Path:', route.path)
-console.log("şşşşşşşşşş", route.params.slug)
-console.log("unprefixedPath", unprefixedPath.value)
-console.log("defaultLocale", defaultLocale)
-
 const { data: person } = await useAsyncData(pathForDefaultLocale.value, async () => {
   console.log(`Searching in collection: ${getPeopleCollectionName(locale.value)} for path: ${pathForDefaultLocale.value}`);
   const content = await queryCollection(getPeopleCollectionName(locale.value)).path(pathForDefaultLocale.value).first();
