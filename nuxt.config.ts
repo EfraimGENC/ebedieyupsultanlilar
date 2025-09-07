@@ -43,6 +43,7 @@ export default defineNuxtConfig({
     // Build sırasında Content tüm dosyaları parse ederken path'leri yakala
     "content:file:afterParse"(file) {
       const path = file.content?.path;
+
       if (typeof path === "string") {
         // Default locale için prefix yok (prefix_except_default strategy)
         prerenderPaths.add(path);
@@ -61,7 +62,7 @@ export default defineNuxtConfig({
     },
 
     // Prerender başlamadan önce rotaları Nitro'ya ekle
-    async "prerender:routes"(ctx) {
+    async "prerender:routes"(ctx: any) {
       for (const p of prerenderPaths) ctx.routes.add(p);
     },
   },
