@@ -3,7 +3,10 @@ const localePath = useLocalePath()
 
 useSeoMeta({
   title: 'Ebedî Eyüpsultanlılar',
-  description: 'Tarihe iz bırakmış önemli kişileri keşfedin'
+})
+
+useHead({
+  titleTemplate: '%s'
 })
 </script>
 

@@ -1,7 +1,11 @@
 {
+  "nuxtSiteConfig": {
+    "name": "Les habitants éternels d'Eyüpsultan",
+    "description": "Une mémoire intemporelle : Une liste des habitants éternels d'Eyüpsultan et de brèves biographies pour guider les visiteurs."
+  },
   "welcome": "Bienvenue",
   "layouts": {
-    "title": "Ebedî Eyüpsultanlılar"
+    "title": "Les habitants éternels d'Eyüpsultan"
   },
   "nav": {
     "home": "Accueil",

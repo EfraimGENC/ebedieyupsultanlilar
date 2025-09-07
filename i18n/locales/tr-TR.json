@@ -1,4 +1,8 @@
 {
+  "nuxtSiteConfig": {
+    "name": "Ebedi Eyüpsultanlılar",
+    "description": "Zamanı aşan bir hatıra: Eyüpsultan’daki ebedî sakinlerin listesi ve ziyaretçiye yol gösterecek kısa yaşam öyküleri."
+  },
   "welcome": "Hoş geldiniz",
   "layouts": {
     "title": "Ebedî Eyüpsultanlılar"

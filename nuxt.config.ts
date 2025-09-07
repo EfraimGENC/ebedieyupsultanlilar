@@ -28,6 +28,7 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxt/ui",
     "@nuxtjs/i18n",
+    "nuxt-seo-utils",
   ],
 
   css: ["~/assets/css/main.css"],
@@ -75,4 +76,8 @@ export default defineNuxtConfig({
   },
 
   i18n: i18nConfig,
+
+  site: {
+    url: "https://www.ebedieyupsultanlilar.com",
+  },
 });

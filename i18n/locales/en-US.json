@@ -1,7 +1,11 @@
 {
+  "nuxtSiteConfig": {
+    "name": "Eternal Eyüpsultanites",
+    "description": "A timeless memory: A list of eternal residents in Eyüpsultan and brief biographies to guide visitors."
+  },
   "welcome": "Welcome",
   "layouts": {
-    "title": "Ebedî Eyüpsultanlılar"
+    "title": "Eternal Eyüpsultanites"
   },
   "nav": {
     "home": "Home",

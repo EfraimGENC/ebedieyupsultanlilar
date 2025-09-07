@@ -95,7 +95,7 @@ useSeoMeta({
 <template>
   <div>
     <!-- Hero Section -->
-    <div class="bg-gray-50 dark:bg-gray-900 py-16">
+    <div class="bg-gray-50 dark:bg-gray-900 py-8">
       <div class="max-w-7xl mx-auto">
         <div class="text-center">
           <h1 class="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">

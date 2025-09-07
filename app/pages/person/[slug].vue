@@ -8,7 +8,6 @@ const { locale, t, defaultLocale, locales } = useI18n()
 const localePath = useLocalePath()
 
 const slug = computed(() => withLeadingSlash(String(route.params.slug)))
-const unprefixedPath = computed(() => localePath(route, defaultLocale))
 
 const getPeopleCollectionName = (locale: string = 'tr') => {
   return (`people_${locale}`) as keyof Collections
@@ -31,7 +30,6 @@ const currentLocale = computed(() => {
   return defaultLocale
 })
 
-
 const { data: person } = await useAsyncData(`person-${currentLocale.value}-${slug.value}`, async () => {
   const content = await queryCollection(getPeopleCollectionName(currentLocale.value)).path(contentPath.value).first();
 
@@ -52,18 +50,6 @@ if (!person.value) {
     statusMessage: t('person.errors.personNotFound', { slug: slug.value })
   })
 }
-
-// Fetch related persons (same category, exclude current)
-// const { data: relatedPersons } = await useAsyncData(`related-${slug}`, async () => {
-//   const collection = ('people_' + locale.value) as keyof Collections
-//   const allPersons = await queryCollection(collection).all()
-
-//   // Filter person items and find related ones
-//   const personItems = allPersons.filter((item: any) => item.path?.includes('/person/'))
-//   return personItems
-//     .filter((p: any) => p.path !== person.value?.path && p.meta?.category === (person.value as any)?.meta?.category)
-//     .slice(0, 3)
-// })
 
 // SEO meta tags and structured data (must be called after data is ready)
 if (person.value) {
@@ -88,8 +74,8 @@ if (person.value) {
           '@type': 'Person',
           name: person.value?.name,
           description: person.value?.shortDescription,
-          birthDate: person.value?.birthYear ? `${person.value.meta.birthYear}-01-01` : undefined,
-          deathDate: person.value?.deathYear ? `${person.value.meta.deathYear}-01-01` : undefined,
+          birthDate: person.value?.birthYear ? `${person.value.meta.birthYear}` : undefined,
+          deathDate: person.value?.deathYear ? `${person.value.meta.deathYear}` : undefined,
           birthPlace: person.value?.birthPlace,
           deathPlace: person.value?.deathPlace,
           image: person.value?.image,
