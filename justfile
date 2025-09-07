@@ -22,6 +22,27 @@ preview:
 clean-install:
     @pnpm install --force
 
+# Kapsamlı temizlik (tüm cache'leri temizle)
+clean:
+    @echo "🧹 Kapsamlı temizlik başlıyor..."
+    @echo "📁 .nuxt klasörünü siliyorum..."
+    @rm -rf .nuxt
+    @echo "📁 .output klasörünü siliyorum..."
+    @rm -rf .output
+    @echo "📁 node_modules/.cache klasörünü siliyorum..."
+    @rm -rf node_modules/.cache
+    @echo "📁 .data klasörünü siliyorum..."
+    @rm -rf .data
+    @echo "🔧 Nuxt cleanup çalıştırıyorum..."
+    @npx nuxi cleanup
+    @echo "✨ Temizlik tamamlandı!"
+
+# Temizlik sonrası generate
+clean-generate:
+    @just clean
+    @echo "🚀 Sıfırdan generate ediyorum..."
+    @pnpm generate
+
 # Lint kontrolü yap
 lint:
     @pnpm run lint
