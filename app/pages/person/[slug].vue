@@ -4,7 +4,7 @@ import type { TabsItem, BreadcrumbItem } from '@nuxt/ui'
 import type { Collections } from '@nuxt/content'
 
 const route = useRoute()
-const { locale, t, defaultLocale } = useI18n()
+const { locale, t, defaultLocale, locales } = useI18n()
 const localePath = useLocalePath()
 
 const slug = computed(() => withLeadingSlash(String(route.params.slug)))
@@ -14,19 +14,29 @@ const getPeopleCollectionName = (locale: string = 'tr') => {
   return (`people_${locale}`) as keyof Collections
 }
 
-const pathForDefaultLocale = computed(() => {
+const contentPath = computed(() => {
   return withLeadingSlash(`/person${slug.value}`)
 })
 
-const { data: person } = await useAsyncData(pathForDefaultLocale.value, async () => {
-  console.log(`Searching in collection: ${getPeopleCollectionName(locale.value)} for path: ${pathForDefaultLocale.value}`);
-  const content = await queryCollection(getPeopleCollectionName(locale.value)).path(pathForDefaultLocale.value).first();
-  console.log('Primary search result:', content); // Gelen veriyi logla
+// Route'dan locale çıkarıyoruz - prerender sırasında daha güvenilir
+const currentLocale = computed(() => {
+  const fullPath = route.fullPath || route.path
 
-  if (!content && locale.value !== 'tr') {
-    console.log(`Fallback search in collection: ${getPeopleCollectionName()} for path: ${pathForDefaultLocale.value}`);
-    const fallbackContent = await queryCollection(getPeopleCollectionName()).path(pathForDefaultLocale.value).first();
-    console.log('Fallback search result:', fallbackContent); // Fallback verisini logla
+  for (const loc of locales.value) {
+    if (loc.code !== defaultLocale && fullPath.startsWith(`/${loc.code}/`)) {
+      return loc.code
+    }
+  }
+
+  return defaultLocale
+})
+
+
+const { data: person } = await useAsyncData(`person-${currentLocale.value}-${slug.value}`, async () => {
+  const content = await queryCollection(getPeopleCollectionName(currentLocale.value)).path(contentPath.value).first();
+
+  if (!content && currentLocale.value !== 'tr') {
+    const fallbackContent = await queryCollection(getPeopleCollectionName()).path(contentPath.value).first();
     return fallbackContent;
   }
 
