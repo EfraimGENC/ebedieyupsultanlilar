@@ -20,7 +20,7 @@ useHead({
             {{ $t('layouts.title') }}
           </h1>
           <p class="mt-3 max-w-md mx-auto text-base sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-            {{ $t('person.description') }}
+            {{ $t('nuxtSiteConfig.description') }}
           </p>
           <div class="mt-8 justify-center">
             <UButton :to="localePath('/person')" variant="outline" color="neutral" size="lg"
