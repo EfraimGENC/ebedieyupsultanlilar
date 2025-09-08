@@ -29,6 +29,8 @@ useHead({
             </UButton>
           </div>
         </div>
+        <UAlert :title="$t('layouts.warning.title')" :description="$t('layouts.warning.description')"
+          icon="tabler:info-triangle" variant="soft" color="warning" class="mt-10" />
       </div>
     </div>
   </div>

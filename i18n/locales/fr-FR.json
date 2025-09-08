@@ -5,7 +5,11 @@
   },
   "welcome": "Bienvenue",
   "layouts": {
-    "title": "Les habitants éternels d'Eyüpsultan"
+    "title": "Les habitants éternels d'Eyüpsultan",
+    "warning": {
+      "title": "En construction!",
+      "description": "Ce site est actuellement en construction et certaines fonctionnalités peuvent être manquantes."
+    }
   },
   "nav": {
     "home": "Accueil",

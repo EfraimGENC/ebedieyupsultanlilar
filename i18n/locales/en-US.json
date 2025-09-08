@@ -5,7 +5,11 @@
   },
   "welcome": "Welcome",
   "layouts": {
-    "title": "Eternal Eyüpsultanites"
+    "title": "Eternal Eyüpsultanites",
+    "warning": {
+      "title": "Under Construction!",
+      "description": "This site is currently under construction and some features may be missing."
+    }
   },
   "nav": {
     "home": "Home",

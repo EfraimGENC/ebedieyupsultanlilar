@@ -5,7 +5,11 @@
   },
   "welcome": "Hoş geldiniz",
   "layouts": {
-    "title": "Ebedî Eyüpsultanlılar"
+    "title": "Ebedî Eyüpsultanlılar",
+    "warning": {
+      "title": "Yapım Aşamasında!",
+      "description": "Bu site şu anda yapım aşamasındadır ve bazı özellikler eksik olabilir."
+    }
   },
   "nav": {
     "home": "Ana Sayfa",
