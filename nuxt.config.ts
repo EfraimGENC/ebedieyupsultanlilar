@@ -83,8 +83,7 @@ export default defineNuxtConfig({
   },
 
   gtag: {
-    id: 'G-WDN1JTYD40',
-    loadingStrategy: 'async',
-    
+    id: "G-WDN1JTYD40",
+    loadingStrategy: "async",
   },
 });
