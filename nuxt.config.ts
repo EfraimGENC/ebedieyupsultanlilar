@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     "@nuxt/ui",
     "@nuxtjs/i18n",
     "nuxt-seo-utils",
+    "nuxt-gtag",
   ],
 
   css: ["~/assets/css/main.css"],
@@ -79,5 +80,11 @@ export default defineNuxtConfig({
 
   site: {
     url: "https://www.ebedieyupsultanlilar.com",
+  },
+
+  gtag: {
+    id: 'G-WDN1JTYD40',
+    loadingStrategy: 'async',
+    
   },
 });
