@@ -65,7 +65,7 @@ const availableLocalesItems = computed<DropdownMenuItem[]>(() => {
       <!-- Topbar -->
       <header class="sticky top-0 z-50 backdrop-blur shadow bg-gray-100/50 dark:bg-gray-900/50 ">
         <div class="flex items-center justify-between max-w-xl mx-auto px-4 py-3">
-          <NuxtLink :to="localePath('/')" class="flex items-center gap-2">
+          <NuxtLink :to="localePath('index')" class="flex items-center gap-2">
             <div class="w-7 h-7 rounded bg-gradient-to-br from-green-400 to-emerald-700"></div>
             <span class="font-semibold text-gray-900 dark:text-white">Ebedi Eyüpsultanlılar</span>
           </NuxtLink>

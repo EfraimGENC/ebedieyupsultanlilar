@@ -86,7 +86,7 @@ const filterByCategory = (category: string) => {
 const navigateToPersonDetail = (person: any) => {
   // Extract slug from person path
   const slug = person.path.split('/').pop()
-  navigateTo(localePath(`/person/${slug}`))
+  navigateTo(localePath({ name: 'person-slug', params: { slug } }))
 }
 
 // SEO

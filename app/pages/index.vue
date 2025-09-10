@@ -23,7 +23,7 @@ useHead({
             {{ $t('nuxtSiteConfig.description') }}
           </p>
           <div class="mt-8 justify-center">
-            <UButton :to="localePath('/person')" variant="outline" color="neutral" size="lg"
+            <UButton :to="localePath('person')" variant="outline" color="neutral" size="lg"
               trailing-icon="i-tabler-arrow-right">
               {{ $t('nav.people') }}
             </UButton>

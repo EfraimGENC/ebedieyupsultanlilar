@@ -148,17 +148,17 @@ const personTabs = ref<TabsItem[]>([
 const breadcrumbItems = ref<BreadcrumbItem[]>([
   {
     icon: 'i-lucide-house',
-    to: localePath('/'),
+    to: localePath('index'),
   },
   {
     label: t('nav.people'),
     icon: 'tabler:users',
-    to: localePath('/person')
+    to: localePath('person')
   },
   {
     label: person.value?.name as string,
     icon: 'tabler:user',
-    to: localePath('/person/' + (person.value?.path?.split('/').pop() || slug))
+    to: localePath({ name: 'person-slug', params: { slug: (person.value?.path?.split('/').pop() || slug.value) } })
   }
 ])
 </script>
@@ -252,7 +252,7 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
     <div class="mx-auto py-8">
       <div class="border-t border-gray-200 dark:border-gray-700 pt-8">
         <div class="flex justify-between items-center">
-          <UButton :to="localePath('/person')" color="neutral" variant="ghost" icon="i-tabler-arrow-left">
+          <UButton :to="localePath('person')" color="neutral" variant="ghost" icon="i-tabler-arrow-left">
             {{ $t('person.backToList') }}
           </UButton>
 
