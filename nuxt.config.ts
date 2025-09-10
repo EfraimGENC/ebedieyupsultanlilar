@@ -9,6 +9,7 @@ const i18nConfig = {
     { code: "en", name: "English", language: "en-US", file: "en-US.json" },
     { code: "fr", name: "Français", language: "fr-FR", file: "fr-FR.json" },
   ],
+  customRoutes: "meta" as const,
   defaultLocale: "tr" as const,
   strategy: "prefix_except_default" as const,
   detectBrowserLanguage: {
