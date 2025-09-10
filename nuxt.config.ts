@@ -44,7 +44,7 @@ export default defineNuxtConfig({
 
   hooks: {
     // Build sırasında Content tüm dosyaları parse ederken path'leri yakala
-    "content:file:afterParse"(file) {
+    "content:file:afterParse"(file: any) {
       const path = file.content?.path;
 
       if (typeof path === "string") {
@@ -71,10 +71,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    "/": { prerender: true },
-    "/person/**": { prerender: true },
-    "/en/person/**": { prerender: true },
-    "/fr/person/**": { prerender: true },
+    "/**": { prerender: true },
   },
 
   i18n: i18nConfig,

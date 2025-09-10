@@ -64,5 +64,9 @@
     "codeLabel": "Code d'erreur :",
     "timeLabel": "Horodatage :",
     "contactNote": "Si vous voyez souvent cette erreur, veuillez nous contacter."
+  },
+  "about": {
+    "authorSubtitle": "Maire d'Eyüpsultan de 1994 à 2008.",
+    "title": "À propos"
   }
 }

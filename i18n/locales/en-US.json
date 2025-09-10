@@ -64,5 +64,9 @@
     "codeLabel": "Error code:",
     "timeLabel": "Timestamp:",
     "contactNote": "If you see this error frequently, please contact us."
+  },
+  "about": {
+    "authorSubtitle": "Mayor of Eyüpsultan from 1994 to 2008.",
+    "title": "About"
   }
 }

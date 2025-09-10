@@ -64,5 +64,9 @@
     "codeLabel": "Hata kodu:",
     "timeLabel": "Oluşma zamanı:",
     "contactNote": "Eğer bu hatayı sık sık görüyorsanız, lütfen bizimle iletişime geçin."
+  },
+  "about": {
+    "authorSubtitle": "Eyüpsultan 1994-2008 belediye başkanı.",
+    "title": "Hakkında"
   }
 }
