@@ -22,7 +22,10 @@ useHead({
           <p class="mt-3 max-w-md mx-auto text-base sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
             {{ $t('nuxtSiteConfig.description') }}
           </p>
-          <div class="mt-8 justify-center">
+          <div class="mt-8 flex gap-2 justify-center">
+            <UButton :to="localePath('about')" variant="outline" color="neutral" size="lg" icon="tabler:info-circle">
+              {{ $t('about.title') }}
+            </UButton>
             <UButton :to="localePath('person')" variant="outline" color="neutral" size="lg"
               trailing-icon="i-tabler-arrow-right">
               {{ $t('nav.people') }}
