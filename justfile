@@ -20,6 +20,8 @@ preview:
 
 # Tüm bağımlılıkları temizle ve yeniden yükle
 clean-install:
+    @just clean
+    @echo "🔄 Tüm bağımlılıkları yeniden yüklüyorum..."
     @pnpm install --force
 
 # Kapsamlı temizlik (tüm cache'leri temizle)
