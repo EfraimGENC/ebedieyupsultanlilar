@@ -9,6 +9,16 @@ const localePath = useLocalePath()
 
 const slug = computed(() => withLeadingSlash(String(route.params.slug)))
 
+definePageMeta({
+  i18n: {
+    paths: {
+      tr: '/kisi/[slug]',
+      en: '/person/[slug]',
+      fr: '/personne/[slug]',
+    }
+  }
+})
+
 const getPeopleCollectionName = (locale: string = 'tr') => {
   return (`people_${locale}`) as keyof Collections
 }

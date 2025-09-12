@@ -47,7 +47,8 @@
     "errors": {
       "notFound": "Kişi bulunamadı",
       "personNotFound": "Aradığınız kişi bulunamadı. Bağlantı hatalı olabilir veya kişi taşınmış olabilir."
-    }
+    },
+    "readMore": "Devamını Oku"
   },
   "errorPage": {
     "title404": "Sayfa bulunamadı",

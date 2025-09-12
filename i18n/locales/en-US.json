@@ -47,7 +47,8 @@
     "errors": {
       "notFound": "Person not found",
       "personNotFound": "The person you are looking for could not be found. The link may be broken or the person may have been moved."
-    }
+    },
+    "readMore": "Read Mode"
   },
   "errorPage": {
     "title404": "Page not found",

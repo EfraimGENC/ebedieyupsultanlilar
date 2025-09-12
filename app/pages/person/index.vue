@@ -8,6 +8,13 @@ const { locale } = useI18n()
 definePageMeta({
   title: 'person.metaTitle',
   description: 'person.metaDescription',
+  i18n: {
+    paths: {
+      tr: '/kisi',
+      en: '/person',
+      fr: '/personne',
+    }
+  }
 })
 
 // i18n
@@ -75,10 +82,13 @@ const filterByCategory = (category: string) => {
   selectedCategory.value = category
 }
 
-const navigateToPersonDetail = (person: any) => {
-  // Extract slug from person path
+const personDetailRoute = (person: any) => {
   const slug = person.path.split('/').pop()
-  navigateTo(localePath({ name: 'person-slug', params: { slug } }))
+  return localePath({ name: 'person-slug', params: { slug } })
+}
+
+const navigateToPersonDetail = (person: any) => {
+  navigateTo(personDetailRoute(person))
 }
 
 // SEO
@@ -162,18 +172,20 @@ useSeoMeta({
 
               <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
                 {{ person.shortDescription }}
+                <UButton :to="personDetailRoute(person)" variant="link" color="neutral" class="ml-1 p-0"
+                  trailing-icon="tabler:arrow-right" size="xs">
+                </UButton>
               </p>
 
               <!-- Tags -->
-              <div v-if="person.tags && person.tags.length > 0" class="flex flex-wrap gap-1">
-                <span v-for="tag in person.tags.slice(0, 3)" :key="tag"
-                  class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
-                  {{ tag }}
-                </span>
-                <span v-if="person.tags.length > 3" class="text-xs text-gray-500">
-                  +{{ person.tags.length - 3 }} {{ $t('common.more') }}
+              <div v-if="person.tags && person.tags.length > 0" class="flex flex-wrap content-center items-center gap-1">
+                <UBadge v-for="tag in person.tags.slice(0, 5)" :key="tag" :label="tag" size="sm" color="neutral"
+                  variant="subtle" />
+                <span v-if="person.tags.length > 5" class="text-xs text-gray-500">
+                  +{{ person.tags.length - 5 }} {{ $t('common.more') }}
                 </span>
               </div>
+
             </div>
           </div>
         </div>

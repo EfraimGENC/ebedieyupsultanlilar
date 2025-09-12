@@ -31,6 +31,16 @@
 <script setup lang="ts">
 const localePath = useLocalePath()
 
+definePageMeta({
+  i18n: {
+    paths: {
+      tr: '/hakkinda',
+      en: '/about',
+      fr: '/a-propos',
+    }
+  }
+})
+
 useSeoMeta({
   title: () => $t('about.title'),
   description: () => $t('nuxtSiteConfig.description'),
