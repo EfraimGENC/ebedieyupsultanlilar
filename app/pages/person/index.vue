@@ -8,13 +8,6 @@ const { locale } = useI18n()
 definePageMeta({
   title: 'person.metaTitle',
   description: 'person.metaDescription',
-  i18n: {
-    paths: {
-      tr: '/kisi',
-      en: '/person',
-      fr: '/personne',
-    }
-  }
 })
 
 // i18n
