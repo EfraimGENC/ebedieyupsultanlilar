@@ -126,7 +126,7 @@ useSeoMeta({
             <UButton v-for="category in categories" :key="category"
               :color="selectedCategory === category ? 'primary' : 'neutral'" variant="soft"
               @click="filterByCategory(category)">
-              {{ category }}
+              {{ category == 'all' ? $t('person.category.all') : category }}
             </UButton>
           </div>
 
@@ -178,7 +178,8 @@ useSeoMeta({
               </p>
 
               <!-- Tags -->
-              <div v-if="person.tags && person.tags.length > 0" class="flex flex-wrap content-center items-center gap-1">
+              <div v-if="person.tags && person.tags.length > 0"
+                class="flex flex-wrap content-center items-center gap-1">
                 <UBadge v-for="tag in person.tags.slice(0, 5)" :key="tag" :label="tag" size="sm" color="neutral"
                   variant="subtle" />
                 <span v-if="person.tags.length > 5" class="text-xs text-gray-500">
