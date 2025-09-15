@@ -13,7 +13,8 @@
   },
   "nav": {
     "home": "Accueil",
-    "people": "Personnes"
+    "people": "Personnes",
+    "about": "À propos"
   },
   "footer": {
     "rights": "Tous droits réservés."

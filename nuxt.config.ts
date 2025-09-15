@@ -24,6 +24,7 @@ export default defineNuxtConfig({
 
   modules: [
     "@nuxtjs/sitemap",
+    "@nuxtjs/robots",
     "@nuxt/content",
     "@nuxt/eslint",
     "@nuxt/ui",
@@ -33,6 +34,12 @@ export default defineNuxtConfig({
   ],
 
   css: ["~/assets/css/main.css"],
+
+  app: {
+    head: {
+      viewport: "width=device-width, initial-scale=1, viewport-fit=cover",
+    },
+  },
 
   nitro: {
     prerender: {

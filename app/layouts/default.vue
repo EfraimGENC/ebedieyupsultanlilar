@@ -44,6 +44,33 @@ const availableLocalesItems = computed<DropdownMenuItem[]>(() => {
     onClick: () => setLocale(locale.code)
   }))
 })
+
+// Bottom navigation items
+const navigationItems = computed(() => [
+  {
+    to: localePath('index'),
+    label: t('nav.home'),
+    icon: 'tabler:home'
+  },
+  {
+    to: localePath('person'),
+    label: t('nav.people'),
+    icon: 'tabler:users-group'
+  },
+  {
+    to: localePath('about'),
+    label: t('nav.about'),
+    icon: 'tabler:info-circle'
+  }
+])
+
+// Check if current path matches navigation item
+const isActiveNavItem = (navTo: string) => {
+  if (navTo === localePath('index')) {
+    return route.path === localePath('index')
+  }
+  return route.path.startsWith(navTo)
+}
 </script>
 
 <template>
@@ -61,10 +88,10 @@ const availableLocalesItems = computed<DropdownMenuItem[]>(() => {
     </Head>
 
     <Body
-      class="min-h-dvh bg-gradient-to-b from-white to-gray-200 dark:from-gray-900 dark:to-gray-950 dark:text-gray-100 font-sans">
+      class="min-h-dvh bg-gradient-to-b from-white to-gray-200 dark:from-gray-900 dark:to-gray-950 dark:text-gray-100 font-sans pb-safe">
       <!-- Topbar -->
       <header class="sticky top-0 z-50 backdrop-blur shadow bg-gray-100/50 dark:bg-gray-900/50 ">
-        <div class="flex items-center justify-between max-w-xl mx-auto px-4 py-3">
+        <div class="flex items-center justify-between max-w-xl mx-auto px-4 py-2">
           <NuxtLink :to="localePath('index')" class="flex items-center gap-2">
             <div class="w-7 h-7 rounded bg-gradient-to-br from-green-400 to-emerald-700"></div>
             <span class="font-semibold text-gray-900 dark:text-white">Ebedi Eyüpsultanlılar</span>
@@ -93,7 +120,7 @@ const availableLocalesItems = computed<DropdownMenuItem[]>(() => {
       </main>
 
       <!-- Footer -->
-      <footer class="border-t border-gray-200 dark:border-gray-700">
+      <footer class="border-t border-gray-200 dark:border-gray-700 mb-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div class="text-center">
             <p class="text-gray-600 dark:text-gray-400 text-sm">
@@ -103,6 +130,19 @@ const availableLocalesItems = computed<DropdownMenuItem[]>(() => {
           </div>
         </div>
       </footer>
+
+      <!-- Bottom Mobile Navigation -->
+      <nav
+        class="fixed bottom-0 left-0 right-0 z-51 backdrop-blur-lg bg-gray-100/80 dark:bg-gray-900/80 border-t border-gray-200/50 dark:border-gray-700/50 pb-safe">
+        <div class="flex items-center justify-around max-w-xl mx-auto px-4 py-2">
+          <UButton v-for="item in navigationItems" :key="item.to" :to="item.to" variant="link"
+            :color="isActiveNavItem(item.to) ? 'success' : 'neutral'"
+            class="flex flex-col items-center gap-1 py-2 px-3 min-w-0">
+            <UIcon :name="item.icon" class="w-5 h-5 flex-shrink-0" />
+            <span class="text-xs font-medium truncate">{{ item.label }}</span>
+          </UButton>
+        </div>
+      </nav>
     </Body>
 
     </Html>

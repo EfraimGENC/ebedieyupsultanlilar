@@ -1,4 +1,5 @@
 import { z, defineCollection, defineContentConfig } from "@nuxt/content";
+import { asRobotsCollection } from "@nuxtjs/robots/content";
 
 // Common schema for home pages
 const homeSchema = z.object({
@@ -27,31 +28,37 @@ const personSchema = z.object({
 export default defineContentConfig({
   collections: {
     // Turkish people collection
-    people_tr: defineCollection({
-      type: "page",
-      source: {
-        include: "tr/**",
-        prefix: "",
-      },
-      schema: personSchema,
-    }),
+    people_tr: defineCollection(
+      asRobotsCollection({
+        type: "page",
+        source: {
+          include: "tr/**",
+          prefix: "",
+        },
+        schema: personSchema,
+      })
+    ),
     // English people collection
-    people_en: defineCollection({
-      type: "page",
-      source: {
-        include: "en/**",
-        prefix: "",
-      },
-      schema: personSchema,
-    }),
+    people_en: defineCollection(
+      asRobotsCollection({
+        type: "page",
+        source: {
+          include: "en/**",
+          prefix: "",
+        },
+        schema: personSchema,
+      })
+    ),
     // French people collection
-    people_fr: defineCollection({
-      type: "page",
-      source: {
-        include: "fr/**",
-        prefix: "",
-      },
-      schema: personSchema,
-    }),
+    people_fr: defineCollection(
+      asRobotsCollection({
+        type: "page",
+        source: {
+          include: "fr/**",
+          prefix: "",
+        },
+        schema: personSchema,
+      })
+    ),
   },
 });

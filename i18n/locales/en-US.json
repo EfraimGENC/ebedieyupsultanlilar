@@ -13,7 +13,8 @@
   },
   "nav": {
     "home": "Home",
-    "people": "Persons"
+    "people": "Persons",
+    "about": "About"
   },
   "footer": {
     "rights": "All rights reserved."
