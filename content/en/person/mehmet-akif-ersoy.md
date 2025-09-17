@@ -1,13 +1,21 @@
 ---
 title: "Mehmet Âkif Ersoy"
-name: "Mehmet Âkif Ersoy"
-shortDescription: "Turkish national poet, author of the Turkish National Anthem, and veterinarian"
-birthYear: 1873
-birthPlace: "Fatih, Istanbul"
-deathYear: 1936
-deathPlace: "Beyoğlu, Istanbul"
+description: "Turkish national poet, author of the Turkish National Anthem, and veterinarian"
+birth:
+  year: 1873
+  place: "Fatih, Istanbul"
+death:
+  year: 1936
+  place: "Beyoğlu, Istanbul"
 category: "Poet"
-tags: ["national poet", "Turkish National Anthem", "Safahat", "veterinarian", "national struggle"]
+tags:
+  [
+    "national poet",
+    "Turkish National Anthem",
+    "Safahat",
+    "veterinarian",
+    "national struggle",
+  ]
 image: "/placeholder-600.png"
 featured: true
 draft: false

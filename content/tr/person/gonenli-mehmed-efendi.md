@@ -1,13 +1,22 @@
 ---
 title: "Gönenli Mehmed Efendi"
-name: "Gönenli Mehmed Efendi"
-shortDescription: "Gönüllere dokunan, Kur'an ve ilim yolunda ömrünü adamış bir İslam alimi ve vaizdir."
-birthYear: 1903
-birthPlace: "Gönen, Balıkesir"
-deathYear: 1991
-deathPlace: "İstanbul"
+description: "Gönüllere dokunan, Kur'an ve ilim yolunda ömrünü adamış bir İslam alimi ve vaizdir."
+birth:
+  year: 1903
+  place: "Gönen, Balıkesir"
+death:
+  year: 1991
+  place: "İstanbul"
 category: "Din Adamı"
-tags: [İslam Alimi, Vaiz, Reisü'l-Kurra, 20. Yüzyıl Türkiyesi, Manevi Rehber, Sultanahmet Camii]
+tags:
+  [
+    İslam Alimi,
+    Vaiz,
+    Reisü'l-Kurra,
+    20. Yüzyıl Türkiyesi,
+    Manevi Rehber,
+    Sultanahmet Camii,
+  ]
 image: "/person/gonenli-mehmed-efendi.jpg"
 featured: true
 draft: false

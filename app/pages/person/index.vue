@@ -68,8 +68,8 @@ const filteredPeople = computed(() => {
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
     filtered = filtered.filter((person: any) =>
-      person.name?.toLowerCase().includes(query) ||
-      person.shortDescription?.toLowerCase().includes(query) ||
+      person.title?.toLowerCase().includes(query) ||
+  person.description?.toLowerCase().includes(query) ||
       person.tags?.some((tag: string) => tag.toLowerCase().includes(query))
     )
   }
@@ -145,7 +145,7 @@ useSeoMeta({
             class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
             <!-- Image -->
             <div class="aspect-w-16 aspect-h-9 bg-gray-200 dark:bg-gray-700">
-              <img v-if="person.image" :src="person.image" :alt="person.name"
+              <img v-if="person.image" :src="person.image" :alt="person.title"
                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 loading="lazy" />
               <div v-else class="w-full h-48 flex items-center justify-center">
@@ -160,18 +160,18 @@ useSeoMeta({
                   class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200">
                   {{ person.category }}
                 </span>
-                <div v-if="person.birthYear && person.deathYear" class="text-sm text-gray-500">
-                  {{ person.birthYear }} - {{ person.deathYear }}
+                <div v-if="person.birth?.year && person.death?.year" class="text-sm text-gray-500">
+                  {{ person.birth?.year }} - {{ person.death?.year }}
                 </div>
               </div>
 
               <h3
                 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                {{ person.name }}
+                {{ person.title }}
               </h3>
 
               <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
-                {{ person.shortDescription }}
+                {{ person.description }}
                 <UButton :to="personDetailRoute(person)" variant="link" color="neutral" class="ml-1 p-0"
                   trailing-icon="tabler:arrow-right" size="xs">
                 </UButton>

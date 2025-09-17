@@ -64,13 +64,13 @@ if (!person.value) {
 // SEO meta tags and structured data (must be called after data is ready)
 if (person.value) {
   useSeoMeta({
-    title: person.value?.name as string,
-    description: person.value?.shortDescription as string,
-    ogTitle: person.value?.name as string,
-    ogDescription: person.value?.shortDescription as string,
+    title: person.value?.title as string,
+  description: person.value?.description as string,
+    ogTitle: person.value?.title as string,
+  ogDescription: person.value?.description as string,
     ogImage: person.value?.image as string,
     ogType: 'profile',
-    articleAuthor: person.value?.name ? [person.value.meta.name as string] : undefined,
+    articleAuthor: person.value?.title ? [person.value.title as string] : undefined,
     articleSection: person.value?.category as string,
     articleTag: person.value?.tags as string[]
   })
@@ -82,12 +82,12 @@ if (person.value) {
         innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Person',
-          name: person.value?.name,
-          description: person.value?.shortDescription,
-          birthDate: person.value?.birthYear ? `${person.value.meta.birthYear}` : undefined,
-          deathDate: person.value?.deathYear ? `${person.value.meta.deathYear}` : undefined,
-          birthPlace: person.value?.birthPlace,
-          deathPlace: person.value?.deathPlace,
+          name: person.value?.title as string,
+          description: person.value?.description,
+          birthDate: person.value?.birth?.year ? `${person.value.birth.year}` : undefined,
+          deathDate: person.value?.death?.year ? `${person.value.death.year}` : undefined,
+          birthPlace: person.value?.birth?.place,
+          deathPlace: person.value?.death?.place,
           image: person.value?.image,
           jobTitle: person.value?.category,
           keywords: Array.isArray(person.value?.tags) ? person.value.tags.join(', ') : undefined
@@ -104,8 +104,8 @@ const shareContent = async () => {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: person.value?.name as string,
-          text: person.value?.shortDescription as string,
+          title: person.value?.title as string,
+          text: person.value?.description as string,
           url: window.location.href
         })
       } catch (err) {
@@ -156,7 +156,7 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
     to: localePath('person')
   },
   {
-    label: person.value?.name as string,
+    label: person.value?.title as string,
     icon: 'tabler:user',
     to: localePath({ name: 'person-slug', params: { slug: (person.value?.path?.split('/').pop() || slug.value) } })
   }
@@ -175,12 +175,12 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
         :style="`background-image:url('${person?.image || 'https://random-image-pepebigotes.vercel.app/api/random-image'}')`">
       </div>
       <div class="p-4">
-        <span class="text-sm text-toned">{{ person?.birthYear }} — {{ person?.deathYear }}</span>
+        <span class="text-sm text-toned">{{ person?.birth?.year }} — {{ person?.death?.year }}</span>
         <h1 class="text-xl font-bold mb-0">
-          {{ person?.name }}
+          {{ person?.title }}
         </h1>
         <p class="text-sm text-toned mb-0">
-          {{ person?.category }} • {{ person?.shortDescription }}
+          {{ person?.category }} • {{ person?.description }}
         </p>
         <div class="flex gap-2 mt-2 flex-wrap">
           <UBadge v-for="tag in person?.tags" :key="tag" :label="tag" variant="outline" icon="tabler:hash"
@@ -206,7 +206,7 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
         </div>
         <div class="flex align-middle content-center">
           <p class="text-xs m-0">
-            {{ person?.birthYear }}{{ person?.birthPlace ? ` • ${person?.birthPlace}` : '' }}
+            {{ person?.birth?.year }}{{ person?.birth?.place ? ` • ${person?.birth?.place}` : '' }}
           </p>
         </div>
       </div>
@@ -218,7 +218,7 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
           </h3>
         </div>
         <p class="text-xs m-0">
-          {{ person?.deathYear }}{{ person?.deathPlace ? ` • ${person?.deathPlace}` : '' }}
+          {{ person?.death?.year }}{{ person?.death?.place ? ` • ${person?.death?.place}` : '' }}
         </p>
       </div>
       <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-100/50 dark:bg-gray-800/50">

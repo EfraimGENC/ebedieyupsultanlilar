@@ -1,13 +1,22 @@
 ---
 title: "Gönenli Mehmed Efendi"
-name: "Gönenli Mehmed Efendi"
-shortDescription: "A scholar and preacher of Islam who touched hearts and devoted his life to the Quran and knowledge."
-birthYear: 1903
-birthPlace: "Gönen, Balıkesir"
-deathYear: 1991
-deathPlace: "Istanbul"
+description: "A scholar and preacher of Islam who touched hearts and devoted his life to the Quran and knowledge."
+birth:
+  year: 1903
+  place: "Gönen, Balıkesir"
+death:
+  year: 1991
+  place: "Istanbul"
 category: "Religious Figure"
-tags: [Islamic Scholar, Preacher, Chief Reciter, 20th Century Turkey, Spiritual Guide, Sultanahmet Mosque]
+tags:
+  [
+    Islamic Scholar,
+    Preacher,
+    Chief Reciter,
+    20th Century Turkey,
+    Spiritual Guide,
+    Sultanahmet Mosque,
+  ]
 image: "/person/gonenli-mehmed-efendi.jpg"
 featured: true
 draft: false

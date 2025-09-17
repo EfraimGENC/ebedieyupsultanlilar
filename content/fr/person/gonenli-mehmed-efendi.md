@@ -1,13 +1,22 @@
 ---
 title: "Gönenli Mehmed Efendi"
-name: "Gönenli Mehmed Efendi"
-shortDescription: "Un érudit et prédicateur islamique qui a touché les cœurs et consacré sa vie à l'étude du Coran et du savoir."
-birthYear: 1903
-birthPlace: "Gönen, Balıkesir"
-deathYear: 1991
-deathPlace: "Istanbul"
+description: "Un érudit et prédicateur islamique qui a touché les cœurs et consacré sa vie à l'étude du Coran et du savoir."
+birth:
+  year: 1903
+  place: "Gönen, Balıkesir"
+death:
+  year: 1991
+  place: "Istanbul"
 category: "Homme religieux"
-tags: [Érudit islamique, Prédicateur, Reisü'l-Kurra, Turquie du XXe siècle, Guide spirituel, Mosquée Sultanahmet]
+tags:
+  [
+    Érudit islamique,
+    Prédicateur,
+    Reisü'l-Kurra,
+    Turquie du XXe siècle,
+    Guide spirituel,
+    Mosquée Sultanahmet,
+  ]
 image: "/person/gonenli-mehmed-efendi.jpg"
 featured: true
 draft: false

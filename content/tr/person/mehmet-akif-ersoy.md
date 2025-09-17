@@ -1,13 +1,21 @@
 ---
 title: "Mehmet Âkif Ersoy"
-name: "Mehmet Âkif Ersoy"
-shortDescription: "Türk millî şairi, İstiklâl Marşı'nın yazarı ve veteriner hekim"
-birthYear: 1873
-birthPlace: "Fatih, İstanbul"
-deathYear: 1936
-deathPlace: "Beyoğlu, İstanbul"
+description: "Türk millî şairi, İstiklâl Marşı'nın yazarı ve veteriner hekim"
+birth:
+  year: 1873
+  place: "Fatih, İstanbul"
+death:
+  year: 1936
+  place: "Beyoğlu, İstanbul"
 category: "Şair"
-tags: ["millî şair", "İstiklâl Marşı", "Safahat", "veteriner hekim", "millî mücadele"]
+tags:
+  [
+    "millî şair",
+    "İstiklâl Marşı",
+    "Safahat",
+    "veteriner hekim",
+    "millî mücadele",
+  ]
 image: "/placeholder-600.png"
 featured: true
 draft: false
