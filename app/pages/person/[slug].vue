@@ -65,9 +65,9 @@ if (!person.value) {
 if (person.value) {
   useSeoMeta({
     title: person.value?.title as string,
-  description: person.value?.description as string,
+    description: person.value?.description as string,
     ogTitle: person.value?.title as string,
-  ogDescription: person.value?.description as string,
+    ogDescription: person.value?.description as string,
     ogImage: person.value?.image as string,
     ogType: 'profile',
     articleAuthor: person.value?.title ? [person.value.title as string] : undefined,
@@ -180,7 +180,7 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
           {{ person?.title }}
         </h1>
         <p class="text-sm text-toned mb-0">
-          {{ person?.category }} • {{ person?.description }}
+          <strong>{{ person?.category }}</strong> • {{ person?.description }}
         </p>
         <div class="flex gap-2 mt-2 flex-wrap">
           <UBadge v-for="tag in person?.tags" :key="tag" :label="tag" variant="outline" icon="tabler:hash"
@@ -233,7 +233,12 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
           <UIcon name="tabler:language" class="text-primary me-1" />
           <h3 class="text-sm font-semibold text-green-400 mb-0">Diller</h3>
         </div>
-        <p class="text-xs mb-0">Türkçe, Arapça</p>
+        <p class="text-xs mb-0">
+          <NuxtLink v-for="locale in locales" :key="locale.code" class="inline-block me-2"
+            :to="localePath({ name: 'person-slug', params: { slug: (person?.path?.split('/').pop() || slug) } }, locale.code)">
+            {{ locale.name }}
+          </NuxtLink>
+        </p>
       </div>
     </section>
 
