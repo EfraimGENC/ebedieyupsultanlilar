@@ -69,7 +69,7 @@ const filteredPeople = computed(() => {
     const query = searchQuery.value.toLowerCase()
     filtered = filtered.filter((person: any) =>
       person.title?.toLowerCase().includes(query) ||
-  person.description?.toLowerCase().includes(query) ||
+      person.description?.toLowerCase().includes(query) ||
       person.tags?.some((tag: string) => tag.toLowerCase().includes(query))
     )
   }
@@ -172,7 +172,7 @@ useSeoMeta({
 
               <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
                 {{ person.description }}
-                <UButton :to="personDetailRoute(person)" variant="link" color="neutral" class="ml-1 p-0"
+                <UButton :to="personDetailRoute(person)" variant="link" color="neutral" class="p-0 align-middle"
                   trailing-icon="tabler:arrow-right" size="xs">
                 </UButton>
               </p>
