@@ -171,8 +171,9 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
 
     <!-- Hero -->
     <section class="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-4">
-      <div class="aspect-video bg-cover bg-center"
-        :style="`background-image:url('${person?.image || 'https://random-image-pepebigotes.vercel.app/api/random-image'}')`">
+      <div class="aspect-video bg-cover bg-center flex items-center justify-center bg-neutral-200 dark:bg-neutral-700"
+        :style="`background-image:url('${person?.image}')`">
+        <UIcon v-if="!person?.image" name="i-tabler-user-circle" class="text-7xl text-gray-400" />
       </div>
       <div class="p-4">
         <span class="text-sm text-toned">{{ person?.birth?.year }} — {{ person?.death?.year }}</span>

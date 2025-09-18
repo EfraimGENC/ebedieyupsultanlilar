@@ -48,7 +48,7 @@ const partialDateWithPlace = partialDateBase
 // Common schema for person pages
 const personSchema = z.object({
   title: z.string(),
-  description: z.string().max(255),
+  description: z.string().min(50).max(150),
   birth: partialDateWithPlace.optional(),
   death: partialDateWithPlace.optional(),
   category: z.string(),

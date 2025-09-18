@@ -5,8 +5,8 @@
       Delîlin Hazret-i Allah, şefî‘in Mustafa olsun.<br>
       Bir içen bir dahî içe, içenlere şifâ olsun.<br>
       Re’îs Ahmed GENÇ’den, Eyüpsultân’a hediyye olsun.</p>
-    <p class="m-0">— Ahmet GENÇ</p>
-    <span class="text-dimmed font-light">{{ $t('about.authorSubtitle') }}</span>
+    <p class="m-0">— Hafız Efraim GENÇ</p>
+    <span class="text-dimmed font-light">Ahmet GENÇ'in Babası</span>
 
     <!-- Navigation -->
     <div class="mx-auto py-8">
