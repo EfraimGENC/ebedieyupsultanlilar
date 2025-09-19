@@ -16,7 +16,6 @@ tags:
     "veteriner hekim",
     "millî mücadele",
   ]
-image: "/placeholder-600.png"
 featured: true
 draft: false
 ---
