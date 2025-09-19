@@ -55,7 +55,7 @@ const navigationItems = computed(() => [
   {
     to: localePath('person'),
     label: t('nav.people'),
-    icon: 'tabler:users-group'
+    icon: 'tabler:users'
   },
   {
     to: localePath('about'),
