@@ -18,7 +18,7 @@ tags:
     II. Selim,
     16. Yüzyıl,
   ]
-image: "/person/ebussuud-efendi.jpg"
+cover: "/person/ebussuud-efendi.jpg"
 featured: false
 draft: false
 seo:

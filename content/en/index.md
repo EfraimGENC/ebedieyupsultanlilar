@@ -1,7 +1,7 @@
 ---
 title: Eternal Eyüpsultanites
 description: Discover important figures who left their mark on history
-image: /path/to/image.jpg
+cover: /path/to/image.jpg
 featured: true
 ---
 

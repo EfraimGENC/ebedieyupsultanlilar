@@ -16,7 +16,7 @@ tags:
     "vétérinaire",
     "lutte nationale",
   ]
-image: "/placeholder-600.png"
+cover: "/placeholder-600.png"
 featured: true
 draft: false
 ---

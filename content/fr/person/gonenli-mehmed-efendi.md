@@ -17,7 +17,7 @@ tags:
     Guide spirituel,
     Mosquée Sultanahmet,
   ]
-image: "/person/gonenli-mehmed-efendi.jpg"
+cover: "/person/gonenli-mehmed-efendi.jpg"
 featured: true
 draft: false
 ---

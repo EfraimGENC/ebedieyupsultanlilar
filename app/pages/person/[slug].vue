@@ -68,7 +68,7 @@ if (person.value) {
     description: person.value?.description as string,
     ogTitle: person.value?.title as string,
     ogDescription: person.value?.description as string,
-    ogImage: person.value?.image as string,
+    ogImage: person.value?.cover as string,
     ogType: 'profile',
     articleAuthor: person.value?.title ? [person.value.title as string] : undefined,
     articleSection: person.value?.category as string,
@@ -88,7 +88,7 @@ if (person.value) {
           deathDate: person.value?.death?.year ? `${person.value.death.year}` : undefined,
           birthPlace: person.value?.birth?.place,
           deathPlace: person.value?.death?.place,
-          image: person.value?.image,
+          image: person.value?.cover,
           jobTitle: person.value?.category,
           keywords: Array.isArray(person.value?.tags) ? person.value.tags.join(', ') : undefined
         })
@@ -172,8 +172,8 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
     <!-- Hero -->
     <section class="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-4">
       <div class="aspect-video bg-cover bg-center flex items-center justify-center bg-neutral-200 dark:bg-neutral-700"
-        :style="`background-image:url('${person?.image}')`">
-        <UIcon v-if="!person?.image" name="i-tabler-user-circle" class="text-7xl text-gray-400" />
+        :style="`background-image:url('${person?.cover}')`">
+        <UIcon v-if="!person?.cover" name="i-tabler-user-circle" class="text-7xl text-gray-400" />
       </div>
       <div class="p-4">
         <span class="text-sm text-toned">{{ person?.birth?.year }} — {{ person?.death?.year }}</span>
@@ -285,7 +285,7 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
             <div
               class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
               <div class="aspect-w-16 aspect-h-9 bg-gray-200 dark:bg-gray-700">
-                <img v-if="(relatedPerson as any).meta?.image" :src="(relatedPerson as any).meta.image"
+                <img v-if="(relatedPerson as any).meta?.cover" :src="(relatedPerson as any).meta.cover"
                   :alt="(relatedPerson as any).meta?.name"
                   class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy" />
