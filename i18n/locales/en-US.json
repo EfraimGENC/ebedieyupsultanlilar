@@ -38,6 +38,7 @@
     "tags": "Tags",
     "backToList": "Back to persons list",
     "related": "Related Persons",
+    "narration": "Audio Narration",
     "category": {
       "all": "All"
     },
@@ -50,6 +51,12 @@
       "personNotFound": "The person you are looking for could not be found. The link may be broken or the person may have been moved."
     },
     "readMore": "Read Mode"
+  },
+  "audio": {
+    "play": "Play",
+    "pause": "Pause",
+    "rewind": "Rewind 10 seconds",
+    "fastForward": "Forward 10 seconds"
   },
   "errorPage": {
     "title404": "Page not found",

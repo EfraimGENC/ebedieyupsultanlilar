@@ -19,6 +19,7 @@ tags:
     16. Yüzyıl,
   ]
 cover: "/person/ebussuud-efendi.jpg"
+narrationAudio: "/person/narrationAudio/ebussuud-efendi-tr.wav"
 featured: false
 draft: false
 seo:

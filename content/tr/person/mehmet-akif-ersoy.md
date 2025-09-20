@@ -16,6 +16,7 @@ tags:
     "veteriner hekim",
     "millî mücadele",
   ]
+narrationAudio: "/person/narrationAudio/mehmet-akif-ersoy.wav"
 featured: true
 draft: false
 ---

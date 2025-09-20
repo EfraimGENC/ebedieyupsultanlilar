@@ -38,6 +38,7 @@
     "tags": "Étiquettes",
     "backToList": "Retour à la liste des personnes",
     "related": "Personnes connexes",
+    "narration": "Narration Audio",
     "category": {
       "all": "Tous"
     },
@@ -50,6 +51,12 @@
       "personNotFound": "La personne que vous recherchez n'a pas pu être trouvée. Le lien peut être brisé ou la personne a pu être déplacée."
     },
     "readMore": "Mode Lecture"
+  },
+  "audio": {
+    "play": "Lecture",
+    "pause": "Pause",
+    "rewind": "Retour 10 secondes",
+    "fastForward": "Avancer 10 secondes"
   },
   "errorPage": {
     "title404": "Page introuvable",
