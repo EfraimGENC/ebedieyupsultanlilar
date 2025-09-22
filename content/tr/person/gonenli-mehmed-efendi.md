@@ -18,6 +18,7 @@ tags:
     Sultanahmet Camii,
   ]
 cover: "/person/gonenli-mehmed-efendi.jpg"
+narrationAudio: "/person/narrationAudio/gonenli-mehmed-efendi-tr.mp3"
 featured: true
 draft: false
 ---
