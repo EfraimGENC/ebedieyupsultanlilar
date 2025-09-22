@@ -1,25 +1,26 @@
 ---
-title: "Gönenli Mehmed Efendi"
-description: "Un érudit et prédicateur islamique qui a touché les cœurs et consacré sa vie à l'étude du Coran et du savoir."
+title: Gönenli Mehmed Efendi
+description: >-
+  Un érudit et prédicateur islamique qui a touché les cœurs et consacré sa vie à
+  l'étude du Coran et du savoir.
 birth:
   year: 1903
-  place: "Gönen, Balıkesir"
+  place: 'Gönen, Balıkesir'
 death:
   year: 1991
-  place: "Istanbul"
-category: "Homme religieux"
+  place: Istanbul
+category: Homme religieux
 tags:
-  [
-    Érudit islamique,
-    Prédicateur,
-    Reisü'l-Kurra,
-    Turquie du XXe siècle,
-    Guide spirituel,
-    Mosquée Sultanahmet,
-  ]
-cover: "/person/gonenli-mehmed-efendi.jpg"
+  - Érudit islamique
+  - Prédicateur
+  - Reisü'l-Kurra
+  - Turquie du XXe siècle
+  - Guide spirituel
+  - Mosquée Sultanahmet
+cover: /person/gonenli-mehmed-efendi.jpg
 featured: true
 draft: false
+narrationAudio: /person/narrationAudio/gonenli-mehmed-efendi-fr.mp3
 ---
 
 **Gönenli Mehmed Efendi** (Mehmet Öğütçü) est considéré comme l'une des personnalités spirituelles les plus importantes de la Turquie de la période républicaine. Né dans le district de Gönen, à Balıkesir, et ayant consacré sa vie au service du Coran, Gönenli Hoca a également porté le titre de Reisü'l-Kurra (le plus grand lecteur du Coran). Entre 1940 et 1980 notamment, période difficile où l'enseignement du Coran était limité, il a formé des centaines de mémorisateurs et a été à l'origine de la création de cours sur le Coran. Pendant les nombreuses années où il a exercé les fonctions d'imam et de prédicateur à la mosquée Sultanahmet, il a touché le cœur de milliers de personnes par son style simple et sincère, devenant ainsi leur guide spirituel.

@@ -1,24 +1,23 @@
 ---
-title: "Mehmet Âkif Ersoy"
-description: "Turkish national poet, author of the Turkish National Anthem, and veterinarian"
+title: Mehmet Âkif Ersoy
+description: 'Turkish national poet, author of the Turkish National Anthem, and veterinarian'
 birth:
   year: 1873
-  place: "Fatih, Istanbul"
+  place: 'Fatih, Istanbul'
 death:
   year: 1936
-  place: "Beyoğlu, Istanbul"
-category: "Poet"
+  place: 'Beyoğlu, Istanbul'
+category: Poet
 tags:
-  [
-    "national poet",
-    "Turkish National Anthem",
-    "Safahat",
-    "veterinarian",
-    "national struggle",
-  ]
-cover: "/placeholder-600.png"
+  - national poet
+  - Turkish National Anthem
+  - Safahat
+  - veterinarian
+  - national struggle
+cover: /placeholder-600.png
 featured: true
 draft: false
+narrationAudio: /person/narrationAudio/mehmet-akif-ersoy-en.mp3
 ---
 
 Mehmet Akif Ersoy is not only the poet of the National Anthem; he is also a thinker who conveyed the conscience of the nation through his verses. His life, which began in Istanbul in 1873, led him on a multifaceted journey from veterinary medicine to teaching, from intellectualism to the political arena.

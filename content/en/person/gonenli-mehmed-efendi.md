@@ -1,25 +1,26 @@
 ---
-title: "Gönenli Mehmed Efendi"
-description: "A scholar and preacher of Islam who touched hearts and devoted his life to the Quran and knowledge."
+title: Gönenli Mehmed Efendi
+description: >-
+  A scholar and preacher of Islam who touched hearts and devoted his life to the
+  Quran and knowledge.
 birth:
   year: 1903
-  place: "Gönen, Balıkesir"
+  place: 'Gönen, Balıkesir'
 death:
   year: 1991
-  place: "Istanbul"
-category: "Religious Figure"
+  place: Istanbul
+category: Religious Figure
 tags:
-  [
-    Islamic Scholar,
-    Preacher,
-    Chief Reciter,
-    20th Century Turkey,
-    Spiritual Guide,
-    Sultanahmet Mosque,
-  ]
-cover: "/person/gonenli-mehmed-efendi.jpg"
+  - Islamic Scholar
+  - Preacher
+  - Chief Reciter
+  - 20th Century Turkey
+  - Spiritual Guide
+  - Sultanahmet Mosque
+cover: /person/gonenli-mehmed-efendi.jpg
 featured: true
 draft: false
+narrationAudio: /person/narrationAudio/gonenli-mehmed-efendi-en.mp3
 ---
 
 **Gönenli Mehmed Efendi** (Mehmet Öğütçü) is considered one of the most important spiritual figures of the Republic era in Turkey. Born in the Gönen district of Balıkesir and dedicating his life to the service of the Quran, Gönenli Hoca also held the title of Reisü'l-Kurra (chief Quran reciter). He trained hundreds of hafiz (Quran memorizers) and pioneered the opening of Quran courses, especially between 1940 and 1980, during difficult times when Quran education was limited. During his long years as an imam and preacher at the Sultanahmet Mosque, he touched the hearts of thousands of people with his simple and sincere style, becoming a spiritual guide to them.
