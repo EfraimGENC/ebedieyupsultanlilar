@@ -157,7 +157,8 @@ onUnmounted(() => {
 <template>
   <div
     class="flex justify-between content-center items-center gap-2 p-3 mb-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-100/50 dark:bg-gray-800/50">
-    <audio ref="audioElement" :src="props.src" preload="auto" class="hidden" crossorigin="anonymous" />
+    <audio ref="audioElement" :src="props.src" preload="auto" class="hidden" crossorigin="anonymous"
+      type="audio/mpeg" />
 
     <!-- Play/Pause -->
     <UButton :variant="isPlaying ? 'soft' : 'solid'" color="primary" size="lg"
