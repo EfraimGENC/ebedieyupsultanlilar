@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "tts": "tsx script/tts.ts"
+    "tts": "tsx script/tts.ts",
+    "compress-all-audio": "tsx script/compress-audio.ts"
   },
   "dependencies": {
     "@nuxt/content": "^3.6.3",

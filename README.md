@@ -92,6 +92,6 @@ ffmpeg -i input.wav -ac 1 -ar 44100 -b:a 64k output.mp3
 
 ### Text-to-Speech (TTS)
 ```bash
-just tts <path-to-markdown-file>
-# Example: just tts content/tr/person/ibni-kemal.md
+pnpm run tts <path-to-markdown-file>
+# Example: pnpm run tts content/tr/person/ibni-kemal.md
 ```
