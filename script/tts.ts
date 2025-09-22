@@ -140,11 +140,11 @@ function generateInputText(
     if (death.month) inputText += `${death.month} `;
     if (death.year) inputText += `${death.year} `;
     if (death.place) inputText += `${death.place}`;
-    inputText += `\n`;
+    inputText += `.\n`;
   }
 
   // Add about section
-  inputText += `${template.about}:\n${content.trim()}`;
+  inputText += `\n${template.about}:\n${content.trim()}`;
 
   return inputText;
 }
