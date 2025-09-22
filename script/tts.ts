@@ -1,8 +1,9 @@
 import "dotenv/config";
 import OpenAI from "openai";
-import { writeFileSync, readFileSync } from "node:fs";
+import { writeFileSync, readFileSync, unlinkSync } from "node:fs";
 import { join, basename } from "node:path";
 import matter from "gray-matter";
+import ffmpeg from "fluent-ffmpeg";
 
 // Get command line arguments
 const args = process.argv.slice(2);
@@ -69,6 +70,47 @@ function updateMarkdownWithAudio(filePath: string, audioPath: string) {
   );
 }
 
+// Compress audio file to 64 kbps, 44.1 kHz, mono MP3
+function compressAudio(inputPath: string, outputPath: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    console.log(
+      `🎵 Compressing audio: ${basename(inputPath)} -> 64 kbps, 44.1 kHz, mono`
+    );
+
+    ffmpeg(inputPath)
+      .audioChannels(1) // mono
+      .audioFrequency(44100) // 44.1 kHz
+      .audioBitrate("64k") // 64 kbps
+      .format("mp3")
+      .on("end", () => {
+        console.log(`✅ Audio compression completed: ${basename(outputPath)}`);
+        resolve();
+      })
+      .on("error", (err) => {
+        console.error(`❌ Audio compression failed:`, err.message);
+        reject(err);
+      })
+      .save(outputPath);
+  });
+}
+
+// Check if ffmpeg is available
+async function checkFFmpeg(): Promise<boolean> {
+  return new Promise((resolve) => {
+    ffmpeg.getAvailableFormats((err) => {
+      if (err) {
+        console.warn(
+          `⚠️  ffmpeg not found. Audio compression will be skipped.`
+        );
+        console.warn(`   Install ffmpeg with: brew install ffmpeg`);
+        resolve(false);
+      } else {
+        resolve(true);
+      }
+    });
+  });
+}
+
 // Generate input text based on template
 function generateInputText(
   frontmatter: any,
@@ -120,6 +162,9 @@ async function main() {
     console.log("Generating TTS for:", filename);
     console.log("Input text preview:", inputText.substring(0, 200) + "...");
 
+    // Check if ffmpeg is available
+    const hasFFmpeg = await checkFFmpeg();
+
     const response = await openai.audio.speech.create({
       model: "gpt-4o-mini-tts",
       voice: "ash",
@@ -156,16 +201,56 @@ Role:
 
     // Convert response to buffer and save to file
     const buffer = Buffer.from(await response.arrayBuffer());
-    const outputPath = join(
-      process.cwd(),
-      "public",
-      "person",
-      "narrationAudio",
-      filename
-    );
 
-    writeFileSync(outputPath, buffer);
-    console.log(`Audio file saved to: ${outputPath}`);
+    if (hasFFmpeg) {
+      // Use compression workflow
+      const tempFilename = `${slug}-${language}-temp.mp3`;
+      const finalFilename = `${slug}-${language}.mp3`;
+
+      const tempOutputPath = join(
+        process.cwd(),
+        "public",
+        "person",
+        "narrationAudio",
+        tempFilename
+      );
+
+      const finalOutputPath = join(
+        process.cwd(),
+        "public",
+        "person",
+        "narrationAudio",
+        finalFilename
+      );
+
+      // Save the raw TTS file temporarily
+      writeFileSync(tempOutputPath, buffer);
+      console.log(`📁 Raw audio file saved to: ${tempOutputPath}`);
+
+      // Compress the audio file
+      await compressAudio(tempOutputPath, finalOutputPath);
+
+      // Clean up temporary file
+      unlinkSync(tempOutputPath);
+      console.log(`🗑️  Temporary file cleaned up: ${tempOutputPath}`);
+
+      console.log(`🎉 Final compressed audio file ready: ${finalOutputPath}`);
+    } else {
+      // Save without compression
+      const finalOutputPath = join(
+        process.cwd(),
+        "public",
+        "person",
+        "narrationAudio",
+        filename
+      );
+
+      writeFileSync(finalOutputPath, buffer);
+      console.log(`📁 Audio file saved (uncompressed): ${finalOutputPath}`);
+      console.log(
+        `ℹ️  To enable compression, install ffmpeg: brew install ffmpeg`
+      );
+    }
 
     // Update the markdown file with narrationAudio field
     updateMarkdownWithAudio(fullPath, audioPath);
