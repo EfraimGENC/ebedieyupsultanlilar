@@ -3,7 +3,6 @@
 - Kod: [GNU AGPL v3](./LICENSE)
 - İçerik: [CC BY-NC-SA 4.0](./LICENSE.content.md)
 
-
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
@@ -13,17 +12,7 @@ Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduct
 Make sure to install dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+just clean-install
 ```
 
 ## Development Server
@@ -31,51 +20,71 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+just dev
 ```
 
 ## Production
 
+> Run `just deploy` or `just v` after pushing to the remote in most cases; Cloudflare Pages will handle the rest.
+
 Build the application for production:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+just clean-generate
 ```
 
 Locally preview production build:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+just preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Deploy to production server:
+
+```bash
+just deploy
+```
+
+### Semantic Versioning with deployment
+
+Get the current version from package.json:
+
+```bash
+just version
+```
+
+Bump version:
+
+```bash
+just v <major|minor|patch>
+```
+
+Tag a pre-release version:
+
+```bash
+just v-pre <alpha|beta|rc>
+```
+
+## Linting
+
+Lint code:
+
+```bash
+just lint
+```
+
+Fix linting issues:
+
+```bash
+just lint-fix
+```
+
+## Scripts
+
+### Compress audio file:
+
+64 kbps, 44.1 kHz, mono mp3
+
+```bash
+ffmpeg -i input.wav -ac 1 -ar 44100 -b:a 64k output.mp3
+```
