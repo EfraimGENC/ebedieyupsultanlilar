@@ -147,7 +147,7 @@ const personTabs = ref<TabsItem[]>([
 
 const breadcrumbItems = ref<BreadcrumbItem[]>([
   {
-    icon: 'i-lucide-house',
+    icon: 'tabler:home',
     to: localePath('index'),
   },
   {
