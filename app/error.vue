@@ -34,8 +34,9 @@ onMounted(() => {
 
 <template>
   <div class="min-h-dvh bg-gradient-to-b from-white to-gray-200 dark:from-gray-900 dark:to-gray-950">
-    <UContainer class="w-full max-w-xl mx-auto p-4 pt-6">
-      <div class="mx-auto max-w-3xl">
+    <UContainer class="w-full max-w-xl mx-auto">
+      <div class="mx-auto max-w-3xl flex flex-col items-center justify-center gap-6 py-12">
+        <UIFuzzyText :text="statusCode.toString()" font-size="9rem" color="warning" />
         <UCard class="shadow-lg">
           <template #header>
             <div class="flex items-start gap-4">
@@ -103,7 +104,7 @@ onMounted(() => {
           </template>
         </UCard>
 
-        <div class="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
+        <div class="text-center text-sm text-slate-500 dark:text-slate-400">
           <p>
             {{ t('errorPage.contactNote') }}
           </p>
