@@ -166,7 +166,7 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
 <template>
   <div>
     <!-- Breadcrumb -->
-    <UBreadcrumb :items="breadcrumbItems" class="mb-2"
+    <UBreadcrumb :items="breadcrumbItems" separator-icon="tabler:chevron-right" class="mb-2"
       :ui="{ list: 'gap-0', link: 'gap-1', linkLeadingIcon: 'size-3', linkLabel: 'text-xs' }" />
 
     <!-- Hero -->
