@@ -126,6 +126,7 @@ const isActiveNavItem = (navTo: string) => {
           <div class="text-center">
             <p class="text-gray-600 dark:text-gray-400 text-sm">
               © 2025-{{ currentYear }} Ebedî Eyüpsultanlılar.
+              <span class="inline-block">{{ $t('footer.rights') }}</span>
             </p>
             <p class="text-gray-500 dark:text-gray-600 text-xs mt-1">
               {{ $t('footer.version', { version: appVersion }) }}
