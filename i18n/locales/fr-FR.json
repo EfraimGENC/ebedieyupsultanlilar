@@ -17,7 +17,8 @@
     "about": "À propos"
   },
   "footer": {
-    "rights": "Tous droits réservés."
+    "rights": "Tous droits réservés.",
+    "version": "Version: { version }"
   },
   "common": {
     "more": "plus",

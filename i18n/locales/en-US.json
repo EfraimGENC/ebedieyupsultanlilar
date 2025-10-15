@@ -17,7 +17,8 @@
     "about": "About"
   },
   "footer": {
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "version": "Version: { version }"
   },
   "common": {
     "more": "more",

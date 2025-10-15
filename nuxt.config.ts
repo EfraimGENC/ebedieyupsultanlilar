@@ -1,4 +1,4 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import pkg from "./package.json";
 
 // i18n config'i paylaşımlı olarak tanımla
 const i18nConfig = {
@@ -32,6 +32,12 @@ export default defineNuxtConfig({
     "nuxt-seo-utils",
     "nuxt-gtag",
   ],
+
+  runtimeConfig: {
+    public: {
+      appVersion: pkg.version,
+    },
+  },
 
   css: ["~/assets/css/main.css"],
 

@@ -158,12 +158,11 @@ useSeoMeta({
 
             <!-- Content -->
             <div class="p-6">
-              <div class="flex items-center justify-between mb-2">
-                <span
-                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <UBadge size="md" class="rounded-full truncate">
                   {{ person.category }}
-                </span>
-                <div v-if="person.birth?.year && person.death?.year" class="text-sm text-gray-500">
+                </UBadge>
+                <div v-if="person.birth?.year && person.death?.year" class="text-sm text-gray-500 whitespace-nowrap">
                   {{ person.birth?.year }} - {{ person.death?.year }}
                 </div>
               </div>

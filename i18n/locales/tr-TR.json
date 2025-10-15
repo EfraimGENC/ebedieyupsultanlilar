@@ -17,7 +17,8 @@
     "about": "Hakkında"
   },
   "footer": {
-    "rights": "Tüm hakları saklıdır."
+    "rights": "Tüm hakları saklıdır.",
+    "version": "Sürüm: { version }"
   },
   "common": {
     "more": "fazla",
