@@ -14,6 +14,7 @@ const partialDateBase = z.object({
   year: z.number().int().min(1).max(3000).optional(),
   month: z.number().int().min(1).max(12).optional(),
   day: z.number().int().min(1).max(31).optional(),
+  circa: z.boolean().default(false),
 });
 
 const partialDateWithPlace = partialDateBase
