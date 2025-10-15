@@ -11,7 +11,7 @@ death:
   month: 12
   year: 1988
   place: "İstanbul"
-category: "Yazar ve Mütefekkir"
+category: "Şair ve Yazarlar"
 tags:
   - Türk-İslam Ülküsü
   - Kendini Arayan İnsan

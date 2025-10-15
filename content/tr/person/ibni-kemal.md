@@ -11,7 +11,7 @@ death:
   month: April
   year: 1533
   place: İstanbul
-category: Din Adamı
+category: "Âlimler ve Mutasavvıflar"
 tags:
   - Alim
   - Şeyhülislam

@@ -11,7 +11,7 @@ death:
   month: 11
   year: 1577
   place: "İstanbul"
-category: "Devlet Adamı"
+category: "Devlet Adamları"
 tags:
   - Vezir
   - Şehzade Mustafa

@@ -11,7 +11,7 @@ death:
   month: 6
   year: 1933
   place: "İstanbul"
-category: "Şair ve Yazar"
+category: "Şair ve Yazarlar"
 tags:
   - Sembolizm
   - Empresyonizm

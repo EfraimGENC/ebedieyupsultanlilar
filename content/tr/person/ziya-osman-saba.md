@@ -11,7 +11,7 @@ death:
   month: 1
   year: 1957
   place: "İstanbul"
-category: "Şair ve Yazar"
+category: "Şair ve Yazarlar"
 tags:
   - Yedi Meşaleciler
   - anı ve hüzün

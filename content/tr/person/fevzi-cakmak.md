@@ -11,7 +11,7 @@ death:
   month: 4
   year: 1950
   place: "İstanbul"
-category: "Devlet Adamı"
+category: "Devlet Adamları"
 tags:
   - Mareşal
   - Genelkurmay Başkanı

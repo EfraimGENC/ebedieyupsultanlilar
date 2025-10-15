@@ -11,7 +11,7 @@ death:
   month:
   year: 1602
   place: "İstanbul, Osmanlı İmparatorluğu"
-category: "Devlet Adamı"
+category: "Devlet Adamları"
 tags:
   - Sadrazam
   - III. Murad

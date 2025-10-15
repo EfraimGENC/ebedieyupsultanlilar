@@ -11,7 +11,7 @@ death:
   month: 3
   year: 1978
   place: ""
-category: "Toplum Önderi"
+category: "Halk Büyükleri"
 tags:
   - Denizcilik
   - Mavnacılık

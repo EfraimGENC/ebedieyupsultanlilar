@@ -11,7 +11,7 @@ death:
   month: 4
   year: 1971
   place: "İstanbul"
-category: "Yazar"
+category: "Şair ve Yazarlar"
 tags:
   - Risale-i Nur
   - Dava Adamı

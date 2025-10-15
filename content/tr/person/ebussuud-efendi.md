@@ -9,7 +9,7 @@ birth:
 death:
   year: 1574
   place: İstanbul
-category: Din Adamı
+category: "Âlimler ve Mutasavvıflar"
 tags:
   - Şeyhülislam
   - Osmanlı Hukuku

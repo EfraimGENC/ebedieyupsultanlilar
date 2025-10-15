@@ -11,7 +11,7 @@ death:
   month:
   year: 1556
   place: "İstanbul"
-category: "Nakkaş (Ressam)"
+category: "Sanatçılar"
 tags:
   - Saz Yolu
   - Sernakkaş

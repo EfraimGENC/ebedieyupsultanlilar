@@ -11,7 +11,7 @@ death:
   month: 7
   year: 1533
   place: "İstanbul"
-category: "Devlet Adamı"
+category: "Devlet Adamları"
 tags:
   - Kaptan-ı Derya
   - Rodos Fethi

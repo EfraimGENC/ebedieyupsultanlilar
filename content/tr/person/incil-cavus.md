@@ -11,7 +11,7 @@ death:
   month: 
   year: 1633
   place: ""
-category: "Halk Bilgesi ve Nüktedan"
+category: "Sanatçılar"
 tags:
   - Nükte
   - Hazırcevap

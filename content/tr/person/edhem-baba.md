@@ -11,7 +11,7 @@ death:
   month:
   year: 1460
   place: "İstanbul"
-category: "Veli"
+category: "Devlet Adamları"
 tags:
   - Fetih
   - Maneviyat

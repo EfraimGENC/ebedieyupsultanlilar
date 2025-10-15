@@ -11,7 +11,7 @@ death:
   month: 6
   year: 1885
   place: "İstanbul"
-category: "Bestekâr"
+category: "Sanatçılar"
 tags:
   - Şarkı
   - Kürdîlihicazkâr

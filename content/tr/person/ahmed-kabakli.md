@@ -11,7 +11,7 @@ death:
   month: 2
   year: 2001
   place: "İstanbul"
-category: "Yazar ve Fikir Adamı"
+category: "Şair ve Yazarlar"
 tags:
   - Türk Edebiyatı
   - Milli Düşünce

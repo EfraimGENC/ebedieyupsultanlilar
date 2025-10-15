@@ -11,7 +11,7 @@ death:
   month: 5
   year: 1924
   place: "İstanbul"
-category: "Sanatçı"
+category: "Sanatçılar"
 tags:
   - Türk Sanat Müziği
   - Bestekâr

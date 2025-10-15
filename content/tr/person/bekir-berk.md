@@ -11,7 +11,7 @@ death:
   month: 6
   year: 1992
   place: "İstanbul, Fatih"
-category: "Hukukçu ve Yazar"
+category: "Şair ve Yazarlar"
 tags:
   - Risale-i Nur
   - Dava Adamı

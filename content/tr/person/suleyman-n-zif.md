@@ -11,7 +11,7 @@ death:
   month: 1
   year: 1927
   place: "İstanbul"
-category: "Şair ve Yazar"
+category: "Şair ve Yazarlar"
 tags:
   - Vatanseverlik
   - Servet-i Fünûn

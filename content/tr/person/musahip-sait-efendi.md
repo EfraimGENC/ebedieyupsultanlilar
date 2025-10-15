@@ -11,7 +11,7 @@ death:
   month:
   year: 1856
   place: "İstanbul"
-category: "Sanatçı"
+category: "Sanatçılar"
 tags:
   - Musahip
   - II. Mahmud

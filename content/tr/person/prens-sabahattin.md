@@ -11,7 +11,7 @@ death:
   month: 6
   year: 1948
   place: "Neuchâtel, İsviçre"
-category: "Düşünür"
+category: "Devlet Adamları"
 tags:
   - Adem-i Merkeziyetçilik
   - Liberalizm

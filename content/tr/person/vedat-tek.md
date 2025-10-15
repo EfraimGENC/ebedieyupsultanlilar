@@ -11,7 +11,7 @@ death:
   month: 11
   year: 1942
   place: "İstanbul"
-category: "Mimar"
+category: "Sanatçılar"
 tags:
   - Birinci Ulusal Mimarlık Akımı
   - Osmanlı Mimarisi

@@ -9,7 +9,7 @@ birth:
 death:
   year: 1991
   place: İstanbul
-category: Din Adamı
+category: "Âlimler ve Mutasavvıflar"
 tags:
   - İslam Alimi
   - Vaiz

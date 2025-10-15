@@ -11,7 +11,7 @@ death:
   month: 12
   year: 1780
   place: "İstanbul, Osmanlı İmparatorluğu"
-category: "Şair"
+category: "Şair ve Yazarlar"
 tags:
   - Divan Edebiyatı
   - Kadın Şair

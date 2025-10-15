@@ -12,7 +12,7 @@ death:
   month: 6
   year: 1746
   place: "İstanbul"
-category: "Devlet Adamı"
+category: "Devlet Adamları"
 tags:
   - Darüssaade Ağası
   - Hayırseverlik

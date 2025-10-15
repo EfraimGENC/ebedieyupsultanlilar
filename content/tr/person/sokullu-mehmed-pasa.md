@@ -11,7 +11,7 @@ death:
   month: 10
   year: 1579
   place: "İstanbul, Osmanlı İmparatorluğu"
-category: "Devlet Adamı"
+category: "Devlet Adamları"
 tags:
   - Sadrazam
   - Üç Padişah Dönemi

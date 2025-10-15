@@ -11,7 +11,7 @@ death:
   month: 
   year: 1943
   place: "İstanbul"
-category: "Sanatçı"
+category: "Sanatçılar"
 tags:
   - Tuluat
   - Ortaoyunu

@@ -11,7 +11,7 @@ death:
   month: 5
   year: 1944
   place: "Ankara"
-category: "Şair ve Yazar"
+category: "Şair ve Yazarlar"
 tags:
   - Düşünür
   - Divan Edebiyatı

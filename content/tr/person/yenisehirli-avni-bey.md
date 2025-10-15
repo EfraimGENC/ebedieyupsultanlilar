@@ -11,7 +11,7 @@ death:
   month: 10
   year: 1884
   place: "İstanbul"
-category: "Şair"
+category: "Şair ve Yazarlar"
 tags:
   - Divan Şiiri
   - Tanzimat Dönemi

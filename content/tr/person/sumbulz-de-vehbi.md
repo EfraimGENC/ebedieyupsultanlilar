@@ -11,7 +11,7 @@ death:
   month: 4
   year: 1809
   place: "İstanbul"
-category: "Şair"
+category: "Şair ve Yazarlar"
 tags:
   - Divan Edebiyatı
   - Lutfiyye

@@ -11,7 +11,7 @@ death:
   month:
   year: 1910
   place: "Eyüp, İstanbul"
-category: "Sanatçı"
+category: "Sanatçılar"
 tags:
   - Klasik Türk Müziği
   - Bestekâr

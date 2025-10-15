@@ -11,7 +11,7 @@ death:
   month: 5
   year: 1902
   place: "İstanbul, Osmanlı İmparatorluğu"
-category: "Pehlivan"
+category: "Halk Büyükleri"
 tags:
   - Cihan Pehlivanı
   - Deliorman

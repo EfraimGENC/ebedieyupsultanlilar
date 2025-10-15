@@ -11,7 +11,7 @@ death:
   month: 10
   year: 2001
   place: "İstanbul"
-category: "Alim ve Yazar"
+category: "Şair ve Yazarlar"
 tags:
   - Tam İlmihal
   - Seâdet-i Ebediyye

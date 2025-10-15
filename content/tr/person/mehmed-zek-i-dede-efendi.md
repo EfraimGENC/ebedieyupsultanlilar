@@ -11,7 +11,7 @@ death:
   month: 11
   year: 1897
   place: "İstanbul, Eyüp"
-category: "Sanatçı"
+category: "Sanatçılar"
 tags:
   - Klasik Türk Mûsikîsi
   - Mevlevî

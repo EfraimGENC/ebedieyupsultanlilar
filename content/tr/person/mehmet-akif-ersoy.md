@@ -7,7 +7,7 @@ birth:
 death:
   year: 1936
   place: 'Beyoğlu, İstanbul'
-category: Şair
+category: "Şair ve Yazarlar"
 tags:
   - millî şair
   - İstiklâl Marşı

@@ -11,7 +11,7 @@ death:
   month: 2
   year: 1969
   place: "Eyüp, İstanbul"
-category: "Sanatçı"
+category: "Sanatçılar"
 tags:
   - Klasik Türk Mûsikîsi
   - Dini Mûsiki

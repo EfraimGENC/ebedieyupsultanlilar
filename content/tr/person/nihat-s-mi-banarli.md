@@ -11,7 +11,7 @@ death:
   month: 8
   year: 1974
   place: "İstanbul"
-category: "Edebiyat Tarihçisi"
+category: "Şair ve Yazarlar"
 tags:
   - Türk Edebiyatı Tarihi
   - Dil Şuuru

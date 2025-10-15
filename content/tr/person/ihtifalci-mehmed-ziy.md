@@ -11,7 +11,7 @@ death:
   month: 3
   year: 1930
   place: "İstanbul"
-category: "Tarihçi ve Yazar"
+category: "Devlet Adamları"
 tags:
   - İhtifal
   - Milli Hafıza

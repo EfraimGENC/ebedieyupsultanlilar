@@ -11,7 +11,7 @@ death:
   month:
   year: 1879
   place: "Eyüp, İstanbul"
-category: "Sanatçı"
+category: "Sanatçılar"
 tags:
   - Hat Sanatı
   - Sülüs-Nesih

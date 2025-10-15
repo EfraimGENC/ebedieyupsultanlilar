@@ -11,7 +11,7 @@ death:
   month: 6
   year: 1927
   place: "İstanbul"
-category: "Ressam"
+category: "Sanatçılar"
 tags:
   - 1914 Kuşağı
   - Sembolizm

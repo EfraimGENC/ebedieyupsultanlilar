@@ -11,7 +11,7 @@ death:
   month: 
   year: 1595
   place: "İstanbul"
-category: "Devlet Adamı"
+category: "Devlet Adamları"
 tags:
   - Sadrazam
   - Ferhat Paşa Antlaşması

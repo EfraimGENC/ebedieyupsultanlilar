@@ -11,7 +11,7 @@ death:
   month:
   year: 1571
   place: "İstanbul"
-category: "Âlim / Kazasker"
+category: "Âlimler ve Mutasavvıflar"
 tags:
   - Osmanlı
   - İlmiye

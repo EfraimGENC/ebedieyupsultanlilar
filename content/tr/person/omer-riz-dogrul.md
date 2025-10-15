@@ -11,7 +11,7 @@ death:
   month: 3
   year: 1952
   place: "İstanbul, Türkiye"
-category: "Yazar"
+category: "Şair ve Yazarlar"
 tags:
   - İslamcılık
   - Kur'an tefsiri

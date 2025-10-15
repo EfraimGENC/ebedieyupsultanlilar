@@ -11,7 +11,7 @@ death:
   month: 1
   year: 1587
   place: "Eyüp, İstanbul"
-category: "Devlet Adamı"
+category: "Devlet Adamları"
 tags:
   - Vezir
   - Hayırseverlik

@@ -11,7 +11,7 @@ death:
   month: 5
   year: 1907
   place: "İstanbul"
-category: "Ressam"
+category: "Sanatçılar"
 tags:
   - Batılılaşma
   - Natürmort

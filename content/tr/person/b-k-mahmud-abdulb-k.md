@@ -11,7 +11,7 @@ death:
   month: 4
   year: 1600
   place: "İstanbul"
-category: "Şair"
+category: "Şair ve Yazarlar"
 tags:
   - Sultanü'ş-şuara
   - Divan Edebiyatı

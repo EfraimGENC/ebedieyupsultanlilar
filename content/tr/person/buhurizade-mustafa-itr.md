@@ -11,7 +11,7 @@ death:
   month: 1
   year: 1712
   place: "İstanbul"
-category: "Sanatçı"
+category: "Sanatçılar"
 tags:
   - Klasik Türk Musikisi
   - Bestekâr

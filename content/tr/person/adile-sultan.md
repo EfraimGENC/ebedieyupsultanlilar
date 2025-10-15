@@ -11,7 +11,7 @@ death:
   month: 2
   year: 1899
   place: "İstanbul"
-category: "Şair, Hayırsever, Hanım Sultan"
+category: "Hanedan ve Saray Mensupları"
 tags:
   - Divan Edebiyatı
   - Hayırseverlik

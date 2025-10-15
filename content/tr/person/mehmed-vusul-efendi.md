@@ -11,7 +11,7 @@ death:
   month: 
   year: 1589
   place: "İstanbul"
-category: "Şair, Alim, Devlet Adamı"
+category: "Şair ve Yazarlar"
 tags:
   - Divan Edebiyatı
   - Selimnâme
