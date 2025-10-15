@@ -26,5 +26,5 @@ Bulgaristan'ın güreşçiler diyarı Deliorman'da doğan Kara Ahmet, 20'li yaş
 
 ## Kaynaklar
 
-- [Kaynak 1](url1)
-- [Kaynak 2](url2)
+- [Wikipedia](https://tr.wikipedia.org/wiki/Kara_Ahmed)
+- [Eyupsultan Belediyesi](https://www.eyupsultan.bel.tr/tr/main/pages/cihan-pehlivani-kara-ahmed/1190)
