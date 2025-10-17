@@ -161,6 +161,9 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
     to: localePath({ name: 'person-slug', params: { slug: (person.value?.path?.split('/').pop() || slug.value) } })
   }
 ])
+
+// Make external links in prose content open in new tab
+useExternalLinks('.prose-content')
 </script>
 
 <template>
@@ -251,7 +254,7 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
 
     <!-- Bio -->
     <h2 class="text-2xl font-bold mb-4">{{ $t('person.bio') }}</h2>
-    <section class="prose prose-invert">
+    <section class="prose prose-invert prose-content">
       <ContentRenderer v-if="person" :value="person" />
     </section>
 
@@ -332,5 +335,18 @@ const breadcrumbItems = ref<BreadcrumbItem[]>([
   line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Optional: Add external link indicator */
+.prose-content :deep(a[target="_blank"])::after {
+  content: "↗";
+  margin-left: 0.2em;
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
+/* Optional: Add hover effect for external links */
+.prose-content :deep(a[target="_blank"]:hover) {
+  text-decoration: underline;
 }
 </style>
