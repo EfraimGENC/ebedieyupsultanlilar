@@ -64,7 +64,7 @@ useSeoMeta({
 const openEmail = () => {
   if (import.meta.client) {
     // "eyup@ebedieyupsultanlilar.com" şifrelenmiş hali
-    const encoded = 'bW9jLnJhbGluc3VzcHV5ZWlkZWJlQHB1eWU='
+    const encoded = 'bW9jLnJhbGlsbmF0bHVzcHV5ZWlkZWJlQHB1eWU='
     const decoded = atob(encoded).split('').reverse().join('')
     window.location.href = `mailto:${decoded}`
   }
