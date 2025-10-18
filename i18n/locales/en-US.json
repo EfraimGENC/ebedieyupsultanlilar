@@ -77,6 +77,11 @@
   },
   "about": {
     "authorSubtitle": "Mayor of Eyüpsultan from 1994 to 2008.",
-    "title": "About"
+    "title": "About",
+    "contact": {
+      "title": "Contact",
+      "description": "Get in touch with us for suggestions, complaints or feedback.",
+      "button": "Send Email"
+    }
   }
 }

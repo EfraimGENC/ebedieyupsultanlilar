@@ -77,6 +77,11 @@
   },
   "about": {
     "authorSubtitle": "Maire d'Eyüpsultan de 1994 à 2008.",
-    "title": "À propos"
+    "title": "À propos",
+    "contact": {
+      "title": "Contact",
+      "description": "Contactez-nous pour vos suggestions, réclamations ou commentaires.",
+      "button": "Envoyer un e-mail"
+    }
   }
 }

@@ -77,6 +77,11 @@
   },
   "about": {
     "authorSubtitle": "Eyüpsultan 1994-2008 belediye başkanı.",
-    "title": "Hakkında"
+    "title": "Hakkında",
+    "contact": {
+      "title": "İletişim",
+      "description": "Öneri, şikayet veya geri bildirimleriniz için bizimle iletişime geçin.",
+      "button": "E-posta Gönder"
+    }
   }
 }
