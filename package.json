@@ -5,11 +5,12 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate && pnpm run generate-llms",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "tts": "tsx script/tts.ts",
-    "compress-all-audio": "tsx script/compress-audio.ts"
+    "compress-all-audio": "tsx script/compress-audio.ts",
+    "generate-llms": "tsx script/generate-llms.ts"
   },
   "dependencies": {
     "@nuxt/content": "^3.7.1",

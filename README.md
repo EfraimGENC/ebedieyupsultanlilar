@@ -95,3 +95,13 @@ ffmpeg -i input.wav -ac 1 -ar 44100 -b:a 64k output.mp3
 pnpm run tts <path-to-markdown-file>
 # Example: pnpm run tts content/tr/person/ibni-kemal.md
 ```
+
+### Generate LLM Documentation Files
+Generate `llms.txt` files for all persons (automatically runs after `pnpm generate`):
+```bash
+pnpm run generate-llms
+```
+
+LLM documentation files are automatically created during the build process:
+- Main file: `/llms.txt` - Overview of the project
+- Person files: `/person/[slug]/llms.txt` - Individual biographies

@@ -98,3 +98,7 @@ v-pre preid:
 # version: Get the current version from package.json
 version:
     @echo "Current version: v$(node -p 'require("./package.json").version')"
+
+# generate-llms: Generate llms.txt files for all persons
+generate-llms:
+    @pnpm run generate-llms
