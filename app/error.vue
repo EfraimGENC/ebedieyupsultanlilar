@@ -17,6 +17,11 @@ const goHome = () => clearError({ redirect: '/' })
 const goBack = () => router.back()
 const retry = () => window.location.reload()
 
+// E-posta adresini botlardan korumak için şifrelenmiş versiyon
+// Base64 + ters çevirme kombinasyonu
+// Avoid SSR/CSR hydration mismatch by generating link only on client
+const emailLink = ref<string>("#")
+
 useHead(() => ({
   title: `${statusCode.value} · ${title.value}`,
 }))
@@ -29,6 +34,13 @@ onMounted(() => {
   } catch {
     now.value = new Date().toLocaleString()
   }
+  
+  // E-posta linkini client-side'da oluştur
+  // "eyup@ebedieyupsultanlilar.com" şifrelenmiş hali
+  const encoded = 'bW9jLnJhbGlsbmF0bHVzcHV5ZWlkZWJlQHB1eWU='
+  const decoded = atob(encoded).split('').reverse().join('')
+  const subject = encodeURIComponent(t('errorPage.emailSubjectPrefix') + statusCode.value)
+  emailLink.value = `mailto:${decoded}?subject=${subject}`
 })
 </script>
 
@@ -86,9 +98,7 @@ onMounted(() => {
                 <UIcon name="tabler:lifebuoy" class="size-4" />
                 {{ t('errorPage.needHelp') }}
               </div>
-              <UButton color="neutral" size="sm" variant="ghost"
-                :to="'mailto:eyup@ebedieyupsultanlilar.com?subject=' + encodeURIComponent(t('errorPage.emailSubjectPrefix') + statusCode)"
-                icon="tabler:mail">
+              <UButton color="neutral" size="sm" variant="ghost" :to="emailLink" icon="tabler:mail">
                 {{ t('errorPage.report') }}
               </UButton>
             </div>
