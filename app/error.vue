@@ -87,7 +87,7 @@ onMounted(() => {
                 {{ t('errorPage.needHelp') }}
               </div>
               <UButton color="neutral" size="sm" variant="ghost"
-                :to="'mailto:info@ebedieyupsultanlilar.com?subject=' + encodeURIComponent(t('errorPage.emailSubjectPrefix') + statusCode)"
+                :to="'mailto:eyup@ebedieyupsultanlilar.com?subject=' + encodeURIComponent(t('errorPage.emailSubjectPrefix') + statusCode)"
                 icon="tabler:mail">
                 {{ t('errorPage.report') }}
               </UButton>
