@@ -48,8 +48,15 @@ const LOCALE_NAMES: Record<string, string> = {
   fr: 'Français',
 };
 
+// Her dil için route path'leri
+const LOCALE_ROUTES: Record<string, string> = {
+  tr: 'kisi',
+  en: 'person',
+  fr: 'personne',
+};
+
 const CONTENT_DIR = join(process.cwd(), 'content');
-const OUTPUT_DIR = join(process.cwd(), '.output', 'public', 'person');
+const OUTPUT_DIR = join(process.cwd(), '.output', 'public');
 
 /**
  * Markdown içeriğini temizler ve LLM için uygun hale getirir
@@ -148,8 +155,9 @@ function formatLLMContent(data: LLMContent, allLocales: Map<string, LLMContent>)
     for (const [locale, localeData] of allLocales.entries()) {
       if (locale !== data.locale) {
         const localeName = LOCALE_NAMES[locale] || locale;
+        const routePath = LOCALE_ROUTES[locale];
         const prefix = locale === 'tr' ? '' : `/${locale}`;
-        lines.push(`- **${localeName}**: ${prefix}/person/${localeData.slug}/llms.txt`);
+        lines.push(`- **${localeName}**: ${prefix}/${routePath}/${localeData.slug}/llms.txt`);
       }
     }
     
@@ -200,8 +208,17 @@ async function generateLLMFilesForPerson(slug: string): Promise<void> {
   }
 
   for (const [locale, data] of allLocales.entries()) {
-    const prefix = locale === 'tr' ? '' : `/${locale}`;
-    const outputDir = join(OUTPUT_DIR, data.slug);
+    const routePath = LOCALE_ROUTES[locale];
+    const localePrefix = locale === 'tr' ? '' : `/${locale}`;
+    
+    // Output directory: tr için kisi/, en için en/person/, fr için fr/personne/
+    let outputDir: string;
+    if (locale === 'tr') {
+      outputDir = join(OUTPUT_DIR, routePath, data.slug);
+    } else {
+      outputDir = join(OUTPUT_DIR, locale, routePath, data.slug);
+    }
+    
     const outputPath = join(outputDir, 'llms.txt');
 
     // Dizini oluştur
@@ -213,7 +230,7 @@ async function generateLLMFilesForPerson(slug: string): Promise<void> {
     // Dosyayı yaz
     await fs.writeFile(outputPath, llmContent, 'utf-8');
 
-    console.log(`✅ ${prefix}/person/${slug}/llms.txt oluşturuldu`);
+    console.log(`✅ ${localePrefix}/${routePath}/${slug}/llms.txt oluşturuldu`);
   }
 }
 

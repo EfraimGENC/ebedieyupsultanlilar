@@ -104,4 +104,12 @@ pnpm run generate-llms
 
 LLM documentation files are automatically created during the build process:
 - Main file: `/llms.txt` - Overview of the project
-- Person files: `/person/[slug]/llms.txt` - Individual biographies
+- Turkish: `/kisi/[slug]/llms.txt` - Individual biographies in Turkish
+- English: `/en/person/[slug]/llms.txt` - Individual biographies in English
+- French: `/fr/personne/[slug]/llms.txt` - Individual biographies in French
+
+Example URLs:
+- `https://www.ebedieyupsultanlilar.com/llms.txt`
+- `https://www.ebedieyupsultanlilar.com/kisi/mehmet-akif-ersoy/llms.txt`
+- `https://www.ebedieyupsultanlilar.com/en/person/mehmet-akif-ersoy/llms.txt`
+- `https://www.ebedieyupsultanlilar.com/fr/personne/mehmet-akif-ersoy/llms.txt`
