@@ -179,19 +179,28 @@ useExternalLinks('.prose-content')
         <UIcon v-if="!person?.cover" name="i-tabler-user-circle" class="text-7xl text-gray-400" />
       </div>
       <div class="p-4">
+        <!-- Birth and Death Years -->
         <span class="text-sm text-toned">{{ person?.birth?.year }} — {{ person?.death?.year }}</span>
+
+        <!-- Name -->
         <h1 class="text-xl font-bold mb-0">
           {{ person?.title }}
         </h1>
+
+        <!-- Category and Description -->
         <p class="text-sm text-toned mb-0">
           <strong>{{ person?.category }}</strong> • {{ person?.description }}
         </p>
+
+        <!-- Tags -->
         <div class="flex gap-2 mt-2 flex-wrap">
           <UBadge v-for="tag in person?.tags" :key="tag" :label="tag" variant="outline" icon="tabler:hash"
             color="neutral" />
         </div>
+
+        <!-- Action Buttons -->
         <div class="flex gap-2 mt-3">
-          <UButton variant="soft" icon="tabler:map" class="flex-1">Mezar Yol Tarifi</UButton>
+          <UButton variant="soft" icon="tabler:map" class="flex-1" disabled>Mezar Yol Tarifi</UButton>
           <UButton variant="soft" icon="tabler:share" class="flex-1" @click="shareContent">
             {{ $t('common.share') }}
           </UButton>
@@ -201,6 +210,7 @@ useExternalLinks('.prose-content')
 
     <!-- Quick Facts -->
     <section class="grid grid-cols-2 gap-3 mb-4">
+      <!-- Born -->
       <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-100/50 dark:bg-gray-800/50">
         <div class="flex align-middle content-center">
           <UIcon name="tabler:calendar" class="text-primary me-1" />
@@ -214,6 +224,8 @@ useExternalLinks('.prose-content')
           </p>
         </div>
       </div>
+
+      <!-- Died -->
       <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-100/50 dark:bg-gray-800/50">
         <div class="flex align-middle content-center">
           <UIcon name="tabler:calendar-x" class="text-primary me-1" />
@@ -225,14 +237,20 @@ useExternalLinks('.prose-content')
           {{ person?.death?.year }}{{ person?.death?.place ? ` • ${person?.death?.place}` : '' }}
         </p>
       </div>
-      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-100/50 dark:bg-gray-800/50">
+
+      <!-- Burial Place -->
+      <div v-if="false"
+        class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-100/50 dark:bg-gray-800/50">
         <div class="flex align-middle content-center">
           <UIcon name="tabler:map" class="text-primary me-1" />
           <h3 class="text-sm font-semibold text-green-400 mb-0">Defin Yeri</h3>
         </div>
         <p class="text-xs mb-0">Eyüp Mezarlığı, Ada 12 / Parsel 34</p>
       </div>
-      <div class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-100/50 dark:bg-gray-800/50">
+
+      <!-- Languages -->
+      <div v-if="false"
+        class="p-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-100/50 dark:bg-gray-800/50">
         <div class="flex align-middle content-center">
           <UIcon name="tabler:language" class="text-primary me-1" />
           <h3 class="text-sm font-semibold text-green-400 mb-0">Diller</h3>
@@ -244,6 +262,7 @@ useExternalLinks('.prose-content')
           </NuxtLink>
         </p>
       </div>
+
     </section>
 
     <!-- Tabs -->
