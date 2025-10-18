@@ -33,22 +33,6 @@ export default defineNuxtConfig({
     "nuxt-gtag",
   ],
 
-  hooks: {
-    'nitro:build:public-assets': async () => {
-      // Ana llms.txt dosyasını public'e kopyala
-      const fs = await import('fs/promises');
-      const path = await import('path');
-      const sourcePath = path.join(process.cwd(), 'llms.txt');
-      const destPath = path.join(process.cwd(), '.output', 'public', 'llms.txt');
-      try {
-        await fs.copyFile(sourcePath, destPath);
-        console.log('✅ llms.txt kopyalandı');
-      } catch (error) {
-        console.error('❌ llms.txt kopyalanamadı:', error);
-      }
-    }
-  },
-
   runtimeConfig: {
     public: {
       appVersion: pkg.version,
