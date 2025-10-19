@@ -89,7 +89,7 @@ const isActiveNavItem = (navTo: string) => {
     </Head>
 
     <Body
-      class="min-h-dvh bg-gradient-to-b from-white to-gray-200 dark:from-gray-900 dark:to-gray-950 dark:text-gray-100 font-sans pb-safe">
+      class="min-h-dvh bg-gradient-to-b from-gray-200 to-gray-100 dark:from-gray-950 dark:to-gray-900 dark:text-gray-100 font-sans pb-safe">
       <!-- Topbar -->
       <header class="sticky top-0 z-50 backdrop-blur shadow bg-gray-100/50 dark:bg-gray-900/50 ">
         <div class="flex items-center justify-between max-w-xl mx-auto px-4 py-2">
