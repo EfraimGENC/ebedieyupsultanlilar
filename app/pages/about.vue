@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bg-gray-50/20 dark:bg-gray-900/20 rounded-2xl py-8">
+    <div class="bg-gray-50/20 dark:bg-gray-900/20 rounded-2xl p-6 shadow">
       <div class="max-w-7xl mx-auto">
         <p>Müzeyyen bir çeşme kıldı, du‘âsı müstecâb olsun.<br>
           Delîlin Hazret-i Allah, şefî‘in Mustafa olsun.<br>
@@ -11,8 +11,10 @@
       </div>
     </div>
 
+    <img src="/about/ebedi-eyupsultanlilar-cesmesi.jpg" alt="Ebedi Eyüpsultanlılar Çeşmesi"
+      class="my-4 rounded-2xl shadow" />
 
-    <h1>{{ $t('about.title') }}</h1>
+    <h1 class="text-4xl text-center sm:text-start">Ebedi Eyüpsultanlılar Çeşmesi</h1>
 
     <p>Eyüpsultan, İstanbul’un kalbinde tarih ile ebediyetin iç içe geçtiği müstesna bir beldedir. Asırlar boyunca
       padişahların tahta çıkmadan önce dua için geldiği, gönül sultanlarının burada medfun bulunduğu bu topraklar, her
@@ -27,7 +29,7 @@
       derin bir anlam
       taşıyor.</p>
 
-    <h3>Tarihi Mirasa Saygı</h3>
+    <h2 class="text-2xl mb-2">Tarihi Mirasa Saygı</h2>
 
     <p>1994–2008 yılları arasında Eyüpsultan’da üç dönem boyunca belediye başkanlığı yapan <strong>Ahmet GENÇ</strong>,
       görevi süresince
@@ -44,7 +46,7 @@
       bir anıt. Her bir isim, bu beldenin ruhunu ve kimliğini oluşturan birer damla gibi, çeşmenin suyunda yankılanıyor.
     </p>
 
-    <h4>Nesiller Arası Köprü</h4>
+    <h2 class="text-2xl mb-2">Nesiller Arası Köprü</h2>
 
     <p>Ahmet Genç'in bu hayratına, oğlu <strong>Muhammed Efraim Genç</strong>'in dokunuşlarıyla modern bir katkı sunuldu
       ve
