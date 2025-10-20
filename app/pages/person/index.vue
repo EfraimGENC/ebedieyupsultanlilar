@@ -162,8 +162,8 @@ useSeoMeta({
                 <UBadge size="md" class="rounded-full truncate">
                   {{ person.category }}
                 </UBadge>
-                <div v-if="person.birth?.year && person.death?.year" class="text-sm text-gray-500 whitespace-nowrap">
-                  {{ person.birth?.year }} - {{ person.death?.year }}
+                <div class="text-sm text-gray-500 whitespace-nowrap">
+                  {{ person.birth?.year || '?' }} - {{ person.death?.year || '?' }}
                 </div>
               </div>
 
