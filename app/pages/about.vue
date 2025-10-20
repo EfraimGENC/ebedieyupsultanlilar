@@ -1,15 +1,69 @@
 <template>
   <div>
+    <div class="bg-gray-50/20 dark:bg-gray-900/20 rounded-2xl py-8">
+      <div class="max-w-7xl mx-auto">
+        <p>Müzeyyen bir çeşme kıldı, du‘âsı müstecâb olsun.<br>
+          Delîlin Hazret-i Allah, şefî‘in Mustafa olsun.<br>
+          Bir içen bir dahî içe, içenlere şifâ olsun.<br>
+          Re’îs Ahmed GENÇ’den, Eyüpsultân’a hediyye olsun.</p>
+        <p class="m-0">— Hafız Efraim GENÇ</p>
+        <span class="text-dimmed font-light">Ahmet GENÇ'in Babası</span>
+      </div>
+    </div>
+
+
     <h1>{{ $t('about.title') }}</h1>
-    <p>Müzeyyen bir çeşme kıldı, du‘âsı müstecâb olsun.<br>
-      Delîlin Hazret-i Allah, şefî‘in Mustafa olsun.<br>
-      Bir içen bir dahî içe, içenlere şifâ olsun.<br>
-      Re’îs Ahmed GENÇ’den, Eyüpsultân’a hediyye olsun.</p>
-    <p class="m-0">— Hafız Efraim GENÇ</p>
-    <span class="text-dimmed font-light">Ahmet GENÇ'in Babası</span>
+
+    <p>Eyüpsultan, İstanbul’un kalbinde tarih ile ebediyetin iç içe geçtiği müstesna bir beldedir. Asırlar boyunca
+      padişahların tahta çıkmadan önce dua için geldiği, gönül sultanlarının burada medfun bulunduğu bu topraklar, her
+      bir kabriyle birer tarih sahifesi gibidir. Bu beldenin asıl sahibi, Allah Resûlü’nün mihmandarı Ebu Eyyûb
+      el-Ensârî Hazretleri’dir; diğer tüm büyükler onun aziz komşularıdır. Bizler ise bu kutlu beldede sadece misafiriz.
+    </p>
+
+    <p>Tarihin kalbi Eyüpsultan'da, ebedi bir vefa nişanesi olarak yükselen <strong>"Ebedi Eyüpsultanlılar
+        Çeşmesi"</strong>, sadece
+      susuzları değil, aynı zamanda bu topraklara ruh verenlerin hatıralarını da serinletiyor. Bu eşsiz eser, üç dönem
+      boyunca Eyüp Belediye Başkanlığı yapan <strong>Ahmet Genç'in</strong>, tarihe vefa borcunu ödeme arzusundan doğan,
+      derin bir anlam
+      taşıyor.</p>
+
+    <h3>Tarihi Mirasa Saygı</h3>
+
+    <p>1994–2008 yılları arasında Eyüpsultan’da üç dönem boyunca belediye başkanlığı yapan <strong>Ahmet GENÇ</strong>,
+      görevi süresince
+      yalnızca belediyeciliğin rutin işlerini değil, aynı zamanda tarihe ve Osmanlı mirasına sahip çıkmayı da kendine
+      vazife edinmiştir. Unutulmaya yüz tutmuş çeşmeler, türbeler, kabristanlıklar, hazireler ve nice tarihî eser onun
+      gayretiyle yeniden hayat bulmuş, asırlık taşlar temizlenmiş, gönüllere huzur veren bir sadelikle günümüze
+      kazandırılmıştır. Bu çalışmalar sırasında adı unutulmuş yahut kabri bilinmeyen pek çok değerli şahsiyetin mezarı
+      da yeniden ortaya çıkmış, ilim ve kültür dünyamız için eşsiz kaynaklar oluşmuştur.</p>
+
+    <p>Bu eşsiz mirası koruma ve gelecek nesillere aktarma misyonuyla yola çıkan Ahmet Genç, kişisel bir vefa borcu
+      olarak, Eyüp Mezarlığındaki aile kabristanlığının içine, <strong>"Ebedi Eyüpsultanlılar"</strong> için bir çeşme
+      inşa ettirdi. Bu
+      çeşme, Eyüpsultan'a can veren, burada ebedi istirahate çekilmiş yüzlerce önemli şahsiyetin adını taşıyan mermer
+      bir anıt. Her bir isim, bu beldenin ruhunu ve kimliğini oluşturan birer damla gibi, çeşmenin suyunda yankılanıyor.
+    </p>
+
+    <h4>Nesiller Arası Köprü</h4>
+
+    <p>Ahmet Genç'in bu hayratına, oğlu <strong>Muhammed Efraim Genç</strong>'in dokunuşlarıyla modern bir katkı sunuldu
+      ve
+      <strong>ebedieyupsultanlilar.com</strong> adlı bir internet sitesi ile, çeşme üzerinde yer bulamayan yüzlerce
+      ismin bilgisi, hayat
+      hikayesi ve hatırası sanal âleme taşındı.
+    </p>
+
+    <p>Bu site, yalnızca bir biyografi arşivi değil; Eyüpsultan’ın ebedi sakinlerinin bir hatıra defteri, bir kültür
+      atlasıdır. Burada anılan isimler, tarihe iz bırakmış; ilim, sanat, edebiyat, siyaset ve maneviyat sahalarında
+      izzetle yaşamış şahsiyetlerdir. Onlar bu beldenin ebedi komşuları, bizler ise bu beldenin emanetçileriyiz.</p>
+
+    <p><strong>Ebedi Eyüpsultanlılar Çeşmesi</strong> ve bu site, bir neslin tarihine sahip çıkma gayretinin, geçmiş ile
+      gelecek
+      arasındaki köprünün ve “hafızası olan şehir” idealinin somut bir ifadesidir.</p>
+
 
     <!-- Contact Alert -->
-    <UAlert class="mt-8" icon="i-tabler-mail" color="primary" variant="soft" :title="$t('about.contact.title')"
+    <UAlert class="mt-18" icon="i-tabler-mail" color="primary" variant="soft" :title="$t('about.contact.title')"
       :description="$t('about.contact.description')">
       <template #actions>
         <UButton color="primary" variant="soft" @click="openEmail" icon="i-tabler-send">
