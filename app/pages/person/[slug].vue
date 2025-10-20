@@ -180,10 +180,14 @@ useExternalLinks('.prose-content')
       </div>
       <div class="p-4">
         <!-- Birth and Death Years -->
-        <span class="text-sm text-toned">{{ person?.birth?.year }} — {{ person?.death?.year }}</span>
+        <span class="text-sm text-toned">
+          {{ person?.birth?.year ?? '?' }}
+          —
+          {{ person?.death?.year ?? '?' }}
+        </span>
 
         <!-- Name -->
-        <h1 class="text-xl font-bold mb-0">
+        <h1 class="text-xl font-bold mb-1">
           {{ person?.title }}
         </h1>
 
@@ -220,7 +224,7 @@ useExternalLinks('.prose-content')
         </div>
         <div class="flex align-middle content-center">
           <p class="text-xs m-0">
-            {{ person?.birth?.year }}{{ person?.birth?.place ? ` • ${person?.birth?.place}` : '' }}
+            {{ formatPartialDate(person?.birth) || '?' }}{{ person?.birth?.place ? ` • ${person?.birth?.place}` : '' }}
           </p>
         </div>
       </div>
@@ -234,7 +238,7 @@ useExternalLinks('.prose-content')
           </h3>
         </div>
         <p class="text-xs m-0">
-          {{ person?.death?.year }}{{ person?.death?.place ? ` • ${person?.death?.place}` : '' }}
+          {{ formatPartialDate(person?.death) }}{{ person?.death?.place ? ` • ${person?.death?.place}` : '' }}
         </p>
       </div>
 
