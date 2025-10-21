@@ -77,13 +77,9 @@ const { data: ebuEyyubElEnsari } = await useAsyncData(`person-${currentLocale.va
         </div>
       </div>
 
-      <!-- Under construction warning -->
-      <UAlert :title="$t('layouts.warning.title')" :description="$t('layouts.warning.description')"
-        icon="tabler:info-triangle" variant="soft" color="warning" class="mt-14" />
-
       <!-- Ebu Eyyûb el-Ensârî Hazretleri -->
       <div
-        class="mt-4 p-2 rounded-2xl bg-gray-50/20 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 flex flex-cols gap-3">
+        class="my-16 p-2 rounded-2xl bg-gray-50/20 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 flex flex-cols gap-3">
         <div>
           <img :src="ebuEyyubElEnsari?.cover" alt="Ebedi Eyüpsultanlılar Çeşmesi"
             class="rounded-xl max-h-48 max-w-48" />
@@ -102,6 +98,11 @@ const { data: ebuEyyubElEnsari } = await useAsyncData(`person-${currentLocale.va
           </div>
         </div>
       </div>
+
+      <!-- Under construction warning -->
+      <UAlert :title="$t('layouts.warning.title')" :description="$t('layouts.warning.description')"
+        icon="tabler:info-triangle" variant="soft" color="warning" />
+
     </div>
 
   </div>
