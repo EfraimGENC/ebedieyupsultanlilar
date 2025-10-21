@@ -12,7 +12,7 @@
     </div>
 
     <img src="/about/ebedi-eyupsultanlilar-cesmesi.jpg" alt="Ebedi Eyüpsultanlılar Çeşmesi"
-      class="my-4 rounded-2xl shadow" />
+      class="my-4 rounded-2xl shadow bg-gray-900/20 dark:bg-gray-50/20" width="544" height="725" loading="lazy" />
 
     <h1 class="text-4xl text-center sm:text-start">Ebedi Eyüpsultanlılar Çeşmesi</h1>
 
