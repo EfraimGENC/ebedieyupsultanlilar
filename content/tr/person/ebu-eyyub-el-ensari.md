@@ -26,5 +26,6 @@ Asıl adı Hâlid bin Zeyd olan Ebû Eyyûb el-Ensârî, Medine'nin saygın kabi
 
 ## Kaynaklar
 
-- [Kaynak 1](https://islamansiklopedisi.org.tr/ebu-eyyub-el-ensari)
-- [Kaynak 2](https://www.ntv.com.tr/galeri/sanat/ebu-eyyub-el-ensarinin-hayati-mehmed-fetihler-sultani-dizisiyle-gundeme-geldi,5-uBqVq2E02G_kNz-b_WPA)
+- [İslam Ansiklopedisi](https://islamansiklopedisi.org.tr/ebu-eyyub-el-ensari)
+- [NTV](https://www.ntv.com.tr/galeri/sanat/ebu-eyyub-el-ensarinin-hayati-mehmed-fetihler-sultani-dizisiyle-gundeme-geldi,5-uBqVq2E02G_kNz-b_WPA)
+- [Fotoğraf](https://www.islamveihsan.com/ebu-eyyub-el-ensarinin-hayati.html)
