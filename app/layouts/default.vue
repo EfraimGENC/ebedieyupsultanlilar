@@ -115,8 +115,8 @@ const isActiveNavItem = (navTo: string) => {
         </div>
       </header>
 
-      <UBanner color="warning" icon="tabler:info-triangle" :title="$t('layouts.warning.description')" close
-        close-icon="tabler:circle-x" class="z-49" />
+      <UBanner id="under-construction" color="warning" icon="tabler:info-triangle" close close-icon="tabler:circle-x"
+        class="z-49" :title="$t('layouts.warning.description')" />
 
       <!-- Main Content -->
       <main class="w-full max-w-xl mx-auto p-4 pt-2">
