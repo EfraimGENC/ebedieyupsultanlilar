@@ -17,7 +17,7 @@ tags:
   - Mihmandâr-ı Nebî
   - Eyüp Sultan
   - Ensâr
-image: "/person/ebu-eyyub-el-ensari.jpg"
+cover: "/person/ebu-eyyub-el-ensari.jpg"
 featured: false
 draft: false
 ---
