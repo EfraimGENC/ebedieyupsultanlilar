@@ -42,16 +42,16 @@ useHead({
 
     <!-- Ebu Eyyûb el-Ensârî Hazretleri -->
     <div
-      class="p-2 rounded-2xl bg-gray-50/20 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 flex flex-cols gap-2">
+      class="p-2 rounded-2xl bg-gray-50/20 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 flex flex-cols gap-3">
       <div>
-        <img src="/about/ebedi-eyupsultanlilar-cesmesi.jpg" alt="Ebedi Eyüpsultanlılar Çeşmesi"
+        <img src="/person/ebu-eyyub-el-ensari.jpg" alt="Ebedi Eyüpsultanlılar Çeşmesi"
           class="rounded-xl max-h-48 max-w-48" />
       </div>
       <div class="flex flex-col justify-between pt-1">
         <div class="">
           <p class="text-muted text-sm leading-4 mb-1">Bu beldenin asıl sahibi, Allah Resûlü’nün mihmandarı</p>
           <h4 class="m-0">Ebu Eyyûb el-Ensârî</h4>
-          <p class="leading-5 mb- line-clamp-4">Hicret'ten sonra Hz. Muhammed'i Medine'deki evinde misafir eden ve
+          <p class="leading-5 mb- line-clamp-3">Hicret'ten sonra Hz. Muhammed'i Medine'deki evinde misafir eden ve
             İstanbul'un fethinde manevi bir rol oynayan sahabe.</p>
         </div>
         <div class="flex justify-end">
