@@ -17,7 +17,7 @@ tags:
   - Hiciv
   - Nükte
   - Viladetname
-image: "/person/hasmet.jpg"
+image: "/person/mehmed-abbas-ebulhayr-efendizade-hasmet.jpg"
 featured: false
 draft: false
 ---

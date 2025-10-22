@@ -17,7 +17,7 @@ tags:
   - Sernakkaş
   - Osmanlı Sanatı
   - Kanuni Dönemi
-image: "/person/sakkulu.jpg"
+image: "/person/sahkulu.jpg"
 featured: false
 draft: false
 ---

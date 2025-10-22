@@ -17,7 +17,7 @@ tags:
   - Seâdet-i Ebediyye
   - Ehl-i Sünnet
   - Işıkçılar Cemaati
-image: "/person/h-hilmi-isik.jpg"
+image: "/person/huseyin-hilmi-isik.jpg"
 featured: false
 draft: false
 ---

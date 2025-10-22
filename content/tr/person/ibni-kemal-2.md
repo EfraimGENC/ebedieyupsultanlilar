@@ -1,5 +1,5 @@
 ---
-title: "Şemseddin Ahmed bin Süleyman (İbn Kemal)"
+title: "Şemseddin Ahmed bin Süleyman (İbn-i Kemal)"
 description: "Osmanlı'nın en büyük şeyhülislamlarından, tarihçi, fakih ve edip. Yüzlerce eseriyle ilim dünyasına damga vurmuş bir alim."
 birth:
   day: 15
@@ -17,7 +17,7 @@ tags:
   - Tevarih-i Al-i Osman
   - Fakih
   - Osmanlı Alimi
-image: "/person/ibn-kemal.jpg"
+image: "/person/ibni-kemal.jpg"
 featured: false
 draft: false
 ---

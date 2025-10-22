@@ -17,7 +17,7 @@ tags:
   - Osmanlı Mimarisi
   - Cumhuriyet Mimarisi
   - Neo-Klasik Türk Üslubu
-image: "/person/vedat-tek.jpg"
+image: "/person/mehmet-vedat-tek.jpg"
 featured: false
 draft: false
 ---

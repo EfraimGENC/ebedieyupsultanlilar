@@ -16,7 +16,7 @@ tags:
   - Türk-İslam Ülküsü
   - Kendini Arayan İnsan
   - Diyalektiğimiz ve Estetiğimiz
-image: "/person/s-ahmed-arvasi.jpg"
+image: "/person/seyyid-ahmet-arvasi.jpg"
 featured: false
 draft: false
 ---
