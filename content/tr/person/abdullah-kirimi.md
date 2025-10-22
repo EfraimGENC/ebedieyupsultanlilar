@@ -1,23 +1,24 @@
 ---
-title: "Abdullah Kırîmî"
-description: "16. yüzyılda yaşamış, Şeyh Hamdullah ekolünü devam ettiren Kırım asıllı Osmanlı hattatı ve mûsikişinas."
+title: Abdullah Kırîmî
+description: 16. yüzyılda yaşamış, Şeyh Hamdullah ekolünü devam ettiren Kırım
+  asıllı Osmanlı hattatı ve mûsikişinas.
 birth:
-  day: 
-  month: 
-  year: 
-  place: "Kırım"
+  day: null
+  month: null
+  year: null
+  place: Kırım
 death:
-  day: 
-  month: 
+  day: null
+  month: null
   year: 1591
-  place: "İstanbul"
-category: "Sanatçılar"
+  place: İstanbul
+category: Sanatçılar
 tags:
   - Hat Sanatı
   - Şeyh Hamdullah Ekolü
   - Osmanlı Sanatı
   - Mûsikişinas
-image: "/person/abdullah-kirimi.jpg"
+image: /person/abdullah-kirimi.jpg
 featured: false
 draft: false
 ---
