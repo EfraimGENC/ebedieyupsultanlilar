@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content'
+import Fuse from 'fuse.js'
 
 const route = useRoute()
 const { locale } = useI18n()
@@ -25,7 +26,7 @@ const localePath = useLocalePath()
 const searchQuery = ref('')
 const selectedCategory = ref('all')
 
-// Fetch persons data based on current locale
+// Fetch full person data with body content for search and display
 const { data: people } = await useAsyncData('people-' + locale.value, async () => {
   const collection = ('people_' + locale.value) as keyof Collections
 
@@ -48,6 +49,78 @@ const { data: people } = await useAsyncData('people-' + locale.value, async () =
   watch: [locale], // Refetch when locale changes
 })
 
+// Create normalized search data for Fuse.js with Turkish character normalization
+const normalizedSearchData = computed(() => {
+  if (!people.value) return []
+
+  return people.value.map((person: any) => {
+    // Collect all searchable text
+    const searchableTexts: string[] = []
+
+    // Add title
+    if (person.title) {
+      searchableTexts.push(normalizeText(person.title))
+    }
+
+    // Add description
+    if (person.description) {
+      searchableTexts.push(normalizeText(person.description))
+    }
+
+    // Add tags
+    if (person.tags && Array.isArray(person.tags)) {
+      person.tags.forEach((tag: string) => {
+        searchableTexts.push(normalizeText(tag))
+      })
+    }
+
+    // Add category
+    if (person.category) {
+      searchableTexts.push(normalizeText(person.category))
+    }
+
+    // Add birth/death place
+    if (person.birth?.place) {
+      searchableTexts.push(normalizeText(person.birth.place))
+    }
+    if (person.death?.place) {
+      searchableTexts.push(normalizeText(person.death.place))
+    }
+
+    // Extract content from body if available
+    if (person.body) {
+      const bodyText = extractBodyText(person.body)
+      if (bodyText) {
+        searchableTexts.push(normalizeText(bodyText))
+      }
+    }
+
+    return {
+      id: person.path || person.id,
+      title: normalizeText(person.title || ''),
+      content: searchableTexts.join(' '),
+      originalPerson: person
+    }
+  })
+})
+
+// Initialize Fuse.js with Turkish-normalized data
+const fuse = computed(() => {
+  if (!normalizedSearchData.value.length) return null
+
+  return new Fuse(normalizedSearchData.value, {
+    keys: [
+      { name: 'title', weight: 2 },
+      { name: 'content', weight: 1 }
+    ],
+    threshold: 0.3,
+    distance: 100,
+    minMatchCharLength: 2,
+    shouldSort: true,
+    includeScore: true
+  })
+})
+
 // Computed
 const categories = computed(() => {
   const cats = ['all', ...new Set(people.value?.map((person: any) => person.category) || [])]
@@ -68,14 +141,23 @@ const filteredPeople = computed(() => {
     filtered = filtered.filter((person: any) => person.category === selectedCategory.value)
   }
 
-  // Filter by search query
-  if (searchQuery.value) {
-    const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter((person: any) =>
-      person.title?.toLowerCase().includes(query) ||
-      person.description?.toLowerCase().includes(query) ||
-      person.tags?.some((tag: string) => tag.toLowerCase().includes(query))
-    )
+  // Filter by search query using Fuse.js with Turkish normalization
+  if (searchQuery.value && fuse.value) {
+    // Normalize the search query
+    const normalizedQuery = normalizeText(searchQuery.value)
+
+    // Search using Fuse.js
+    const searchResults = fuse.value.search(normalizedQuery)
+
+    // Get the IDs of matching persons
+    const matchingIds = new Set(searchResults.map(result => result.item.id))
+
+    // Filter people based on search results
+    filtered = filtered.filter((person: any) => {
+      // Create person ID from path
+      const personId = person.path || person.id
+      return matchingIds.has(personId)
+    })
   }
 
   return filtered
