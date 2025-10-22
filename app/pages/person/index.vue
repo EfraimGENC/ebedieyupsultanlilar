@@ -23,7 +23,7 @@ const { t } = useI18n()
 const localePath = useLocalePath()
 
 // Data
-const searchQuery = ref('')
+const searchQuery = useState<string>('searchQuery', () => '')
 const selectedCategory = ref('all')
 
 // Fetch full person data with body content for search and display
@@ -190,7 +190,7 @@ useSeoMeta({
 <template>
   <div>
     <!-- Hero Section -->
-    <div class="bg-gray-50/20 dark:bg-gray-900/20 rounded-2xl py-5">
+    <div class="bg-gray-50/20 dark:bg-gray-900/20 rounded-2xl p-5">
       <div class="max-w-7xl mx-auto">
         <div class="text-center">
           <h1 class="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
@@ -201,7 +201,13 @@ useSeoMeta({
           </p>
           <div class="w-full">
             <UInput v-model="searchQuery" :placeholder="$t('person.search')" icon="i-tabler-search"
-              class="w-full sm:min-w-[300px] sm:w-auto" />
+              :ui="{ trailing: 'pe-1' }" class="w-full sm:min-w-[300px] sm:w-auto">
+
+              <template v-if="searchQuery?.length" #trailing>
+                <UButton color="neutral" variant="link" size="sm" icon="tabler:circle-x"
+                  :aria-label="$t('person.clearSearch')" @click="searchQuery = ''" />
+              </template>
+            </UInput>
           </div>
         </div>
       </div>
