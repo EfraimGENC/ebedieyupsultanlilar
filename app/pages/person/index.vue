@@ -22,9 +22,41 @@ definePageMeta({
 const { t } = useI18n()
 const localePath = useLocalePath()
 
-// Data
-const searchQuery = useState<string>('searchQuery', () => '')
+// Data - Use ref with sessionStorage for SSG-safe persistent state
+const searchQuery = ref('')
 const selectedCategory = ref('all')
+
+// Restore state from sessionStorage on client side only
+onMounted(() => {
+  if (import.meta.client) {
+    const savedQuery = sessionStorage.getItem('person-search-query')
+    const savedCategory = sessionStorage.getItem('person-selected-category')
+
+    if (savedQuery) {
+      searchQuery.value = savedQuery
+    }
+    if (savedCategory) {
+      selectedCategory.value = savedCategory
+    }
+  }
+})
+
+// Watch and save state to sessionStorage
+watch(searchQuery, (value) => {
+  if (import.meta.client) {
+    if (value) {
+      sessionStorage.setItem('person-search-query', value)
+    } else {
+      sessionStorage.removeItem('person-search-query')
+    }
+  }
+})
+
+watch(selectedCategory, (value) => {
+  if (import.meta.client) {
+    sessionStorage.setItem('person-selected-category', value)
+  }
+})
 
 // Fetch full person data with body content for search and display
 const { data: people } = await useAsyncData('people-' + locale.value, async () => {
@@ -123,12 +155,21 @@ const fuse = computed(() => {
 
 // Computed
 const categories = computed(() => {
-  const cats = ['all', ...new Set(people.value?.map((person: any) => person.category) || [])]
-  const filtered = cats.filter(cat => cat) // Remove undefined values
+  if (!people.value) return ['all']
 
-  // Keep 'all' at the beginning, sort the rest alphabetically
-  const [all, ...rest] = filtered
-  return [all, ...rest.sort((a, b) => a.localeCompare(b))]
+  // Get unique categories from data
+  const dataCategories = Array.from(new Set(
+    people.value
+      .map((person: any) => person.category)
+      .filter(Boolean) // Remove null/undefined
+  ))
+
+  // Sort alphabetically with Turkish locale for consistent ordering
+  const sorted = dataCategories.sort((a, b) =>
+    a.localeCompare(b, locale.value, { sensitivity: 'base' })
+  )
+
+  return ['all', ...sorted]
 })
 
 const filteredPeople = computed(() => {
