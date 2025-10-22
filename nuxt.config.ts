@@ -68,4 +68,10 @@ export default defineNuxtConfig({
     id: "G-WDN1JTYD40",
     loadingStrategy: "async",
   },
+
+  content: {
+    preview: {
+      api: "https://api.nuxt.studio",
+    },
+  },
 });
