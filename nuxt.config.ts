@@ -3,6 +3,7 @@ import pkg from "./package.json";
 // i18n config'i paylaşımlı olarak tanımla
 const i18nConfig = {
   baseUrl: "https://www.ebedieyupsultanlilar.com",
+  trailingSlash: true,
   locales: [
     { code: "tr", name: "Türkçe", language: "tr-TR", file: "tr-TR.json" },
     { code: "en", name: "English", language: "en-US", file: "en-US.json" },
@@ -62,6 +63,13 @@ export default defineNuxtConfig({
 
   site: {
     url: "https://www.ebedieyupsultanlilar.com",
+    trailingSlash: true,
+  },
+
+  router: {
+    options: {
+      strict: true,
+    },
   },
 
   gtag: {
