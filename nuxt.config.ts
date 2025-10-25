@@ -5,9 +5,9 @@ const i18nConfig = {
   baseUrl: "https://www.ebedieyupsultanlilar.com",
   trailingSlash: true,
   locales: [
-    { code: "tr", name: "Türkçe", language: "tr-TR", file: "tr-TR.json" },
-    { code: "en", name: "English", language: "en-US", file: "en-US.json" },
-    { code: "fr", name: "Français", language: "fr-FR", file: "fr-FR.json" },
+    { code: "tr", name: "Türkçe", language: "tr", file: "tr.json" },
+    { code: "en", name: "English", language: "en", file: "en.json" },
+    { code: "fr", name: "Français", language: "fr", file: "fr.json" },
   ],
   customRoutes: "meta" as const,
   defaultLocale: "tr" as const,
