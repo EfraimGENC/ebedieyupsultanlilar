@@ -14,5 +14,6 @@
   "[markdown]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true
-  }
+  },
+  "python.defaultInterpreterPath": "eyyub/.venv/bin/python"
 }
