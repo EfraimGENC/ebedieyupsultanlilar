@@ -1,0 +1,10 @@
+[project]
+name = "EbediEyupsultanlilar-AITools"
+version = "0.1.0"
+description = "İçerik oluşturma ve yönetim araçları"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain>=1.2.0",
+    "typer>=0.20.0",
+]
