@@ -1,8 +1,8 @@
-import typer
-from typing_extensions import Annotated
-from rich import print
-from rich.prompt import Prompt, Confirm
+from typing import Annotated
 
+import typer
+from rich import print
+from rich.prompt import Confirm
 
 app = typer.Typer()
 
@@ -40,7 +40,8 @@ def login(
     ],
 ):
     print(
-        f"You email is [bold]{email}[/bold] and your password is [bold]{password}[/bold]"
+        f"You email is [bold]{email}[/bold] and your password is "
+        f"[bold]{password}[/bold]"
     )
 
 

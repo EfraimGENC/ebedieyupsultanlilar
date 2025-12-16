@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "langchain>=1.2.0",
     "python-dotenv>=1.2.1",
     "typer>=0.20.0",
 ]
@@ -18,3 +19,57 @@ eyyub = "eyyub:app"
 [build-system]
 requires = ["uv_build>=0.9.17,<0.10.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.9",
+]
+
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+src = ["src"]
+
+exclude = [
+    ".venv",
+    ".ruff_cache",
+    "dist",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.ruff.lint]
+# Baseline: correctness + imports + modernize + common footguns.
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "UP",
+    "B",
+    "C4",
+    "SIM",
+    "PIE",
+    "RUF",
+    "ARG",
+    "PERF",
+]
+
+# Typer encourages `typer.Option(...)` / `typer.Argument(...)` as defaults.
+ignore = [
+    "B008",
+]
+
+fixable = ["ALL"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["eyyub"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = [
+    "ARG001",
+]
